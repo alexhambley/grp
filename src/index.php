@@ -43,25 +43,14 @@ $db = NULL;
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         
-<!--
+
         <link type="text/css" rel="stylesheet" href="css/shared.css">
-        <link type="text/css" rel="stylesheet" href="css/index.css">
--->
+
         
         <style type="text/css">
-            body {
-                text-align: center; padding: 20px 0px; margin: 0px; background-color: whitesmoke;
-                line-height: 20px;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            
             h1 { line-height: 35px; color: cornflowerblue; font-weight: 400; text-transform: uppercase; }
             h2 { background-color: cornflowerblue; color: white; text-transform:uppercase; padding: 10px; margin: 0px;}
             
-            .mainlayer {
-                display: inline-block;
-                text-align: left; width: 100%; max-width: 800px; background-color: white; padding: 15px; border: 1px #ddd solid;
-            }
             a {
                 font-size:16px; font-weight: normal; padding:15px 25px; text-decoration: none;
                 color: cornflowerblue; background-color: aliceblue; display: inline-block;

@@ -71,26 +71,13 @@ $elements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         
-<!--
+
         <link type="text/css" rel="stylesheet" href="css/shared.css">
-        <link type="text/css" rel="stylesheet" href="css/index.css">
--->
         
-        <style type="text/css">
-            body {
-                text-align: center; padding: 20px 0px; margin: 0px; background-color: whitesmoke;
-                line-height: 20px;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            
+        <style type="text/css">            
             h1 { line-height: 35px; color: cornflowerblue; font-weight: 400; text-transform: uppercase; }
             h2 { color: cornflowerblue; text-transform:uppercase; text-align: center; padding: 10px; margin: 0px;}
             h3 { color:royalblue; text-indent: 5px;}
-            
-            p { font-size: 16px; line-height: 22px;}
-            em { color: #666; font-size: 14px;}
-            
-            li { font-weight: 300; line-height: 20px; }
             
             table {
                 border-collapse: separate; border-spacing: 2px; width: 100%; margin-top: 20px;
@@ -100,13 +87,6 @@ $elements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             .tableCellDarkBlue { background-color:cornflowerblue; color: white; font-weight: bold;  font-size: 15px; text-indent: 20px; }
             .tableCellFadeBlue { background-color:aliceblue; font-size: 14px; }
             
-            .mainlayer {
-                display: inline-block;
-                text-align: left; width: 100%; max-width: 800px; background-color: white; padding: 15px; border: 1px #ddd solid;
-            }
-            
-           
-            
             
             input[type="button"] {
                 height:45px; font-size:15px; font-weight: bold; border-radius:0px; padding-left:15px; padding-right:15px; line-height: 40px; -webkit-appearance:none;  -moz-appearance:none;  -ms-appearance:none; appearance:none; margin: 5px; width:200px; border-radius: 5px; box-shadow: 0px 1px 2px #666;
@@ -114,12 +94,7 @@ $elements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
             .btnBlue { color: #fff; background-color: cornflowerblue; border: none; }
             .btnGrey { color: #fff; background-color: grey; border: none; }
-            
-            
-            
-            
            
-            
         </style>
         
         

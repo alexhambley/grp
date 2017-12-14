@@ -165,40 +165,23 @@ foreach ($roleNames as $item) {
         
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" type="text/css" href="css/shared.css">
         
         
         <style type="text/css">
-            body {
-                text-align: center; padding: 20px 0px; margin: 0px; background-color: whitesmoke;
-                line-height: 20px;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            
             h1 { line-height: 35px; color: cornflowerblue; font-weight: 400; text-transform: uppercase; }
             h2 { background-color: cornflowerblue; color: white; text-transform:uppercase; text-align: center; padding: 10px; margin: 0px;}
             h3 { line-height: 25px; }
-            p { font-size: 16px; line-height: 22px;}
-            em { color: #666; font-size: 14px;}
-            
-            li { font-weight: 300; line-height: 20px; }
+           
             table { border-spacing: 2px; border-collapse: separate;}
             td { padding: 10px; vertical-align: top; }
-            
-            .mainlayer {
-                display: inline-block;
-                text-align: left; width: 100%; max-width: 800px; background-color: white; padding: 15px; border: 1px #ddd solid;
-            }
-            
             
             .boxLightBlue {
                 padding: 15px; background-color:aliceblue;
             }
             .boxLightBlue p { font-size: 15px; line-height: 20px; font-weight: 300; }
         
-            
-            
-            
-            
             
             .boxDarkBlue {
                 padding: 15px; background-color:cornflowerblue;
@@ -208,12 +191,9 @@ foreach ($roleNames as $item) {
             .boxDarkBlue a { color:yellow; }
             
             
-            
             .boxElement {
                 background-color:lightskyblue; padding: 10px; display: inline-block; text-align: left; max-width: 400px; width: 100%;
             }
-            
-            
             
             
             .tableCellLightBlue { background-color:lightskyblue; font-size: 14px; }
