@@ -1,4 +1,10 @@
-
+<?php
+    session_start();
+    if (!$_SESSION['loggedin']) {
+        header('Location: login.php');
+        exit();
+    }
+?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
