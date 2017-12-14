@@ -19,6 +19,7 @@
         
 
         <link type="text/css" rel="stylesheet" href="css/shared.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
         
         <style type="text/css">
