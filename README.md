@@ -14,9 +14,19 @@ A compentence evaluating system for Food Science graduates.
 - Peter Blanchfield (Supervisor)
 - Emma Weston (Sponsor)
 
-## Trello
+## Documentations
+
+### Trello
 
 https://trello.com/b/vjlo6bSZ/planning
+
+### Dropbox
+
+https://www.dropbox.com/sh/62o9vtykx57vlge/AABwtHlL5VeTuGXVegT_d3iXa?dl=0
+
+### Gantt Chart
+
+https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
 
 ## Features
 
