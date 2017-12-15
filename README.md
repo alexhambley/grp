@@ -18,11 +18,11 @@ A compentence evaluating system for Food Science graduates.
 
 ### Trello
 
-######Planning
+Planning
 
 https://trello.com/invite/b/vjlo6bSZ/1cdf94f063efd97b7ea6992d1ace49ac/planning
 
-######Coding
+Coding
 
 https://trello.com/invite/b/W1guhkC1/9e3a73a38243476be0b57478f9d8c05f/coding
 
