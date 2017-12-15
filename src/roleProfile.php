@@ -1,145 +1,145 @@
 <?php
 
-if (trim($_GET['id']) == "" || empty($_GET['id'])) {
-    exit("No parameters.");
-}
-if (!ctype_digit($_GET['id']) || intval($_GET['id']) < 1 || intval($_GET['id']) > 14) {
-    exit("Invalid parameters.");
-}
-
-
-$roleId = trim($_GET['id']);
-
-
-$db_path = "./data/cfgc.db";
-
-//create db sqlite 3.0
-$db = new PDO("sqlite:$db_path");
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
-//----- Get Role
-try {
-	$db->beginTransaction();
-	$query = "SELECT * FROM role WHERE id=:id";
-	$stmt = $db->prepare($query);
-	$stmt->bindParam(":id",$roleId,PDO::PARAM_INT);
-	$stmt->execute();
-	$db->commit();
-} catch (PDOException $e) {
-	$db = NULL;
-	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
-	$msg .= "<p>Query: $query</p>";
-	echo $msg;
-	exit;
-}
-
-$roles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-//echo "<pre>";
-//var_dump($roles);
-//echo "</pre>";
-
-
-//--- Get themes
-$tmparr = explode(",",$roles[0]['themes']);
-$condition = implode("' OR theme_id='", $tmparr);
-
-try {
-	$db->beginTransaction();
-	$query = "SELECT * FROM theme WHERE theme_id='$condition'";
-	$stmt = $db->prepare($query);
-	
-	$stmt->execute();
-	$db->commit();
-} catch (PDOException $e) {
-	$db = NULL;
-	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
-	$msg .= "<p>Query: $query</p>";
-	echo $msg;
-	exit;
-}
-
-//echo($query."<br><br>");
-
-$themes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-//echo "<pre>";
-//var_dump($themes);
-//echo "</pre>";
-
-
-
-//--- Get elements
-$tmpStr = ltrim($roles[0]['elements'],",");
-$tmpStr = rtrim($tmpStr,",");
-$tmparr = explode(",",$tmpStr);
-$condition = implode("' OR id='", $tmparr);
-
-try {
-	$db->beginTransaction();
-	$query = "SELECT name FROM element WHERE id='$condition'";
-	$stmt = $db->prepare($query);
-	
-	$stmt->execute();
-	$db->commit();
-} catch (PDOException $e) {
-	$db = NULL;
-	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
-	$msg .= "<p>Query: $query</p>";
-	echo $msg;
-	exit;
-}
-
-//echo($query."<br><br>");
-
-$element = $stmt->fetchAll(PDO::FETCH_COLUMN,0);
-
-//echo "<pre>";
-//var_dump($element);
-//echo "</pre>";
-
-
-
-$db = null;
-
-
-
-
-//--- All variables
-$mainTitle = $roles[0]["entry"];
-$mainDescr = $roles[0]["description"];
-$roleNames = explode(",",$roles[0]["names"]);
-
-$subTitle = "So What is Desirable for a ".$mainTitle;
-$subText = "
-<p>14 typical graduate roles have been identified and this is one of them.  Industry have outlined what they think may be the most valuable skills, knowledge and behaviours for this role.<br>
-They are outlined in <b>8 general themes</b>. Also there is more detail provided on specific elements (there are <b>48 elements grouped into 11 Zones</b>). Below is the profile for this role.</p>
-";
-
-if (substr($mainTitle, 0, 3) == "NPD") {
-    $tmparr = explode("NPD",$mainTitle);
-    $mainTitle = implode("NPD*",$tmparr);
-}
-
-$themeOrderArray = explode(",",$roles[0]['themes']);
-
-
-//--- role names list
-$i = 0;
-$leftList = "";
-$rightList = "";
-
-foreach ($roleNames as $item) {
-    if ($i % 2 == 0) {
-        $leftList .= "<li>$item</li>";
-    } else {
-        $rightList .= "<li>$item</li>";
+    if (trim($_GET['id']) == "" || empty($_GET['id'])) {
+        exit("No parameters.");
     }
-    $i++;
-}
+    if (!ctype_digit($_GET['id']) || intval($_GET['id']) < 1 || intval($_GET['id']) > 14) {
+        exit("Invalid parameters.");
+    }
+
+
+    $roleId = trim($_GET['id']);
+
+
+    include 'credentials.php';
+
+    $dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
+    $pdo = new PDO($dsn,$db_username,$db_password);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+
+    //----- Get Role
+    try {
+    	$db->beginTransaction();
+    	$query = "SELECT * FROM role WHERE id=:id";
+    	$stmt = $db->prepare($query);
+    	$stmt->bindParam(":id",$roleId,PDO::PARAM_INT);
+    	$stmt->execute();
+    	$db->commit();
+    } catch (PDOException $e) {
+    	$db = NULL;
+    	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
+    	$msg .= "<p>Query: $query</p>";
+    	echo $msg;
+    	exit;
+    }
+
+    $roles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    //echo "<pre>";
+    //var_dump($roles);
+    //echo "</pre>";
+
+
+    //--- Get themes
+    $tmparr = explode(",",$roles[0]['themes']);
+    $condition = implode("' OR theme_id='", $tmparr);
+
+    try {
+    	$db->beginTransaction();
+    	$query = "SELECT * FROM theme WHERE theme_id='$condition'";
+    	$stmt = $db->prepare($query);
+    	
+    	$stmt->execute();
+    	$db->commit();
+    } catch (PDOException $e) {
+    	$db = NULL;
+    	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
+    	$msg .= "<p>Query: $query</p>";
+    	echo $msg;
+    	exit;
+    }
+
+    //echo($query."<br><br>");
+
+    $themes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    //echo "<pre>";
+    //var_dump($themes);
+    //echo "</pre>";
+
+
+
+    //--- Get elements
+    $tmpStr = ltrim($roles[0]['elements'],",");
+    $tmpStr = rtrim($tmpStr,",");
+    $tmparr = explode(",",$tmpStr);
+    $condition = implode("' OR id='", $tmparr);
+
+    try {
+    	$db->beginTransaction();
+    	$query = "SELECT name FROM element WHERE id='$condition'";
+    	$stmt = $db->prepare($query);
+    	
+    	$stmt->execute();
+    	$db->commit();
+    } catch (PDOException $e) {
+    	$db = NULL;
+    	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
+    	$msg .= "<p>Query: $query</p>";
+    	echo $msg;
+    	exit;
+    }
+
+    //echo($query."<br><br>");
+
+    $element = $stmt->fetchAll(PDO::FETCH_COLUMN,0);
+
+    //echo "<pre>";
+    //var_dump($element);
+    //echo "</pre>";
+
+
+
+    $db = null;
+
+
+
+
+    //--- All variables
+    $mainTitle = $roles[0]["entry"];
+    $mainDescr = $roles[0]["description"];
+    $roleNames = explode(",",$roles[0]["names"]);
+
+    $subTitle = "So What is Desirable for a ".$mainTitle;
+    $subText = "
+    <p>14 typical graduate roles have been identified and this is one of them.  Industry have outlined what they think may be the most valuable skills, knowledge and behaviours for this role.<br>
+    They are outlined in <b>8 general themes</b>. Also there is more detail provided on specific elements (there are <b>48 elements grouped into 11 Zones</b>). Below is the profile for this role.</p>
+    ";
+
+    if (substr($mainTitle, 0, 3) == "NPD") {
+        $tmparr = explode("NPD",$mainTitle);
+        $mainTitle = implode("NPD*",$tmparr);
+    }
+
+    $themeOrderArray = explode(",",$roles[0]['themes']);
+
+
+    //--- role names list
+    $i = 0;
+    $leftList = "";
+    $rightList = "";
+
+    foreach ($roleNames as $item) {
+        if ($i % 2 == 0) {
+            $leftList .= "<li>$item</li>";
+        } else {
+            $rightList .= "<li>$item</li>";
+        }
+        $i++;
+    }
 
 
 ?>

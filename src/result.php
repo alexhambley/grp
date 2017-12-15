@@ -1,83 +1,83 @@
 <?php
 
-if (!isset($_GET['tid']) || !isset($_GET['eid'])) {
-    header("Location: search.html");
-    exit;
-}
+    if (!isset($_GET['tid']) || !isset($_GET['eid'])) {
+        header("Location: search.html");
+        exit;
+    }
 
 
 
-$themeIdStr = "";
-$elementIdStr = "";
+    $themeIdStr = "";
+    $elementIdStr = "";
 
-if (trim($_GET['tid']) != "") {
-    $themeIdStr = trim($_GET['tid']);
-}
-if (trim($_GET['eid']) != "") {
-    $elementIdStr = trim($_GET['eid']);
-}
-
-
-//--- Generate SQL condition string    
-$themeCondition = '';
-if ($themeIdStr != "") {
-    $tmpArr = explode(",",$themeIdStr);
-    $themeCondition = implode('%" OR themes LIKE "%',$tmpArr);
-}
-$themeCondition = 'themes LIKE "%'.$themeCondition.'%"';
-    
-$elementCondition = '';
-if ($elementIdStr != "") {
-    $tmpArr = explode(",",$elementIdStr);
-    $elementCondition = implode('%," OR elements LIKE ",%',$tmpArr);
-    $elementCondition = 'elements LIKE "%,'.$elementCondition.',%"';
-} else {
-    $elementCondition = 'elements LIKE "%"';
-}
-
-    
-    
-    
-$query_condition = 'WHERE ('.$themeCondition.') AND ('.$elementCondition.')';
-//echo $query_condition;
+    if (trim($_GET['tid']) != "") {
+        $themeIdStr = trim($_GET['tid']);
+    }
+    if (trim($_GET['eid']) != "") {
+        $elementIdStr = trim($_GET['eid']);
+    }
 
 
-    
-    
-    
-    
-$db_path = "./data/cfgc.db";
+    //--- Generate SQL condition string    
+    $themeCondition = '';
+    if ($themeIdStr != "") {
+        $tmpArr = explode(",",$themeIdStr);
+        $themeCondition = implode('%" OR themes LIKE "%',$tmpArr);
+    }
+    $themeCondition = 'themes LIKE "%'.$themeCondition.'%"';
+        
+    $elementCondition = '';
+    if ($elementIdStr != "") {
+        $tmpArr = explode(",",$elementIdStr);
+        $elementCondition = implode('%," OR elements LIKE ",%',$tmpArr);
+        $elementCondition = 'elements LIKE "%,'.$elementCondition.',%"';
+    } else {
+        $elementCondition = 'elements LIKE "%"';
+    }
 
-//create db sqlite 3.0
-$db = new PDO("sqlite:$db_path");
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        
+        
+    $query_condition = 'WHERE ('.$themeCondition.') AND ('.$elementCondition.')';
+    //echo $query_condition;
+
+
+        
+        
+        
+        
+    include 'credentials.php';
+
+    $dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
+    $pdo = new PDO($dsn,$db_username,$db_password);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 
-//----- Get Role
-try {
-	$db->beginTransaction();
-	$query = "SELECT * FROM role ".$query_condition;
-	$stmt = $db->prepare($query);
-	
-	$stmt->execute();
-	$db->commit();
-} catch (PDOException $e) {
-	$db = NULL;
-	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
-	$msg .= "<p>Query: $query</p>";
-	echo $msg;
-	exit;
-}
+    //----- Get Role
+    try {
+    	$db->beginTransaction();
+    	$query = "SELECT * FROM role ".$query_condition;
+    	$stmt = $db->prepare($query);
+    	
+    	$stmt->execute();
+    	$db->commit();
+    } catch (PDOException $e) {
+    	$db = NULL;
+    	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
+    	$msg .= "<p>Query: $query</p>";
+    	echo $msg;
+    	exit;
+    }
 
-$roles = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-    
-//echo "<pre>";
-//var_dump($roles);
-//echo "</pre>";    
-    
-$db = null;
+    $roles = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        
+    //echo "<pre>";
+    //var_dump($roles);
+    //echo "</pre>";    
+        
+    $db = null;
 ?>
 
 

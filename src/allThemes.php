@@ -1,58 +1,55 @@
 <?php
-
-
     
-    
-$db_path = "./data/cfgc.db";
+    include 'credentials.php';
 
-//create db sqlite 3.0
-$db = new PDO("sqlite:$db_path");
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    $dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
+    $pdo = new PDO($dsn,$db_username,$db_password);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-//----- Get themes
-try {
-	$db->beginTransaction();
-	$query = "SELECT * FROM theme WHERE id!=1";
-	$stmt = $db->prepare($query);
-	
-	$stmt->execute();
-	$db->commit();
-} catch (PDOException $e) {
-	$db = NULL;
-	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
-	$msg .= "<p>Query: $query</p>";
-	echo $msg;
-	exit;
-}
 
-$themes = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+    //----- Get themes
+    try {
+    	$db->beginTransaction();
+    	$query = "SELECT * FROM theme WHERE id!=1";
+    	$stmt = $db->prepare($query);
+    	
+    	$stmt->execute();
+    	$db->commit();
+    } catch (PDOException $e) {
+    	$db = NULL;
+    	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
+    	$msg .= "<p>Query: $query</p>";
+    	echo $msg;
+    	exit;
+    }
+
+    $themes = $stmt->fetchAll(PDO::FETCH_ASSOC);    
 
 
-//----- Get themes
-try {
-	$db->beginTransaction();
-	$query = "SELECT id, name FROM element";
-	$stmt = $db->prepare($query);
-	
-	$stmt->execute();
-	$db->commit();
-} catch (PDOException $e) {
-	$db = NULL;
-	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
-	$msg .= "<p>Query: $query</p>";
-	echo $msg;
-	exit;
-}
+    //----- Get themes
+    try {
+    	$db->beginTransaction();
+    	$query = "SELECT id, name FROM element";
+    	$stmt = $db->prepare($query);
+    	
+    	$stmt->execute();
+    	$db->commit();
+    } catch (PDOException $e) {
+    	$db = NULL;
+    	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
+    	$msg .= "<p>Query: $query</p>";
+    	echo $msg;
+    	exit;
+    }
 
-$elements = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+    $elements = $stmt->fetchAll(PDO::FETCH_ASSOC);    
 
-    
-//echo "<pre>";
-//var_dump($roles);
-//echo "</pre>";    
+        
+    //echo "<pre>";
+    //var_dump($roles);
+    //echo "</pre>";    
     
 ?>
 
