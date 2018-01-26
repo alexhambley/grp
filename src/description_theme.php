@@ -44,30 +44,45 @@
 
     <br> 
 
-    <h3> Related Elements and their name </h3>
+    <h3> Related Elements and their description </h3>
 
-    <?php
-        $elements = $_SESSION['elements'];
-        $elem = explode(",", $elements);
-        $counter = 0;
-        while ($counter != count($elem)) {
-            $stmt = $conn->prepare("SELECT id, elementname, description FROM element WHERE id = '$elem[$counter]'");
-            $stmt->execute();
-            $stmt->bind_result($id, $name, $desc);
-            while ($stmt->fetch()) {
-                $id = htmlentities($id);
-                $name = htmlentities($name);
-                $desc = htmlentities($desc);
-                echo $id;
-                echo "<br>";
-                echo $name;
-                echo "<br>";
-                echo $desc;
-                echo "<br>";
-            }
-            $counter++;
-        }
-    ?>
+    <div id="element_table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        #
+                    </th>
+                    <th scope="col">
+                        Element Name
+                    </th>
+                    <th scope="col">
+                        Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $elements = $_SESSION['elements'];
+                    $elem = explode(",", $elements);
+                    $counter = 0;
+                    while ($counter != count($elem)) {
+                        $stmt = $conn->prepare("SELECT id, elementname, description FROM element WHERE id = '$elem[$counter]'");
+                        $stmt->execute();
+                        $stmt->bind_result($id, $name, $desc);
+                        while ($stmt->fetch()) {
+                            $id = htmlentities($id);
+                            $name = htmlentities($name);
+                            $desc = htmlentities($desc);
+                            echo "<tr>";
+                                echo "<th scope=\"row\"> $id </th>";
+                                echo "<td> $name </td>";
+                                echo "<td> $desc </td>";
+                            echo "</tr>";
+                        }
+                        $counter++;
+                    }
+                ?>
 
 
 </body>
