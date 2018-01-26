@@ -1,4 +1,5 @@
 <?php
+    include "header.php";
     session_start();
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
@@ -15,12 +16,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title> Admin Login </title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+<!-- Navigation Bar  -->
+    <nav>            
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#"> Students </a>
+            </li>
+            <li>
+                <a href="allThemes.php"> View All Themes </a>
+            </li>
+            <li class="active">
+                <a href="login.php"> Admin </a>
+            </li>
+        </ul>
     </nav>
+
+
+
+
 
     <div class="container">
         <div class="text-center">
