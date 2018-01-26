@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `element` (
   `id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `elementname` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -38,7 +38,7 @@ CREATE TABLE `element` (
 -- Dumping data for table `element`
 --
 
-INSERT INTO `element` (`id`, `name`, `description`) VALUES
+INSERT INTO `element` (`id`, `elementname`, `description`) VALUES
 (1, 'Academic Expertise', 'Evidence of the required level of academic ability whether by degree calibre, further study or specific competencies such as research, evaluation, speaking or writing.'),
 (2, 'Acceptance of Ambiguity', 'Appreciation that there may be different ways of achieving a result or more than one positive outcome.'),
 (3, 'Adaptability', 'A constructive approach to handling change.'),
@@ -132,7 +132,7 @@ INSERT INTO `role` (`id`, `entry`, `description`, `names`, `elements`, `themes`)
 CREATE TABLE `theme` (
   `id` int(11) NOT NULL DEFAULT '0',
   `theme_id` varchar(4) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `name` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `themename` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `explanation` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `elements` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -141,7 +141,7 @@ CREATE TABLE `theme` (
 -- Dumping data for table `theme`
 --
 
-INSERT INTO `theme` (`id`, `theme_id`, `name`, `explanation`, `elements`) VALUES
+INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) VALUES
 (1, 'D0', 'Desirability for a general level of competence across all themes', 'Data indicates a desirability for a general level of competence across all themes', NULL),
 (2, 'D1', 'Positivity', 'Having the behaviours that drive success and wellbeing in the workplace', '7,19,39,35,29,31,3'),
 (3, 'D2', 'Appreciation of the Wider World', 'Engaging and embracing values, processes and ways of working in the industry with a diverse perspective.', '15,44,9,23,16,14,42'),
