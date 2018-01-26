@@ -1,6 +1,7 @@
 <?php
     include "header.php";
     include "db.php";
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -46,15 +47,25 @@
             </thead>
             <tbody>
             <?php
-                $stmt = $conn->prepare("SELECT id, themename, explanation FROM theme ORDER BY id ASC");
+                $stmt = $conn->prepare("SELECT id, themename FROM theme ORDER BY id ASC");
                 $stmt->execute();
-                $stmt->bind_result($id, $name, $exp);
+                $stmt->bind_result($id, $name);
                 while ($stmt->fetch()) {
+                    $id = htmlentities($id);
                     $name = htmlentities($name);
                     echo "<tr>";
                         echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $name </td>";
-                        echo "<td> button goes here </td>";
+                        
+                        // Button to take you to a description of the theme. 
+
+                        echo "<td>";
+                        echo "<button type=\"button\"";
+                        echo "class=\"btn btn-info\""; 
+                        echo "onclick=window.location.href=\"themeDesc.php?id=$id\">"; 
+                        echo "Description of Theme";
+                        echo "</button>";
+
                     echo "</tr>";
                 }
             ?>
@@ -122,8 +133,6 @@
     <br>
     <br>
 
-
-    
     <!-- all the ELEMENTS -->
 
     <button type="button" class="btn btn-primary" onclick="showElements()"> Show / Hide Elements </button>
@@ -169,7 +178,4 @@
             }
         }
     </script>
-
-    
-
 </body>
