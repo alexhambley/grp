@@ -24,101 +24,152 @@
         </ul>
     </nav>
 
+    <br>
+
 <!-- all the THEMES -->
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">
-                    #
-                </th>
-                <th scope="col">
-                    Theme Name
-                </th>
-                <th scope="col">
-                    See More
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-            $stmt = $conn->prepare("SELECT id, themename, explanation FROM theme ORDER BY id ASC");
-            $stmt->execute();
-            $stmt->bind_result($id, $name, $exp);
-            while ($stmt->fetch()) {
-                $name = htmlentities($name);
-                echo "<tr>";
-                    echo "<th scope=\"row\"> $id </th>";
-                    echo "<td> $name </td>";
-                    echo "<td> button goes here </td>";
-                echo "</tr>";
+
+    <button type="button" class="btn btn-primary" onclick="showThemes(this)"> Show / Hide Themes </button>
+    <div id="Themes" style="display:none;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        #
+                    </th>
+                    <th scope="col">
+                        Theme Name
+                    </th>
+                    <th scope="col">
+                        See More
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+                $stmt = $conn->prepare("SELECT id, themename, explanation FROM theme ORDER BY id ASC");
+                $stmt->execute();
+                $stmt->bind_result($id, $name, $exp);
+                while ($stmt->fetch()) {
+                    $name = htmlentities($name);
+                    echo "<tr>";
+                        echo "<th scope=\"row\"> $id </th>";
+                        echo "<td> $name </td>";
+                        echo "<td> button goes here </td>";
+                    echo "</tr>";
+                }
+            ?>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function showThemes(myButton) {
+            var x = document.getElementById("Themes");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
             }
-        ?>
-        </tbody>
-    </table>
+        }
+    </script>
+    <br>
+    <br>
 
 <!-- all the ROLES -->
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">
-                    #
-                </th>
-                <th scope="col">
-                    Role Name
-                </th>
-                <th scope="col">
-                    See More
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-            $stmt = $conn->prepare("SELECT id, entry FROM role ORDER BY id ASC");
-            $stmt->execute();
-            $stmt->bind_result($id, $entry);
-            while ($stmt->fetch()) {
-                $entry = htmlentities($entry);
-                echo "<tr>";
-                    echo "<th scope=\"row\"> $id </th>";
-                    echo "<td> $entry </td>";
-                    echo "<td> button goes here </td>";
-                echo "</tr>";
+    <button type="button" class="btn btn-primary" onclick="showRoles()"> Show / Hide Roles </button>
+    <div id="Roles" style="display:none;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        #
+                    </th>
+                    <th scope="col">
+                        Role Name
+                    </th>
+                    <th scope="col">
+                        See More
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+                $stmt = $conn->prepare("SELECT id, entry FROM role ORDER BY id ASC");
+                $stmt->execute();
+                $stmt->bind_result($id, $entry);
+                while ($stmt->fetch()) {
+                    $entry = htmlentities($entry);
+                    echo "<tr>";
+                        echo "<th scope=\"row\"> $id </th>";
+                        echo "<td> $entry </td>";
+                        echo "<td> button goes here </td>";
+                    echo "</tr>";
+                }
+            ?>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function showRoles() {
+            var x = document.getElementById("Roles");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
             }
-        ?>
-        </tbody>
-    </table>
+        }
+    </script>
+    <br>
+    <br>
+
+
     
     <!-- all the ELEMENTS -->
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">
-                    #
-                </th>
-                <th scope="col">
-                    Role Name
-                </th>
-                <th scope="col">
-                    See More
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-            $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
-            $stmt->execute();
-            $stmt->bind_result($id, $elename);
-            while ($stmt->fetch()) {
-                $elename = htmlentities($elename);
-                echo "<tr>";
-                    echo "<th scope=\"row\"> $id </th>";
-                    echo "<td> $elename </td>";
-                    echo "<td> button goes here </td>";
-                echo "</tr>";
+    <button type="button" class="btn btn-primary" onclick="showElements()"> Show / Hide Elements </button>
+    <div id="Elements" style="display:none;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        #
+                    </th>
+                    <th scope="col">
+                        Role Name
+                    </th>
+                    <th scope="col">
+                        See More
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+                $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
+                $stmt->execute();
+                $stmt->bind_result($id, $elename);
+                while ($stmt->fetch()) {
+                    $elename = htmlentities($elename);
+                    echo "<tr>";
+                        echo "<th scope=\"row\"> $id </th>";
+                        echo "<td> $elename </td>";
+                        echo "<td> button goes here </td>";
+                    echo "</tr>";
+                }
+            ?>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function showElements() {
+            var x = document.getElementById("Elements");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
             }
-        ?>
-        </tbody>
-    </table>
+        }
+    </script>
+
+    
+
 </body>
