@@ -26,10 +26,10 @@
                 <a href="#"> Students </a>
             </li>
             <li>
-                <a href="allThemes.php"> View All Themes </a>
+                <a href="view_all.php"> View All </a>
             </li>
             <li class="active">
-                <a href="login.php"> Admin </a>
+                <a href="admin_login.php"> Admin </a>
             </li>
         </ul>
     </nav>

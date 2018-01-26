@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <head>
-<Title>All Themes </Title>
+<Title> View All </Title>
 </head>
 
 <body>
@@ -17,14 +17,13 @@
                 <a href="#"> Students </a>
             </li>
             <li class="active">
-                <a href="allThemes.php"> View All Themes </a>
+                <a href="view_all.php"> View All </a>
             </li>
             <li>
-                <a href="login.php"> Admin </a>
+                <a href="admin_login.php"> Admin </a>
             </li>
         </ul>
     </nav>
-
     <br>
 
 <!-- all the THEMES -->
@@ -62,7 +61,7 @@
                         echo "<td>";
                         echo "<button type=\"button\"";
                         echo "class=\"btn btn-info\""; 
-                        echo "onclick=window.location.href=\"themeDesc.php?id=$id\">"; 
+                        echo "onclick=window.location.href=\"description_theme.php?id=$id\">"; 
                         echo "Description of Theme";
                         echo "</button>";
 
@@ -113,7 +112,16 @@
                     echo "<tr>";
                         echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $entry </td>";
-                        echo "<td> button goes here </td>";
+
+                        // Button to take you to a description of the theme. 
+
+                        echo "<td>";
+                        echo "<button type=\"button\"";
+                        echo "class=\"btn btn-info\""; 
+                        echo "onclick=window.location.href=\"description_role.php?id=$id\">"; 
+                        echo "Description of Role";
+                        echo "</button>";                    
+
                     echo "</tr>";
                 }
             ?>
@@ -133,7 +141,7 @@
     <br>
     <br>
 
-    <!-- all the ELEMENTS -->
+<!-- all the ELEMENTS -->
 
     <button type="button" class="btn btn-primary" onclick="showElements()"> Show / Hide Elements </button>
     <div id="Elements" style="display:none;">
@@ -144,7 +152,7 @@
                         #
                     </th>
                     <th scope="col">
-                        Role Name
+                        Element Name
                     </th>
                     <th scope="col">
                         See More
@@ -161,7 +169,16 @@
                     echo "<tr>";
                         echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $elename </td>";
-                        echo "<td> button goes here </td>";
+
+                        // Button to take you to a description of the theme. 
+
+                        echo "<td>";
+                        echo "<button type=\"button\"";
+                        echo "class=\"btn btn-info\""; 
+                        echo "onclick=window.location.href=\"description_element.php?id=$id\">"; 
+                        echo "Description of Role";
+                        echo "</button>";                    
+
                     echo "</tr>";
                 }
             ?>

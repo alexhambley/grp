@@ -10,10 +10,10 @@ include "js/footer.js";
                 <a href="#"> Students </a>
             </li>
             <li>
-                <a href="allThemes.php"> Public </a>
+                <a href="view_all.php"> Public </a>
             </li>
             <li>
-                <a href="login"> Admin </a>
+                <a href="admin_login.php"> Admin </a>
             </li>
         </ul>
     </nav>
