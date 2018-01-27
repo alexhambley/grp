@@ -1,35 +1,17 @@
 <?php
     include "header.php";
+    include "navbar.php";
     include "db.php";
-    include "js/footer.js";
     session_start();
 ?>
 
 <!DOCTYPE html>
 <head>
-<Title> View All </Title>
+    <Title> View All </Title>
 </head>
 
 <body>
-<!-- Navigation Bar  -->
-    <nav>            
-        <ul class="nav nav-pills">
-            <li class="active">
-                <a href="view_students.php"> Students </a>
-            </li>
-            <li>
-                <a href="view_all.php"> View All </a>
-            </li>
-            <li>
-                <a href="admin_login.php"> Admin </a>
-            </li>
-        </ul>
-    </nav>
-    <br>
-
 <!-- Search Bar goes here -->
-
-
 
 <!-- Form Starts here
      Theme 1 -->

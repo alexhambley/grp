@@ -1,33 +1,16 @@
 <?php
     include "header.php";
+    include "navbar.php";
     include "db.php";
     session_start();
 ?>
 
 <!DOCTYPE html>
 <head>
-<Title> View All </Title>
+    <Title> View All </Title>
 </head>
 
 <body>
-<!-- Navigation Bar  -->
-    <nav>            
-        <ul class="nav nav-pills">
-            <li>
-                <a href="view_students.php"> Students </a>
-            </li>
-            <li class="active">
-                <a href="view_all.php"> View All </a>
-            </li>
-            <li>
-                <a href="admin_login.php"> Admin </a>
-            </li>
-        </ul>
-    </nav>
-    <br>
-
-<!-- all the THEMES -->
-
     <button type="button" class="btn btn-primary" onclick="showThemes(this)"> Show / Hide Themes </button>
     <div id="Themes" style="display:none;">
         <table class="table table-striped">
@@ -57,23 +40,19 @@
                         echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $name </td>";
                         echo "<td>";
-                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#myModal$id\">See More</button>";
-                        
+                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#theme_mod$id\">See More</button>";
                             // Modal 
-                            echo "<div class=\"modal fade\" id=\"myModal$id\" role=\"dialog\">";
+                            echo "<div class=\"modal fade\" id=\"theme_mod$id\" role=\"dialog\">";
                             echo "<div class=\"modal-dialog\">";
-
                             // Modal content 
                                 echo "<div class=\"modal-content\">";
                                     echo "<div class=\"modal-header\">";
                                         echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
-
                                         // This is the heading
                                         echo "<h4 class=\"modal-title\">$name</h4>";
-                                        
                                     echo "</div>";
                                     echo "<div class=\"modal-body\">";
-                                        // This is the description!
+                                        // This is the description
                                         echo "<p>$exp</p>";
                                     echo "</div>";
                                     echo "<div class=\"modal-footer\">";
@@ -100,9 +79,6 @@
     </script>
     <br>
     <br>
-
-<!-- all the ROLES -->
-
     <button type="button" class="btn btn-primary" onclick="showRoles()"> Show / Hide Roles </button>
     <div id="Roles" style="display:none;">
         <table class="table table-striped">
@@ -134,53 +110,35 @@
                     echo "<tr>";
                         echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $entry </td>";
-
-                        // Button to take you to a description of the theme. 
-
-                        // TODO 
-                        // I cant seem to fix the ID issue - the modal above for the themes 
-                        // works because of the id assigned at #myModal$id - I have done the same
-                        // thing below and it doesn't work
- 
                         echo "<td>";
-                        echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#mod$id\">See More</button>";
-                        
-                        // Modal 
-                        echo "<div class=\"modal fade\" id=\"mod$id\" role=\"dialog\">";
-                        echo "<div class=\"modal-dialog\">";
-
-                        // Modal content 
-                            echo "<div class=\"modal-content\">";
-                                echo "<div class=\"modal-header\">";
-                                    echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
-
-                                    // This is the heading
-                                    echo "<h4 class=\"modal-title\">$entry</h4>";
-                                    
-                                echo "</div>";
-                                echo "<div class=\"modal-body\">";
-                                    // This is the description!
-                                    echo "<p>$desc</p>";
-                                    echo "<h5> Example jobs: </h5>";
-                                    $example_roles = explode(",", $names);
-                                    $counter = 0;
-                                    while($counter != count($example_roles)) {
-                                        echo "<li class=\"list-group-item\">$example_roles[$counter]</li>";
-                                        $counter++;   
-                                    }                                 
-                                echo "</div>";
-                                echo "<div class=\"modal-footer\">";
-                                    echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#role_mod$id\">See More</button>";
+                            // Modal 
+                            echo "<div class=\"modal fade\" id=\"role_mod$id\" role=\"dialog\">";
+                                echo "<div class=\"modal-dialog\">";
+                                    // Modal content 
+                                    echo "<div class=\"modal-content\">";
+                                        echo "<div class=\"modal-header\">";
+                                            echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+                                            // This is the heading
+                                            echo "<h4 class=\"modal-title\">$entry</h4>";
+                                        echo "</div>";
+                                        echo "<div class=\"modal-body\">";
+                                            // This is the description
+                                            echo "<p>$desc</p>";
+                                            echo "<h5> Example jobs: </h5>";
+                                            $example_roles = explode(",", $names);
+                                            $counter = 0;
+                                            while($counter != count($example_roles)) {
+                                                echo "<li class=\"list-group-item\">$example_roles[$counter]</li>";
+                                                $counter++;   
+                                            }                                 
+                                        echo "</div>";
+                                    echo "<div class=\"modal-footer\">";
+                                        echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                                    echo "</div>";
                                 echo "</div>";
                             echo "</div>";
                         echo "</div>";
-                    echo "</div>";
-
-
-                        
-
-                        // var_dump($desc);
-                           
                     echo "</tr>";
                 }
             ?>
@@ -199,9 +157,6 @@
     </script>
     <br>
     <br>
-
-<!-- all the ELEMENTS -->
-
     <button type="button" class="btn btn-primary" onclick="showElements()"> Show / Hide Elements </button>
     <div id="Elements" style="display:none;">
         <table class="table table-striped">
@@ -220,24 +175,38 @@
             </thead>
             <tbody>
             <?php
-                $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
+                $stmt = $conn->prepare("SELECT id, elementname, description FROM element ORDER BY id ASC");
                 $stmt->execute();
-                $stmt->bind_result($id, $elename);
+                $stmt->bind_result($id, $elename, $desc);
                 while ($stmt->fetch()) {
+                    $id = htmlentities($id);
                     $elename = htmlentities($elename);
+                    $desc = htmlentities($desc);
                     echo "<tr>";
                         echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $elename </td>";
-
-                        // Button to take you to a description of the theme. 
-
                         echo "<td>";
-                        echo "<button type=\"button\"";
-                        echo "class=\"btn btn-info\""; 
-                        echo "onclick=window.location.href=\"description_element.php?id=$id\">"; 
-                        echo "Description of Element";
-                        echo "</button>";                    
-
+                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#ele_mod$id\">See More</button>";
+                            // Modal 
+                            echo "<div class=\"modal fade\" id=\"ele_mod$id\" role=\"dialog\">";
+                                echo "<div class=\"modal-dialog\">";
+                                    // Modal content 
+                                    echo "<div class=\"modal-content\">";
+                                        echo "<div class=\"modal-header\">";
+                                            echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+                                            // This is the heading
+                                            echo "<h4 class=\"modal-title\">$elename</h4>";
+                                    echo "</div>";
+                                    echo "<div class=\"modal-body\">";
+                                        // This is the description
+                                        echo "<p>$desc</p>";
+                                    echo "</div>";
+                                    echo "<div class=\"modal-footer\">";
+                                        echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                                    echo "</div>";
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
                     echo "</tr>";
                 }
             ?>

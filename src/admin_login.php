@@ -1,6 +1,9 @@
 <?php
     include "header.php";
+    include "navbar.php";
+    include "db.php";    
     session_start();
+
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -19,25 +22,6 @@
     <title> Admin Login </title>
 </head>
 <body>
-<!-- Navigation Bar  -->
-    <nav>            
-        <ul class="nav nav-pills">
-            <li>
-                <a href="view_students.php"> Students </a>
-            </li>
-            <li>
-                <a href="view_all.php"> View All </a>
-            </li>
-            <li class="active">
-                <a href="admin_login.php"> Admin </a>
-            </li>
-        </ul>
-    </nav>
-
-
-
-
-
     <div class="container">
         <div class="text-center">
             <h1>Food Science</h1>
