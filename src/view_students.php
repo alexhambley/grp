@@ -29,15 +29,26 @@
 
 <!-- Search Bar goes here -->
 
-    <p> Choose up to three themes: </p>
+
 
 <!-- Form Starts here
      Theme 1 -->
+
+<!-- See Trello if confused.
+     The idea is that user chooses three themes, and then we show the 
+     elements from these three themes. 
+
+     If we show all 40+ elements, that is poor UI design. 
+     User chooses 3 different themes, then 10 correspondng elements. 
+     We then show the best matching roles.  -->
+
     <form>
-        <label for="theme1"> Theme 1 </label> 
-        <br>
-        <select class="custom-select">
-            <option selected>Please select theme 1</option>
+        <fieldset>
+            <legend> Themes </legend>
+            <label for="theme1"> Theme 1 </label> 
+            <br>
+            <select class="custom-select">
+                <option selected>Please select theme 1 </option>
                 <?php
                     $stmt = $conn->prepare("SELECT id, themename 
                                             FROM theme 
@@ -50,64 +61,66 @@
                         echo "<option value=\"$id\">$name</option>";
                     }
                 ?>
-        </select>
-        <br>
+            </select>
+            <br>
 <!-- Theme 2 -->
-        <label for="theme2"> Theme 2 </label> 
-        <br>
-        <select class="custom-select">
-            <option selected>Please select theme 2</option>
-            <?php
-                $stmt = $conn->prepare("SELECT id, themename 
-                                        FROM theme 
-                                        ORDER BY id ASC");
-                $stmt->execute();
-                $stmt->bind_result($id, $name);
-                while ($stmt->fetch()) {
-                    $id = htmlentities($id);
-                    $name = htmlentities($name);
-                    echo "<option value=\"$id\">$name</option>";
-                }
-            ?>
-        </select>
-        <br>
+            <label for="theme2"> Theme 2 </label> 
+            <br>
+            <select class="custom-select">
+                <option selected> Please select theme 2 </option>
+                <?php
+                    $stmt = $conn->prepare("SELECT id, themename 
+                                            FROM theme 
+                                            ORDER BY id ASC");
+                    $stmt->execute();
+                    $stmt->bind_result($id, $name);
+                    while ($stmt->fetch()) {
+                        $id = htmlentities($id);
+                        $name = htmlentities($name);
+                        echo "<option value=\"$id\">$name</option>";
+                    }
+                ?>
+            </select>
+            <br>
 
-<!-- Theme 3 -->
-        <label for="theme3"> Theme 3 </label> 
-        <br>
-        <select class="custom-select">
-            <option selected>Please select theme 3</option>
-            <?php
-                $stmt = $conn->prepare("SELECT id, themename 
-                                        FROM theme 
-                                        ORDER BY id ASC");
-                $stmt->execute();
-                $stmt->bind_result($id, $name);
-                while ($stmt->fetch()) {
-                    $id = htmlentities($id);
-                    $name = htmlentities($name);
-                    echo "<option value=\"$id\">$name</option>";
-                }
-            ?>
-        </select>
-        <br>
-        <br>
-        <button class="btn btn-primary" 
-                type="submit">
-                Submit Theme Choices
-        </button>
+    <!-- Theme 3 -->
+            <label for="theme3"> Theme 3 </label> 
+            <br>
+            <select class="custom-select">
+                <option selected>Please select theme 3</option>
+                <?php
+                    $stmt = $conn->prepare("SELECT id, themename 
+                                            FROM theme 
+                                            ORDER BY id ASC");
+                    $stmt->execute();
+                    $stmt->bind_result($id, $name);
+                    while ($stmt->fetch()) {
+                        $id = htmlentities($id);
+                        $name = htmlentities($name);
+                        echo "<option value=\"$id\">$name</option>";
+                    }
+                ?>
+            </select>
+            <br>
+            <br>
+            <button class="btn btn-primary" 
+                    type="submit"
+                    onclick="validateForm()">
+                    Submit Theme Choices
+            </button>
+        </fieldset>
+    </form>
 
+    <script>
+        function validateForm() {
 
-
-
-
-
-
-
-
-
-
-
+            if (confirm("Blah Blah Blah") == true) {
+                location.reload;
+            } else {
+                location.reload; 
+            }
+        }
+    </script>
 </body>
 
 
