@@ -137,17 +137,16 @@
 
                         // Button to take you to a description of the theme. 
 
-
                         // TODO 
                         // I cant seem to fix the ID issue - the modal above for the themes 
                         // works because of the id assigned at #myModal$id - I have done the same
                         // thing below and it doesn't work
  
                         echo "<td>";
-                        echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#myModal$id\">See More</button>";
+                        echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#mod$id\">See More</button>";
                         
                         // Modal 
-                        echo "<div class=\"modal fade\" id=\"myModal$id\" role=\"dialog\">";
+                        echo "<div class=\"modal fade\" id=\"mod$id\" role=\"dialog\">";
                         echo "<div class=\"modal-dialog\">";
 
                         // Modal content 
@@ -162,7 +161,7 @@
                                 echo "<div class=\"modal-body\">";
                                     // This is the description!
                                     echo "<p>$desc</p>";
-                                    echo "<h5> Examples jobs: </h5>";
+                                    echo "<h5> Example jobs: </h5>";
                                     $example_roles = explode(",", $names);
                                     $counter = 0;
                                     while($counter != count($example_roles)) {
