@@ -123,45 +123,65 @@
             <?php
                 $stmt = $conn->prepare("SELECT id, entry, description, names, elements, themes FROM role ORDER BY id ASC");
                 $stmt->execute();
-                $stmt->bind_result($rid, $entry, $desc, $names, $elements, $themes);
+                $stmt->bind_result($id, $entry, $desc, $names, $elements, $themes);
                 while ($stmt->fetch()) {
-                    $rid = htmlentities($rid);
+                    $id = htmlentities($id);
                     $entry = htmlentities($entry);
                     $desc = htmlentities($desc);
                     $names = htmlentities($names);
                     $elements = htmlentities($elements);
                     $themes = htmlentities($themes);
                     echo "<tr>";
-                        echo "<th scope=\"row\"> $rid </th>";
+                        echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $entry </td>";
 
                         // Button to take you to a description of the theme. 
 
+
+                        // TODO 
+                        // I cant seem to fix the ID issue - the modal above for the themes 
+                        // works because of the id assigned at #myModal$id - I have done the same
+                        // thing below and it doesn't work
+ 
                         echo "<td>";
+                        echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#myModal$id\">See More</button>";
+                        
+                        // Modal 
+                        echo "<div class=\"modal fade\" id=\"myModal$id\" role=\"dialog\">";
+                        echo "<div class=\"modal-dialog\">";
+
+                        // Modal content 
+                            echo "<div class=\"modal-content\">";
+                                echo "<div class=\"modal-header\">";
+                                    echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+
+                                    // This is the heading
+                                    echo "<h4 class=\"modal-title\">$entry</h4>";
+                                    
+                                echo "</div>";
+                                echo "<div class=\"modal-body\">";
+                                    // This is the description!
+                                    echo "<p>$desc</p>";
+                                    echo "<h5> Examples jobs: </h5>";
+                                    $example_roles = explode(",", $names);
+                                    $counter = 0;
+                                    while($counter != count($example_roles)) {
+                                        echo "<li class=\"list-group-item\">$example_roles[$counter]</li>";
+                                        $counter++;   
+                                    }                                 
+                                echo "</div>";
+                                echo "<div class=\"modal-footer\">";
+                                    echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+
+
+                        
 
                         // var_dump($desc);
-                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#myModal$rid\">See More</button>";
-                            // Modal 
-                            echo "<div class=\"modal fade\" id=\"myModal$rid\" role=\"dialog\">";
-                                echo "<div class=\"modal-dialog\">";
-
-                                // Modal content 
-                                    echo "<div class=\"modal-content\">";
-                                        echo "<div class=\"modal-header\">";
-                                            echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
-                                            // This is the heading
-                                            echo "<h4 class=\"modal-title\">$entry</h4>";
-                                        echo "</div>";
-                                        echo "<div class=\"modal-body\">";
-                                            // This is the description!
-                                            echo "<p>$desc</p>";
-                                        echo "</div>";
-                                        echo "<div class=\"modal-footer\">";
-                                            echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
-                                        echo "</div>";
-                                    echo "</div>";
-                                echo "</div>";
-                             echo "</div>";
+                           
                     echo "</tr>";
                 }
             ?>
