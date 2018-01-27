@@ -35,6 +35,8 @@
         while ($stmt->fetch()) {
             $name = htmlentities($name);
             $exp = htmlentities($exp);
+            $elements = htmlentities($elements);
+
             echo "<h2> $name";
             echo "<br>";
             echo "<small> $exp </small> </h2>";
@@ -83,6 +85,7 @@
                         $counter++;
                     }
                 ?>
-
-
+            </tbody>
+        </table>
+    </div>
 </body>
