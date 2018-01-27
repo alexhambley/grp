@@ -14,7 +14,7 @@
     <nav>            
         <ul class="nav nav-pills">
             <li>
-                <a href="#"> Students </a>
+                <a href="view_students.php"> Students </a>
             </li>
             <li class="active">
                 <a href="view_all.php"> View All </a>
@@ -176,7 +176,7 @@
                         echo "<button type=\"button\"";
                         echo "class=\"btn btn-info\""; 
                         echo "onclick=window.location.href=\"description_element.php?id=$id\">"; 
-                        echo "Description of Role";
+                        echo "Description of Element";
                         echo "</button>";                    
 
                     echo "</tr>";

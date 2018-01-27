@@ -14,7 +14,7 @@
     <nav>            
         <ul class="nav nav-pills">
             <li>
-                <a href="#"> Students </a>
+                <a href="view_students.php"> Students </a>
             </li>
             <li class="active">
                 <a href="view_all.php"> View All </a>
@@ -44,13 +44,21 @@
             echo "<br>";
             // Puts all the jobs on a new line:
             $output = str_replace(',', '<br>', $names);
-            echo "<h3> Example Roles include: </h3>";
-            echo $output;
             $_SESSION['elements'] = $elements;
             $_SESSION['themes'] = $themes;
         }
+        echo "<h4> Example Roles include: </h4>";
+        
+        // This just lists the jobs in a list - looks better. 
+        echo "<ul class=\"list-group list-group-flush\">";
+        $example_roles = explode("<br>", $output);
+        $counter = 0;
+        while($counter != count($example_roles)) {
+            echo "<li class=\"list-group-item\">$example_roles[$counter]</li>";
+            $counter++;
+        }
+        echo "</ul>";
     ?>
-
     <br> 
 
     <h3> Related Elements and their description </h3>

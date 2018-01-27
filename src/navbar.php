@@ -7,7 +7,7 @@ include "js/footer.js";
     <nav>            
         <ul class="nav nav-pills">
             <li>
-                <a href="#"> Students </a>
+                <a href="view_students.php"> Students </a>
             </li>
             <li>
                 <a href="view_all.php"> Public </a>
