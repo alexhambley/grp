@@ -9,7 +9,7 @@
 
 	try {
 		$db->beginTransaction();
-		$query = "SELECT * FROM 'role'";
+		$query = "SELECT * FROM role";
 		$stmt = $db->prepare($query);
 		
 		$stmt->execute();

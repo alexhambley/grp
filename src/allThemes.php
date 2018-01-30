@@ -31,7 +31,7 @@
     //----- Get themes
     try {
     	$db->beginTransaction();
-    	$query = "SELECT id, name FROM element";
+    	$query = "SELECT id, elementname FROM element";
     	$stmt = $db->prepare($query);
     	
     	$stmt->execute();
@@ -110,7 +110,7 @@
                 
                 foreach ($themes as $aTheme) {
                     $themeId = $aTheme["theme_id"];
-                    $themeName = $aTheme["name"];
+                    $themeName = $aTheme["themename"];
                     $themeText = $aTheme["explanation"];
                     $themeElementArray = explode(",",$aTheme["elements"]);
                     echo "
