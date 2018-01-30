@@ -1,5 +1,4 @@
 <?php
-
 	include 'credentials.php';
 
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
@@ -9,7 +8,7 @@
 
 	try {
 		$db->beginTransaction();
-		$query = "SELECT * FROM element ORDER BY name ASC";
+		$query = "SELECT * FROM element ORDER BY elementname ASC";
 		$stmt = $db->prepare($query);
 		
 		$stmt->execute();
@@ -72,8 +71,18 @@
 
 
 
-
-	echo json_encode($json);
+	echo json_encode(utf8ize($json));
 	exit;
+
+function utf8ize($mixed) {
+    if (is_array($mixed)) {
+        foreach ($mixed as $key => $value) {
+            $mixed[$key] = utf8ize($value);
+        }
+    } else if (is_string ($mixed)) {
+        return utf8_encode($mixed);
+    }
+    return $mixed;
+}
 
 ?>
