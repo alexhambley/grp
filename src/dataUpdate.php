@@ -1,4 +1,7 @@
-
+<?php 
+    include 'header.php';
+    include 'navbar.php';
+ ?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,6 +41,7 @@
             <h1>Competencies for Food Graduate Careers</h1>
         
             <h2>Roles Update</h2>
+            <br>
             <p>
                 <select id="role_list"></select>
             </p>
@@ -52,7 +56,7 @@
             <div id="elements">n/a</div>
             <p>
                 <input type="button" class="btnBlue" value="Update" id="btnUpdate" onclick="updateRoleElements()" disabled />
-                <input type="button" class="btnGrey" value="Search Again" onclick="window.history.back()" />
+                <input type="button" class="btnGrey" value="Back" onclick="window.history.back()" />
             </p>
         </div>    
         
