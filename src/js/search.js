@@ -104,15 +104,15 @@ function initSearchPanel(json) {
     for (i = 1; i < themeObj.length; i++) {
         if (i % 2 == 1) {
             htmlStrLeft += '<p><input type="checkbox" name="qThemes" value="'+themeObj[i].theme_id+'"  onclick="changeTheme(this.value)" />';
-            htmlStrLeft += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'theme_'+themeObj[i].theme_id+'\')">'+themeObj[i].theme_id+" - "+themeObj[i].name+'</b><br><em id="theme_'+themeObj[i].theme_id+'" style="display:none;">'+themeObj[i].explanation+'</em></span></p>';
+            htmlStrLeft += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'theme_'+themeObj[i].theme_id+'\')">'+themeObj[i].theme_id+" - "+themeObj[i].themename+'</b><br><em id="theme_'+themeObj[i].theme_id+'" style="display:none;">'+themeObj[i].explanation+'</em></span></p>';
         } else {
             htmlStrRight += '<p><input type="checkbox" name="qThemes" value="'+themeObj[i].theme_id+'" onclick="changeTheme(this.value)" />';
-            htmlStrRight += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'theme_'+themeObj[i].theme_id+'\')">'+themeObj[i].theme_id+" - "+themeObj[i].name+'</b><br><em id="theme_'+themeObj[i].theme_id+'" style="display:none;">'+themeObj[i].explanation+'</em></span></p>';
+            htmlStrRight += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'theme_'+themeObj[i].theme_id+'\')">'+themeObj[i].theme_id+" - "+themeObj[i].themename+'</b><br><em id="theme_'+themeObj[i].theme_id+'" style="display:none;">'+themeObj[i].explanation+'</em></span></p>';
         }
     }
     
     htmlStrTop += '<input type="checkbox" name="qThemes" value="'+themeObj[0].theme_id+'" onclick="changeTheme(this.value)" />';
-    htmlStrTop += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'theme_'+themeObj[0].theme_id+'\')">'+themeObj[0].theme_id+" - "+themeObj[0].name+'</b><br><em id="theme_'+themeObj[0].theme_id+'" style="display:none;">'+themeObj[0].explanation+'</em></span>';
+    htmlStrTop += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'theme_'+themeObj[0].theme_id+'\')">'+themeObj[0].theme_id+" - "+themeObj[0].themename+'</b><br><em id="theme_'+themeObj[0].theme_id+'" style="display:none;">'+themeObj[0].explanation+'</em></span>';
     
     domThemeLeft.innerHTML = htmlStrLeft;
     domThemeRight.innerHTML = htmlStrRight;
@@ -125,10 +125,10 @@ function initSearchPanel(json) {
     for (i = 0; i < elementObj.length; i++) {
         if (i % 2 == 0) {
             htmlStrLeft += '<p><input type="checkbox" name="qElements" value="ele_'+elementObj[i].id+'" />';
-            htmlStrLeft += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'ele_'+elementObj[i].id+'\')">'+elementObj[i].name+'</b><br><em id="ele_'+elementObj[i].id+'" style="display:none;">'+elementObj[i].description+'</em></span></p>';
+            htmlStrLeft += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'ele_'+elementObj[i].id+'\')">'+elementObj[i].elementname+'</b><br><em id="ele_'+elementObj[i].id+'" style="display:none;">'+elementObj[i].description+'</em></span></p>';
         } else {
             htmlStrRight += '<p><input type="checkbox" name="qElements" value="ele_'+elementObj[i].id+'" />';
-            htmlStrRight += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'ele_'+elementObj[i].id+'\')">'+elementObj[i].name+'</b><br><em id="ele_'+elementObj[i].id+'" style="display:none;">'+elementObj[i].description+'</em></span></p>';
+            htmlStrRight += '<span style="margin-left:15px;"><b  style="cursor:pointer;" onclick="showDetails(\'ele_'+elementObj[i].id+'\')">'+elementObj[i].elementname+'</b><br><em id="ele_'+elementObj[i].id+'" style="display:none;">'+elementObj[i].description+'</em></span></p>';
         }
     }
     

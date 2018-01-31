@@ -23,8 +23,8 @@
      If we show all 40+ elements, that is poor UI design. 
      User chooses 3 different themes, then 10 correspondng elements. 
      We then show the best matching roles.  -->
-
-    <form>
+    <div class="container">
+        <form>
         <fieldset>
             <legend> Themes </legend>
             <label for="theme1"> Theme 1 </label> 
@@ -92,6 +92,7 @@
             </button>
         </fieldset>
     </form>
+    </div>
 
     <script>
         function validateForm() {
