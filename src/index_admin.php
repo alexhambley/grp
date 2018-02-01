@@ -38,7 +38,7 @@
             <p>&nbsp;</p>
             
             <h2>1. Database Management</h2>
-            <p><a href="dataUpdate.html">Update Role Elements</a></p>
+            <p><a href="dataUpdate.php">Update Role Elements</a></p>
             <p>&nbsp;</p>
             
             <h2>2. View Role Profile</h2>
@@ -49,7 +49,7 @@
             <p>&nbsp;</p>
             
             <h2>3. Search Roles</h2>
-            <p><a href="search.html">Search Roles by themes and elements</a></p>
+            <p><a href="search.php">Search Roles by themes and elements</a></p>
             
             <p>&nbsp;</p>
             
