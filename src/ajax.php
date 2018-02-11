@@ -21,14 +21,15 @@
         $stmt->bind_result($searchresult_show);
         while ($stmt->fetch()) {
             $searchresult_show = htmlentities($searchresult_show);
+            echo "<ul>";
+            echo "<li onclick='fill'";
+            echo "(\"echo $searchresult_show;\")'>";
+            echo "<a>";
+            echo $searchresult_show;
+            echo "</li></a>";
+            echo "</ul>";
         }
-        echo "<ul>";
-        echo "<li onclick='fill'";
-        echo "(\"echo $searchresult_show;\")'>";
-        echo "<a>";
-        echo $searchresult_show;
-        echo "</li></a>";
-        echo "</ul>";
+        
     }
 ?>
 
