@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
 <?php
     include "db.php";
     if (isset($_POST['search'])) {
@@ -22,14 +23,17 @@
         while ($stmt->fetch()) {
             $searchresult_show = htmlentities($searchresult_show);
             echo "<ul>";
-            echo "<li onclick='fill'";
-            echo "(\"echo $searchresult_show;\")'>";
-            echo "<a>";
+            echo "<li class=\"result\"";
+            echo "id=\"$searchresult_show\"";
+            echo "onclick=\"fill('$searchresult_show')\">";
             echo $searchresult_show;
-            echo "</li></a>";
+            echo "</li>";
             echo "</ul>";
         }
-        
     }
 ?>
-
+<script> 
+function getResult(str) {
+    $("#result").load("search.php?"+str);
+}
+</script>
