@@ -16,7 +16,13 @@
                 <li><a href="view_students.php"> Students </a></li>
                 <li><a href="view_all.php"> Public (View All) </a></li>
                 <li><a href="admin_login.php"> Admin Login </a></li>
-                <li><input type="text" id="search" class="form-control" placeholder="Search"></li>
+                <li>
+                    <form id="searchform" method="get" action="">
+                        <input type="text" name="selection" id="search" class="form-control" placeholder="Search">
+                        <button type="submit" form="searchform">Search</button>
+
+                    </form>
+                </li>
                 <div id="display"></div>
             </ul>
         </div>
