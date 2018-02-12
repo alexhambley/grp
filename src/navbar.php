@@ -17,10 +17,9 @@
                 <li><a href="view_all.php"> Public (View All) </a></li>
                 <li><a href="admin_login.php"> Admin Login </a></li>
                 <li>
-                    <form id="searchform" method="get" action="">
+                    <form id="searchform" method="get" action="navbar_search.php">
                         <input type="text" name="selection" id="search" class="form-control" placeholder="Search">
                         <button type="submit" form="searchform">Search</button>
-
                     </form>
                 </li>
                 <div id="display"></div>
