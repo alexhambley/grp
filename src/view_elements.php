@@ -12,12 +12,11 @@
 </head>
 <body>
     <div class="container">
-        <form>
+        <form action="view_roles.php">
             <fieldset>
                 <legend>Elements</legend>
                 <label>Theme 1 - Elements</label>
                 <br>
-                <option selected>Please select an element</option>
                 <?php
                     $themeid = trim($_GET['theme1']);
                     $stmt = $conn->prepare("SELECT elements
