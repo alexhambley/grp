@@ -24,12 +24,12 @@
      User chooses 3 different themes, then 10 correspondng elements. 
      We then show the best matching roles.  -->
     <div class="container">
-        <form>
+        <form action="view_elements.php">
         <fieldset>
             <legend> Themes </legend>
             <label for="theme1"> Theme 1 </label> 
             <br>
-            <select class="custom-select">
+            <select class="custom-select" name="theme1">
                 <option selected>Please select theme 1 </option>
                 <?php
                     $stmt = $conn->prepare("SELECT id, themename 
@@ -48,7 +48,7 @@
 <!-- Theme 2 -->
             <label for="theme2"> Theme 2 </label> 
             <br>
-            <select class="custom-select">
+            <select class="custom-select" name="theme2">
                 <option selected> Please select theme 2 </option>
                 <?php
                     $stmt = $conn->prepare("SELECT id, themename 
@@ -68,7 +68,7 @@
     <!-- Theme 3 -->
             <label for="theme3"> Theme 3 </label> 
             <br>
-            <select class="custom-select">
+            <select class="custom-select" name="theme3">
                 <option selected>Please select theme 3</option>
                 <?php
                     $stmt = $conn->prepare("SELECT id, themename 
@@ -86,24 +86,13 @@
             <br>
             <br>
             <button class="btn btn-primary" 
-                    type="submit"
-                    onclick="validateForm()">
+                    type="submit">
                     Submit Theme Choices
             </button>
         </fieldset>
     </form>
     </div>
 
-    <script>
-        function validateForm() {
-
-            if (confirm("Blah Blah Blah") == true) {
-                location.reload;
-            } else {
-                location.reload; 
-            }
-        }
-    </script>
 </body>
 
 
