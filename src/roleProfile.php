@@ -258,7 +258,7 @@
                         foreach ($themeOrderArray as $themeId) {
                             foreach ($themes as $item) {
                                 if ($item["theme_id"] == $themeId) {
-                                    $themeName = $item["name"];
+                                    $themeName = $item["themename"];
                                     $themeText = $item["explanation"];
                                     echo "
                                     <tr>
