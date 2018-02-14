@@ -80,7 +80,7 @@
 
     try {
     	$db->beginTransaction();
-    	$query = "SELECT name FROM element WHERE id='$condition'";
+    	$query = "SELECT elementname FROM element WHERE id='$condition'";
     	$stmt = $db->prepare($query);
     	
     	$stmt->execute();

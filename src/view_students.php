@@ -32,9 +32,9 @@
             <select class="custom-select" name="theme1">
                 <option selected>Please select theme 1 </option>
                 <?php
-                    $stmt = $conn->prepare("SELECT id, themename 
+                    $stmt = $conn->prepare("SELECT theme_id, themename 
                                             FROM theme 
-                                            ORDER BY id ASC");
+                                            ORDER BY theme_id ASC");
                     $stmt->execute();
                     $stmt->bind_result($id, $name);
                     while ($stmt->fetch()) {
@@ -51,9 +51,9 @@
             <select class="custom-select" name="theme2">
                 <option selected> Please select theme 2 </option>
                 <?php
-                    $stmt = $conn->prepare("SELECT id, themename 
+                    $stmt = $conn->prepare("SELECT theme_id, themename 
                                             FROM theme 
-                                            ORDER BY id ASC");
+                                            ORDER BY theme_id ASC");
                     $stmt->execute();
                     $stmt->bind_result($id, $name);
                     while ($stmt->fetch()) {
@@ -71,9 +71,9 @@
             <select class="custom-select" name="theme3">
                 <option selected>Please select theme 3</option>
                 <?php
-                    $stmt = $conn->prepare("SELECT id, themename 
+                    $stmt = $conn->prepare("SELECT theme_id, themename 
                                             FROM theme 
-                                            ORDER BY id ASC");
+                                            ORDER BY theme_id ASC");
                     $stmt->execute();
                     $stmt->bind_result($id, $name);
                     while ($stmt->fetch()) {

@@ -3,6 +3,10 @@
     include "navbar.php";
     include "db.php";
     session_start();
+
+    $_SESSION['theme1'] = $_GET['theme1'];
+    $_SESSION['theme2'] = $_GET['theme2'];
+    $_SESSION['theme3'] = $_GET['theme3'];
  ?>
 
 <!DOCTYPE html>
@@ -21,8 +25,8 @@
                     $themeid = trim($_GET['theme1']);
                     $stmt = $conn->prepare("SELECT elements
                                             FROM theme
-                                            WHERE id = (?)");
-                    $stmt->bind_param("i", $themeid);
+                                            WHERE theme_id = (?)");
+                    $stmt->bind_param("s", $themeid);
                     $stmt->execute();
                     $stmt->bind_result($elements);
                     $stmt->fetch();
@@ -43,7 +47,7 @@
                         $stmt->fetch();
                         $id = htmlentities($id);
                         $name = htmlentities($name);
-                        echo "<input type=\"checkbox\" name=\"theme1\" value=\"$id\">$name<br>";
+                        echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\">$name<br>";
                     }
                     $stmt->close();
                 ?>
@@ -55,8 +59,8 @@
                     $themeid = trim($_GET['theme2']);
                     $stmt = $conn->prepare("SELECT elements
                                             FROM theme
-                                            WHERE id = (?)");
-                    $stmt->bind_param("i", $themeid);
+                                            WHERE theme_id = (?)");
+                    $stmt->bind_param("s", $themeid);
                     $stmt->execute();
                     $stmt->bind_result($elements);
                     $stmt->fetch();
@@ -77,7 +81,7 @@
                         $stmt->fetch();
                         $id = htmlentities($id);
                         $name = htmlentities($name);
-                        echo "<input type=\"checkbox\" name=\"theme2\" value=\"$id\">$name<br>";
+                        echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\">$name<br>";
                     }
                     $stmt->close();
                 ?>
@@ -89,8 +93,8 @@
                     $themeid = trim($_GET['theme3']);
                     $stmt = $conn->prepare("SELECT elements
                                             FROM theme
-                                            WHERE id = (?)");
-                    $stmt->bind_param("i", $themeid);
+                                            WHERE theme_id = (?)");
+                    $stmt->bind_param("s", $themeid);
                     $stmt->execute();
                     $stmt->bind_result($elements);
                     $stmt->fetch();
@@ -111,17 +115,18 @@
                         $stmt->fetch();
                         $id = htmlentities($id);
                         $name = htmlentities($name);
-                        echo "<input type=\"checkbox\" name=\"theme3\" value=\"$id\">$name<br>";
+                        echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\">$name<br>";
                     }
                     $stmt->close();
                 ?>
                 <br><br>
                 <button class="btn btn-primary" 
-                    type="submit">
+                    type="submit"">
                     Submit Element Choices
                 </button>
             </fieldset>
         </form>
     </div>
 </body>
+<script type="text/javascript" src="js/students.js"></script>
 </html>
