@@ -1,12 +1,11 @@
 <?php
     
-    if (empty($_GET['elementName'])) || empty($_GET['description'])
+    if (empty($_GET['elementName']) || empty($_GET['description']))
         exit("Invalid parameters.");
 
     $elementName = trim($_GET['elementName']);
     $description = trim($_GET['description']);
     
-
 	if ($elementName == "" || $description == "")
 	    exit("Invalid parameters.");
 

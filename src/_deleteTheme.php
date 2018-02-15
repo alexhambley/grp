@@ -18,7 +18,7 @@
 
 	try {
 		$db->beginTransaction();
-        query = "DELETE FROM theme WHERE id=:id";
+        $query = "DELETE FROM theme WHERE id=:id";
         $stmt = $db->prepare($query);
         $stmt->bindParam(":id",$id,PDO::PARAM_INT);
 		$stmt->execute();

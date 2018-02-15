@@ -1,6 +1,6 @@
 <?php
     
-    if (empty($_GET['id'])))
+    if (empty($_GET['id']))
         exit("Invalid parameters.");
 
     $id = trim($_GET['id']);
