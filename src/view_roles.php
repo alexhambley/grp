@@ -4,6 +4,7 @@
     include "db.php";
     session_start();
     $selected = $_GET['selectedElement'];
+    $_SESSION['selectedElement'] = $selected;
     $elementStr = implode(",", $selected);
 
     $themes[0] = $_SESSION['theme1'];
