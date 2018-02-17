@@ -25,6 +25,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table for users
+-- 
+
+CREATE TABLE Users (
+    UserID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL UNIQUE,
+    Password VARCHAR(1000) NOT NULL
+) ENGINE=InnoDB;
+
+--
 -- Table structure for table `element`
 --
 
