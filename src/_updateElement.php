@@ -1,6 +1,6 @@
 <?php
     
-    if (empty($_GET['elementId']) || empty($_GET['elementName'])) || empty($_GET['description'])
+    if (empty($_GET['elementId']) || empty($_GET['elementName']) || empty($_GET['description']))
         exit("Invalid parameters.");
 
     $elementID = trim($_GET['elementId']);

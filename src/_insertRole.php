@@ -1,6 +1,6 @@
 <?php
     
-    if (empty($_GET['elements']) || empty($_GET['entry']) || empty($_GET['names']) || empty($_GET['description'])) || empty($_GET['themes'])
+    if (empty($_GET['elements']) || empty($_GET['entry']) || empty($_GET['names']) || empty($_GET['description']) || empty($_GET['themes']))
         exit("Invalid parameters.");
 
 	$elements = ",".trim($_GET['elements']).",";
@@ -10,7 +10,7 @@
     $themes = trim($_GET['themes']);
     
 
-	if ($elements == "" || $entry) == "" || $names == "" || $decription == "") || $themes == "")
+	if ($elements == "" || $entry == "" || $names == "" || $decription == "" || $themes == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';

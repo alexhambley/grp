@@ -11,7 +11,7 @@
     $themes = trim($_GET['themes']);
     
 
-	if ($roleID == "" || $elements == "" || $entry) == "" || $names == "" || $decription == "") || $themes == "")
+	if ($roleID == "" || $elements == "" || $entry == "" || $names == "" || $decription == "" || $themes == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
