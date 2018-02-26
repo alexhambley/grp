@@ -1,11 +1,16 @@
 <?php
+    include '_db-user-util.php';
     session_start();
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
-        $password = $_POST['password'];
-        if ($username == 'admin' and $password == '123456') {
+        $password = md5($_POST['password']);
+        if (!authenticate($username, $password)) {
+            $invalid = true;
+        }
+        else {
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
+
             header('Location: index_admin.php');
             exit();
         }
