@@ -23,13 +23,26 @@
         $stmt->bindParam(":id",$id,PDO::PARAM_INT);
 		$stmt->execute();
         
-        $query = "SELECT id, elements FROM theme WHERE elements='%:id%";
+        $query = "SELECT id, themes FROM role WHERE themes = '%:id%";
         $stmt = $db->prepare($query);
 		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
         $result = $stmt->execute();
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) 
         {
-            //delete from other tables
+            $counter = 0;
+            $themes = explode(",", ${row['themes']});
+            while  ($themes[$counter] != $id)
+            {
+                $counter = $counter + 1;
+            }
+            $themes[$counter] = "";
+            $themes = implode(",", $themes);
+            
+            $query = "UPDATE role SET themes = :themes WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(":id",${row['id']},PDO::PARAM_STR);
+            $stmt->bindParam(":themes",$themes,PDO::PARAM_STR);
+            $stmt->execute();    
         }
         
 		$db->commit();

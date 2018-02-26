@@ -22,22 +22,48 @@
 		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
 		$stmt->execute();
         
-        $query = "SELECT id, elements FROM role WHERE elements='%:id%";
+        $query = "SELECT id, elements FROM role WHERE elements = '%,:id,%";
         $stmt = $db->prepare($query);
 		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
         $result = $stmt->execute();
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) 
         {
-            //delete from role table
+            $counter = 0;
+            $elements = explode(",", ${row['elements']});
+            while  ($elements[$counter] != $id)
+            {
+                $counter = $counter + 1;
+            }
+            $elements[$counter] = "";
+            $elements = implode(",", $elements);
+            
+            $query = "UPDATE role SET elements = :elements WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(":id",${row['id']},PDO::PARAM_STR);
+            $stmt->bindParam(":elements",$elements,PDO::PARAM_STR);
+            $stmt->execute();    
         }
         
-        $query = "SELECT id, elements FROM theme WHERE elements='%:id%";
+        $query = "SELECT id, elements FROM theme WHERE elements = ':id%' OR elements = '%:id%' OR elements = '%,:id'";
         $stmt = $db->prepare($query);
 		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
         $result = $stmt->execute();
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) 
         {
-            //delete from theme table
+            $counter = 0;
+            $elements = explode(",", ${row['elements']});
+            while  ($elements[$counter] != $id)
+            {
+                $counter = $counter + 1;
+            }
+            $elements[$counter] = "";
+            $elements = implode(",", $elements);
+            
+            $query = "UPDATE theme SET elements = :elements WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(":id",${row['id']},PDO::PARAM_STR);
+            $stmt->bindParam(":elements",$elements,PDO::PARAM_STR);
+            $stmt->execute();   
         }
         
 		$db->commit();
