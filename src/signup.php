@@ -16,15 +16,14 @@
         else {
             $infos = array('username' => $username, 'password' => $password);
 
-            if (validateSignup($infos)) {
-                $isValid = true;
-                try {
-                    signup($infos);
-                }
-                catch (Exception $e) {
-                    $errorDB = true;
-                }
+            $isValid = true;
+            try {
+                signup($infos);
             }
+            catch (Exception $e) {
+                $errorDB = true;
+            }
+
         }
 
         if (!$existName and $isValid and !$errorDB) {
