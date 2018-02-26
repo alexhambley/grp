@@ -1,3 +1,38 @@
+<?php
+    include '_db-user-util.php';
+    $existName = false;
+    $isValid = false;
+    $errorDB = false;
+
+    session_start();
+    
+    if (isset($_POST['submit']) and isset($_POST['username']) and isset($_POST['password'])) {
+        $username = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
+        $password = md5($_POST['password']);
+
+        if (isExistUser($username)) {
+            $existName = true;
+        }
+        else {
+            $infos = array('username' => $username, 'password' => $password);
+
+            if (validateSignup($infos)) {
+                $isValid = true;
+                try {
+                    signup($infos);
+                }
+                catch (Exception $e) {
+                    $errorDB = true;
+                }
+            }
+        }
+
+        if (!$existName and $isValid and !$errorDB) {
+            header('Location: index_admin.php');
+            exit();
+        }
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +48,12 @@
 
         <form class="col-md-4 col-md-offset-4" id="signup" action="signup.php" method="POST">
             <div class="form-group has-error text-center">
-           <!--  <?php if ($existName) { ?>
+            <?php if ($existName) { ?>
                 <p class="help-block">This username already exists!</p>
-            <?php } ?>
-            <?php if ($existEmail) { ?>
-                <p class="help-block">This email has been used!</p>
-            <?php } ?>
-            <?php if ($existPhone) { ?>
-                <p class="help-block">This phone number has been used!</p>
             <?php } ?>
             <?php if ($errorDB) { ?>
                 <p class="help-block">Error Connecting DB! Try again!</p>
-            <?php } ?> -->
+            <?php } ?>
             </div>
             <div class="form-group" id="div-username">
                 <div class="input-group">
@@ -40,20 +69,6 @@
                     <input class="form-control" type="password" name="password" placeholder="Password" required>
                 </div>
                 <span class="help-block hidden" id="password-invalid">Invalid password! (Min length is 6)</span>
-            </div>
-            <div class="form-group" id="div-email">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input class="form-control" type="email" name="email" placeholder="Email Address" required>
-                </div>
-                <span class="help-block hidden" id="email-invalid">Invalid email!</span>
-            </div>
-            <div class="form-group" id="div-phone">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input class="form-control" type="tel" name="phone" placeholder="Phone Number" required>
-                </div>
-                <span class="help-block hidden" id="phone-invalid">Invalid phone number!</span>
             </div>
             <div class="form-group">
                 <input class="form-control btn btn-primary" type="submit" name="submit" value="Register">
