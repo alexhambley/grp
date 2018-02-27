@@ -1,11 +1,11 @@
 <?php
     
-    if (empty($_GET['id']))
+    if (empty($_GET['name']))
         exit("Invalid parameters.");
 
-    $id = trim($_GET['id']);
+    $name = trim($_GET['name']);
 
-	if ($id == "")
+	if ($name == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
@@ -17,19 +17,25 @@
 
 	try {
 		$db->beginTransaction();
-		$query = "DELETE FROM element WHERE id = :id";
+        
+        $query = str_replace("?", $name, "SELECT id FROM element WHERE elementname = '?'");
 		$stmt = $db->prepare($query);
-		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
+		$stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $id = $row['id'];
+        echo $id;
+        
+        $query = str_replace("?", $name, "DELETE FROM element WHERE elementname = '?'");
+		$stmt = $db->prepare($query);
 		$stmt->execute();
         
-        $query = "SELECT id, elements FROM role WHERE elements = '%,:id,%";
+        $query = str_replace("?", $id, "SELECT id, elements FROM role WHERE elements LIKE '%,?,%'");
         $stmt = $db->prepare($query);
-		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
-        $result = $stmt->execute();
-        while ($row = $result->fetch_array(MYSQLI_ASSOC)) 
+        $stmt->execute();
+        foreach ($stmt as $row) 
         {
             $counter = 0;
-            $elements = explode(",", ${row['elements']});
+            $elements = explode(",", $row['elements']);
             while  ($elements[$counter] != $id)
             {
                 $counter = $counter + 1;
@@ -37,32 +43,43 @@
             $elements[$counter] = "";
             $elements = implode(",", $elements);
             
-            $query = "UPDATE role SET elements = :elements WHERE id = :id";
+            $elements = str_replace(',,',',', $elements);
+            
+            $query = str_replace("?", $elements, "UPDATE role SET elements = '?' WHERE id = !");
+            $query = str_replace("!", $row['id'], $query);
             $stmt = $db->prepare($query);
-            $stmt->bindParam(":id",${row['id']},PDO::PARAM_STR);
-            $stmt->bindParam(":elements",$elements,PDO::PARAM_STR);
             $stmt->execute();    
         }
         
-        $query = "SELECT id, elements FROM theme WHERE elements = ':id%' OR elements = '%:id%' OR elements = '%,:id'";
+        $query = str_replace("?", $id,"SELECT id, elements FROM theme WHERE elements = ? OR elements LIKE '?,%' OR elements LIKE '%,?,%' OR elements LIKE '%,?'");
         $stmt = $db->prepare($query);
-		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
-        $result = $stmt->execute();
-        while ($row = $result->fetch_array(MYSQLI_ASSOC)) 
+        $stmt->execute();
+        foreach ($stmt as $row) 
         {
             $counter = 0;
-            $elements = explode(",", ${row['elements']});
+            $elements = explode(",", $row['elements']);
             while  ($elements[$counter] != $id)
             {
                 $counter = $counter + 1;
             }
             $elements[$counter] = "";
             $elements = implode(",", $elements);
-            
-            $query = "UPDATE theme SET elements = :elements WHERE id = :id";
+            echo $elements[0];
+            if ($elements[0] == ',')
+            {
+                $elements = str_replace(','.$elements[1], $elements[1], $elements);
+            }
+            else if ($elements[strlen($elements)-1] == ',')
+            {
+                $elements = str_replace($elements[strlen($elements) - 2].',', $elements[strlen($elements) - 2], $elements);
+            }
+            else
+            {
+                $elements = str_replace(',,',',', $elements);
+            }
+            $query = str_replace("?", $row['id'], "UPDATE theme SET elements = '!' WHERE id = ?");
+            $query = str_replace("!", $elements, $query);
             $stmt = $db->prepare($query);
-            $stmt->bindParam(":id",${row['id']},PDO::PARAM_STR);
-            $stmt->bindParam(":elements",$elements,PDO::PARAM_STR);
             $stmt->execute();   
         }
         
@@ -78,7 +95,7 @@
 	$db = null;
 
 
-	echo "The element has been added.";
+	echo "The element has been deleted.";
 	exit;
 
 ?>
