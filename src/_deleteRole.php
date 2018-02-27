@@ -1,11 +1,10 @@
 <?php
     
-    if (empty($_GET['name']))
+    if (empty($_POST['name']))
         exit("Invalid parameters.");
 
-    $name = trim($_GET['name']);
+    $name = trim($_POST['name']);
     
-
 	if ($name == "")
 	    exit("Invalid parameters.");
 
@@ -18,7 +17,19 @@
 
 	try {
 		$db->beginTransaction();
-		$query = str_replace("?", $name, "DELETE FROM role WHERE entry='?'");
+		
+        $query = str_replace("?", $name, "SELECT id FROM role WHERE entry = '?'");
+		$stmt = $db->prepare($query);
+		$stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $id = $row['id'];
+        if ($id == "")
+        {
+            echo "Role: '$name' could not be found.";
+            exit;
+        }
+        
+        $query = str_replace("?", $name, "DELETE FROM role WHERE entry='?'");
 		$stmt = $db->prepare($query);
 		$stmt->execute();
 		$db->commit();

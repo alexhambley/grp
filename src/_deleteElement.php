@@ -1,9 +1,9 @@
 <?php
     
-    if (empty($_GET['name']))
+    if (empty($_POST['name']))
         exit("Invalid parameters.");
 
-    $name = trim($_GET['name']);
+    $name = trim($_POST['name']);
 
 	if ($name == "")
 	    exit("Invalid parameters.");
@@ -23,7 +23,11 @@
 		$stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $id = $row['id'];
-        echo $id;
+        if ($id == "")
+        {
+            echo "Element: '$name' could not be found.";
+            exit;
+        }
         
         $query = str_replace("?", $name, "DELETE FROM element WHERE elementname = '?'");
 		$stmt = $db->prepare($query);
@@ -64,19 +68,22 @@
             }
             $elements[$counter] = "";
             $elements = implode(",", $elements);
-            echo $elements[0];
+            
             if ($elements[0] == ',')
             {
-                $elements = str_replace(','.$elements[1], $elements[1], $elements);
+                $elements[0] = '?';
+                $elements = str_replace('?'.$elements[1], $elements[1], $elements);
             }
             else if ($elements[strlen($elements)-1] == ',')
             {
-                $elements = str_replace($elements[strlen($elements) - 2].',', $elements[strlen($elements) - 2], $elements);
+                $elements[strlen($elements)-1] = '?';
+                $elements = str_replace($elements[strlen($elements) - 2].'?', $elements[strlen($elements) - 2], $elements);
             }
             else
             {
                 $elements = str_replace(',,',',', $elements);
             }
+            
             $query = str_replace("?", $row['id'], "UPDATE theme SET elements = '!' WHERE id = ?");
             $query = str_replace("!", $elements, $query);
             $stmt = $db->prepare($query);

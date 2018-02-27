@@ -1,9 +1,9 @@
 <?php
     
-    if (empty($_GET['name']))
+    if (empty($_POST['name']))
         exit("Invalid parameters.");
 
-    $name = trim($_GET['name']);;
+    $name = trim($_POST['name']);;
 
 	if ($name == "")
 	    exit("Invalid parameters.");
@@ -23,6 +23,11 @@
 		$stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $id = $row['theme_id'];
+        if ($id == "")
+        {
+            echo "Theme: '$name' could not be found.";
+            exit;
+        }
         
         $query = str_replace("?", $name, "DELETE FROM theme WHERE themename = '?'");
         $stmt = $db->prepare($query);

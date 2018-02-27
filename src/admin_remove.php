@@ -31,18 +31,20 @@
         </div>
     </nav>
 
-    <form action="/action_page.php" style="margin-top: 62px">
-        <fieldset>
+    <form action="_deleteTheme.php" style="margin-top: 62px" method="post">
             <legend>Remove:</legend>
             Themes:<br>
-            <input type="text" name="firstname">
+            <input type="text" name="name">
             <input type="submit" value="Submit"><br><br>
+    </form>
+    <form action="_deleteRole.php" style="margin-top: 62px" method="post">
             Role:<br>
-            <input type="text" name="lastname" >
+            <input type="text" name="name" >
             <input type="submit" value="Submit"><br><br>
+    </form>
+    <form action="_deleteElement.php" style="margin-top: 62px" method="post">
             Elements:<br>
-            <input type="text" name="lastname" >
+            <input type="text" name="name" >
             <input type="submit" value="Submit"><br><br>
-            </fieldset>
     </form>
 </body>
