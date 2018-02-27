@@ -1,12 +1,12 @@
 <?php
     
-    if (empty($_GET['id']))
+    if (empty($_GET['name']))
         exit("Invalid parameters.");
 
-    $id = trim($_GET['id']);
+    $name = trim($_GET['name']);
     
 
-	if ($id == "")
+	if ($name == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
@@ -18,9 +18,8 @@
 
 	try {
 		$db->beginTransaction();
-		$query = "DELETE FROM role WHERE id=:id";
+		$query = str_replace("?", $name, "DELETE FROM role WHERE entry='?'");
 		$stmt = $db->prepare($query);
-        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {
