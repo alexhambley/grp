@@ -1,12 +1,11 @@
 <?php
     
-    if (empty($_GET['id']))
+    if (empty($_GET['name']))
         exit("Invalid parameters.");
 
-    $id = trim($_GET['id']);;
-    
+    $name = trim($_GET['name']);;
 
-	if ($id == "")
+	if ($name == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
@@ -18,30 +17,53 @@
 
 	try {
 		$db->beginTransaction();
-        $query = "DELETE FROM theme WHERE id=:id";
+        
+        $query = str_replace("?", $name, "SELECT theme_id FROM theme WHERE themename = '?'");
+		$stmt = $db->prepare($query);
+		$stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $id = $row['theme_id'];
+        
+        $query = str_replace("?", $name, "DELETE FROM theme WHERE themename = '?'");
         $stmt = $db->prepare($query);
-        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
 		$stmt->execute();
         
-        $query = "SELECT id, themes FROM role WHERE themes = '%:id%";
+        $query = str_replace("?", $id, "SELECT id, themes FROM role WHERE themes = '?' OR themes LIKE '%,?' OR themes LIKE '?,%' OR themes LIKE '%,?,%'");
         $stmt = $db->prepare($query);
-		$stmt->bindParam(":id",$id,PDO::PARAM_STR);
         $result = $stmt->execute();
-        while ($row = $result->fetch_array(MYSQLI_ASSOC)) 
+                             
+        foreach ($stmt as $row) 
         {
             $counter = 0;
-            $themes = explode(",", ${row['themes']});
+            $themes = explode(",", $row['themes']);
             while  ($themes[$counter] != $id)
             {
                 $counter = $counter + 1;
             }
             $themes[$counter] = "";
             $themes = implode(",", $themes);
+           
+            if ($themes != "")
+            {
+                if ($themes[0] == ',')
+                {
+                    $themes[0] = '?';
+                    $themes = str_replace('?'.$themes[1], $themes[1], $themes);
+                }
+                else if ($themes[strlen($themes)-1] == ',')
+                {
+                    $themes[strlen($themes)-1] = '?';
+                    $themes = str_replace($themes[strlen($themes) - 2].'?', $themes[strlen($themes) - 2], $themes);
+                }
+                else
+                {
+                    $themes = str_replace(',,',',', $themes);
+                }
+            }
             
-            $query = "UPDATE role SET themes = :themes WHERE id = :id";
+            $query = str_replace("?", $themes, "UPDATE role SET themes = '?' WHERE id = !");
+            $query = str_replace("!", $row['id'], $query);
             $stmt = $db->prepare($query);
-            $stmt->bindParam(":id",${row['id']},PDO::PARAM_STR);
-            $stmt->bindParam(":themes",$themes,PDO::PARAM_STR);
             $stmt->execute();    
         }
         
@@ -57,7 +79,7 @@
 	$db = null;
 
 
-	echo "The selected theme was updated.";
+	echo "The selected theme was deleted.";
 	exit;
 
 ?>
