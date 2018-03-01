@@ -2,14 +2,19 @@
     include "header.php";
     include "navbar.php";
     include "db.php";    
+    include '_db-user-util.php';
+    
     session_start();
-
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
-        $password = $_POST['password'];
-        if ($username == 'admin' and $password == '123456') {
+        $password = md5($_POST['password']);
+        if (!authenticate($username, $password)) {
+            $invalid = true;
+        }
+        else {
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
+
             header('Location: index_admin.php');
             exit();
         }
@@ -27,7 +32,7 @@
             <h1>Food Science</h1>
         </div>
 
-        <form class="col-md-4 col-md-offset-4" action="login.php" method="POST">
+        <form class="col-md-4 col-md-offset-4" action="admin_login.php" method="POST">
             <div class="form-group has-error text-center">
             </div>
             <div class="form-group">

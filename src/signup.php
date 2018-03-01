@@ -1,5 +1,11 @@
 <?php
     include '_db-user-util.php';
+    session_start();
+    if (!$_SESSION['loggedin']) {
+        header('Location: index.php');
+        exit();
+    }
+
     $existName = false;
     $isValid = false;
     $errorDB = false;

@@ -55,6 +55,9 @@
             
             <h2>4. Elements of Themes</h2>
             <p><a href="allThemes.php">List all themes with their elements</a></p>
+
+            <h2>5. Create an new account</h2>
+            <p><a href="signup.php">Create!</a></p>
         </div>    
         
         
