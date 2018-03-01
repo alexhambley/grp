@@ -1,12 +1,12 @@
 <?php
     
-    if (empty($_GET['elementName']) || empty($_GET['description']))
+    if (empty($_POST['name']) || empty($_POST['description']))
         exit("Invalid parameters.");
 
-    $elementName = trim($_GET['elementName']);
-    $description = trim($_GET['description']);
+    $name = trim($_POST['name']);
+    $description = trim($_POST['description']);
     
-	if ($elementName == "" || $description == "")
+	if ($name == "" || $description == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
@@ -18,10 +18,9 @@
 
 	try {
 		$db->beginTransaction();
-		$query = "INSERT INTO element (elementname, description) VALUES (:elementName,:description)";
+		$query = str_replace("?", $name, "INSERT INTO element (elementname, description) VALUES ('?','!')");
+		$query = str_replace("!", $description, $query);
 		$stmt = $db->prepare($query);
-		$stmt->bindParam(":elementName",$elementName,PDO::PARAM_STR);
-        $stmt->bindParam(":description",$descripton,PDO::PARAM_INT);
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {
@@ -35,7 +34,7 @@
 	$db = null;
 
 
-	echo "The element has been added.";
+	echo "The element '$name' has been added.";
 	exit;
 
 ?>

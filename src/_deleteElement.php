@@ -102,7 +102,7 @@
 	$db = null;
 
 
-	echo "The element has been deleted.";
+	echo "The element '$name' has been deleted.";
 	exit;
 
 ?>

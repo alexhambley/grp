@@ -44,7 +44,7 @@
 	$db = null;
 
 
-	echo "The selected role has been deleted.";
+	echo "The role '$name' has been deleted.";
 	exit;
 
 ?>

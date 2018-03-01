@@ -84,7 +84,7 @@
 	$db = null;
 
 
-	echo "The selected theme was deleted.";
+	echo "The theme '$name' was deleted.";
 	exit;
 
 ?>
