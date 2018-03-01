@@ -14,7 +14,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="view_students.php"> Students </a></li>
-                <li><a href="view_all.php"> Public (View All) </a></li>
+                <li><a href="index.php"> Public (View All) </a></li>
                 <li><a href="admin_login.php"> Admin Login </a></li>
                 <li>
                     <form id="searchform" method="get" action="navbar_search.php">
