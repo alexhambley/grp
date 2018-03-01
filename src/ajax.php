@@ -11,7 +11,7 @@
                                 UNION
                                 SELECT role.entry
                                 FROM role
-                                WHERE lower(role.entry)
+                                WHERE lower(role.entry) or lower(role.names)
                                 LIKE lower('%$searchresult%')
                                 UNION
                                 SELECT theme.themename
