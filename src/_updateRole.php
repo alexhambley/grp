@@ -1,6 +1,6 @@
 <?php
     
-    if (empty($_GET['roleId']) || empty($_GET['elements']) || empty($_GET['entry']) || empty($_GET['names']) || empty($_GET['description'])) || empty($_GET['themes'])
+    if (empty($_GET['roleId']) || empty($_GET['elements']) || empty($_GET['entry']) || empty($_GET['names']) || empty($_GET['description']) || empty($_GET['themes']))
         exit("Invalid parameters.");
 
     $roleId = trim($_GET['roleId']);
