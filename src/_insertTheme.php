@@ -1,11 +1,11 @@
 <?php
-    
+
     if (empty($_POST['name']) || empty($_POST['explanation']))
         exit("Invalid parameters.");
 
     $name = trim($_POST['name']);
-    $explanation = trim($_GET['explanation']);
-    
+    $explanation = trim($_POST['explanation']);
+
 
 	if ($name == "" || $explanation == "")
 	    exit("Invalid parameters.");
