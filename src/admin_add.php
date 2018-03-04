@@ -25,13 +25,52 @@
                 <li><a href="admin_add.php"> Add </a></li>
                 <li><a href="admin_remove.php"> Remove  </a></li>
                 <li><a href="admin_update.php"> Update</a></li>
-                
+
                 <div id="display"></div>
             </ul>
         </div>
     </nav>
 
-    <form action="/action_page.php" style="margin-top: 62px">
+    <form action="_insertTheme.php" style="margin-top: 62px" method="post">
+      <h4> Insert Themes </h4>
+      Name:
+      <input type="text" name="name">
+      <br>
+      Explanation:
+      <input type="text" name="explanation">
+      <br>
+      <input type="submit" value="Submit"><br><br>
+    </form>
+
+    <!-- <form action="_insertRole.php" style="margin-top: 62px" method="post">
+      <h4> Insert Roles </h4>
+      Entry Name:
+      <input type="text" name="name">
+      <br>
+      Description:
+
+      Alternative Names:
+
+
+      Related Elements:
+
+
+      Related Themes:
+
+
+
+
+      <input type="submit" value="Submit"><br><br>
+    </form>
+
+    <form action="_insertElement.php" style="margin-top: 62px" method="post">
+      Insert Elements
+      <input type="text" name="element">
+      <input type="submit" value="Submit"><br><br>
+    </form> -->
+
+
+    <!-- <form action="/action_page.php" style="margin-top: 62px">
   		<fieldset>
     		<legend>Add:</legend>
     		Themes:<br>
@@ -44,6 +83,6 @@
     		<input type="text" name="lastname" >
     		<input type="submit" value="Submit"><br><br>
   			</fieldset>
-	</form>
+	</form> -->
 
 </body>
