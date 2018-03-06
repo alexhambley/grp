@@ -5,6 +5,22 @@
     session_start();
 ?>
 
+<script>
+  var altNameLimit = 5;
+  var currNameNumber = 1;
+  function myFunc(numOfNames) {
+    if (altNameLimit == currNameNumber) {
+      alert ("You can't add any more alternative names")
+    } else {
+      var newAltName = document.createElement('div');
+      var aN = 'altName' + (currNameNumber + 1);
+      newAltName.innerHTML = "Name  " + (currNameNumber + 1) + "<br><input type='text' name='" + aN + "'>";
+      document.getElementById(numOfNames).appendChild(newAltName);
+      currNameNumber++;
+      return false;
+    }
+}
+</script>
 
 <!DOCTYPE html>
 <head>
@@ -42,24 +58,53 @@
       <input type="submit" value="Submit"><br><br>
     </form>
 
-    <!-- <form action="_insertRole.php" style="margin-top: 62px" method="post">
+    <form action="_insertRole.php" style="margin-top: 62px" method="post">
       <h4> Insert Roles </h4>
       Entry Name:
-      <input type="text" name="name">
+      <input type="text" name="entry">
       <br>
       Description:
-
+      <input type="text" name="description">
+      <br>
       Alternative Names:
-
-
+      <br>
+      <div id="numOfNames">
+        Name 1
+        <br>
+        <input type="text" name="altName1">
+      </div>
+      <button onclick="return myFunc('numOfNames')"> Add new alternative name </button>
+      <br>
       Related Elements:
-
+      <br>
+      <?php
+        $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
+        $stmt->execute();
+        $stmt->bind_result($id, $elementname);
+        while ($stmt->fetch()) {
+            $id = htmlentities($id);
+            $elementname = htmlentities($elementname);
+            echo "<input type=\"checkbox\" name=\"$elementname\" value=\"$id\">";
+            echo $elementname;
+            echo "<br>";
+        }
+      ?>
+      <br>
 
       Related Themes:
-
-
-
-
+      <br>
+      <?php
+        $stmt = $conn->prepare("SELECT id, themename FROM theme ORDER BY id ASC");
+        $stmt->execute();
+        $stmt->bind_result($themeid, $themename);
+        while ($stmt->fetch()) {
+            $themeid = htmlentities($themeid);
+            $themename = htmlentities($themename);
+            echo "<input type=\"checkbox\" name=\"$themename\" value=\"$themeid\">";
+            echo $themename;
+            echo "<br>";
+        }
+      ?>
       <input type="submit" value="Submit"><br><br>
     </form>
 
@@ -67,7 +112,7 @@
       Insert Elements
       <input type="text" name="element">
       <input type="submit" value="Submit"><br><br>
-    </form> -->
+    </form>
 
 
     <!-- <form action="/action_page.php" style="margin-top: 62px">
