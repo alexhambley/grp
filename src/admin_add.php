@@ -47,6 +47,9 @@
         </div>
     </nav>
 
+
+    <!-- INSERT THEME -->
+
     <form action="_insertTheme.php" style="margin-top: 62px" method="post">
       <h4> Insert Themes </h4>
       Name:
@@ -57,6 +60,8 @@
       <br>
       <input type="submit" value="Submit"><br><br>
     </form>
+
+    <!-- INSERT ROLE -->
 
     <form action="_insertRole.php" style="margin-top: 62px" method="post">
       <h4> Insert Roles </h4>
@@ -90,7 +95,6 @@
         }
       ?>
       <br>
-
       Related Themes:
       <br>
       <?php
@@ -108,10 +112,18 @@
       <input type="submit" value="Submit"><br><br>
     </form>
 
+    <!-- INSERT ELEMENT -->
+
     <form action="_insertElement.php" style="margin-top: 62px" method="post">
-      Insert Elements
-      <input type="text" name="element">
-      <input type="submit" value="Submit"><br><br>
+      <h4> Insert Elements </h4>
+
+      Element Name:
+      <input type="text" name="name">
+      <br>
+      Element Description:
+      <input type="text" name="description">
+      <br>
+    <input type="submit" value="Submit"><br><br>
     </form>
 
 
