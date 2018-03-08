@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 10:59 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Mar 08, 2018 at 12:07 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,30 +19,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `food graduates`
+-- Database: `g52grp`
 --
 
 -- --------------------------------------------------------
-
---
--- Table for users
--- 
-
-CREATE TABLE Users (
-    UserID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(50) NOT NULL UNIQUE,
-    Password VARCHAR(1000) NOT NULL,
-    Answer1 VARCHAR(1000) NOT NULL,
-    Answer2 VARCHAR(1000) NOT NULL,
-    Answer3 VARCHAR(1000) NOT NULL
-) ENGINE=InnoDB;
 
 --
 -- Table structure for table `element`
 --
 
 CREATE TABLE `element` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL,
   `elementname` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -108,7 +95,7 @@ INSERT INTO `element` (`id`, `elementname`, `description`) VALUES
 --
 
 CREATE TABLE `role` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL,
   `entry` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `names` varchar(400) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -143,7 +130,7 @@ INSERT INTO `role` (`id`, `entry`, `description`, `names`, `elements`, `themes`)
 --
 
 CREATE TABLE `theme` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL,
   `theme_id` varchar(4) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `themename` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `explanation` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -164,6 +151,21 @@ INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) V
 (7, 'D6', 'Innovation and Inquiry', 'Creativity in mind, approach and method to find new opportunities and enable results.', '20,14,26,27,1,33,38,5'),
 (8, 'D7', 'Dependability', 'Harnessing your experiences and skills to establish trust in your ability to deliver.', '43,47,34,46,32,30,29'),
 (9, 'D8', 'The Business World', 'Appreciation of systems and drivers that produce successful operational performance and profit.', '6,42,16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `UserID` int(11) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Password` varchar(1000) NOT NULL,
+  `Answer1` varchar(1000) NOT NULL,
+  `Answer2` varchar(1000) NOT NULL,
+  `Answer3` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -186,6 +188,41 @@ ALTER TABLE `role`
 --
 ALTER TABLE `theme`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`UserID`),
+  ADD UNIQUE KEY `Name` (`Name`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `element`
+--
+ALTER TABLE `element`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `theme`
+--
+ALTER TABLE `theme`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
