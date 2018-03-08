@@ -125,21 +125,4 @@
       <br>
     <input type="submit" value="Submit"><br><br>
     </form>
-
-
-    <!-- <form action="/action_page.php" style="margin-top: 62px">
-  		<fieldset>
-    		<legend>Add:</legend>
-    		Themes:<br>
-    		<input type="text" name="firstname">
-    		<input type="submit" value="Submit"><br><br>
-    		Role:<br>
-    		<input type="text" name="lastname" >
-    		<input type="submit" value="Submit"><br><br>
-    		Elements:<br>
-    		<input type="text" name="lastname" >
-    		<input type="submit" value="Submit"><br><br>
-  			</fieldset>
-	</form> -->
-
 </body>
