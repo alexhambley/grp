@@ -12,10 +12,10 @@
             <div class="navbar-header">
                 <a class="navbar-brand">Competencies for Food Graduates</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href="view_students.php"> Students </a></li>
-                <li><a href="index.php"> Public (View All) </a></li>
-                <li><a href="admin_login.php"> Admin Login </a></li>
+            <ul id='navbar' class="nav navbar-nav">
+                <li> <a href="view_students.php"> Students </a></li>
+                <li> <a href="index.php"> Public (View All) </a></li>
+                <li> <a href="admin_login.php"> Admin Login </a></li>
                 <li>
                     <form id="searchform" method="get" action="navbar_search.php">
                         <input type="text" name="selection" id="search" class="form-control" placeholder="Search">
@@ -53,8 +53,23 @@ $(document).ready(function() {
        }
    });
 });
+
+$("#navbar").on('click','li',function(){
+    // remove classname 'active' from all li who already has classname 'active'
+    $("#navbar li.active").removeClass("active");
+    // adding classname 'active' to current click li
+    $(this).addClass("active");
+});
+
+//
 // $(document).ready(function() {
 //     $('li.active').removeClass('active');
-//     $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+//     var activePage = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
+//     $(activePage).addClass('active');
+//
+//
+//
+//
+//     // $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
 // });
 </script>
