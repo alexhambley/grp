@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php // include "js/footer.js"; ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 <body>
@@ -54,22 +53,12 @@ $(document).ready(function() {
    });
 });
 
-$("#navbar").on('click','li',function(){
-    // remove classname 'active' from all li who already has classname 'active'
-    $("#navbar li.active").removeClass("active");
-    // adding classname 'active' to current click li
-    $(this).addClass("active");
+$(document).ready(function () {
+    var activePage = window.location;
+    $('ul.nav a[href="'+ activePage +'"]').parent().addClass('active');
+    $('ul.nav a').filter(function() {
+         return this.href == url;
+    }).parent().addClass('active');
 });
 
-//
-// $(document).ready(function() {
-//     $('li.active').removeClass('active');
-//     var activePage = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
-//     $(activePage).addClass('active');
-//
-//
-//
-//
-//     // $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
-// });
 </script>
