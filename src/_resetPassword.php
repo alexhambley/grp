@@ -7,5 +7,7 @@
         strcmp($answers['Phone'], $_POST['phone']) == 0 and
         strcmp($answers['Birthday'], $_POST['birthday']) == 0) {
         resetPassword($_SESSION['username-forget']);
+        header('Location: admin_login.php');
+        exit();
     }
 ?>
