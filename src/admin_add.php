@@ -24,7 +24,7 @@
 
 <!DOCTYPE html>
 <head>
-	<title> Admin Login </title>
+	<title> Add New </title>
 </head>
 
 <body>
