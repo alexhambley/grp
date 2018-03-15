@@ -89,7 +89,7 @@
         while ($stmt->fetch()) {
             $id = htmlentities($id);
             $elementname = htmlentities($elementname);
-            echo "<input type=\"checkbox\" name=\"$elementname\" value=\"$id\">";
+            echo "<input type=\"checkbox\" name=\"elements[]\" value=\"$id\">";
             echo $elementname;
             echo "<br>";
         }
@@ -104,7 +104,7 @@
         while ($stmt->fetch()) {
             $themeid = htmlentities($themeid);
             $themename = htmlentities($themename);
-            echo "<input type=\"checkbox\" name=\"$themename\" value=\"$themeid\">";
+            echo "<input type=\"checkbox\" name=\"themes[]\" value=\"$themeid\">";
             echo $themename;
             echo "<br>";
         }
