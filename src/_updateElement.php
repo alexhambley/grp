@@ -1,14 +1,15 @@
 <?php
-    
-    if (empty($_POST['newName']) || empty($_POST['name']) || empty($_POST['description']))
+    var_dump($_POST);
+
+    if (empty($_POST['newName']) || empty($_POST['elementname']) || empty($_POST['description']))
         exit("Invalid parameters.");
 
     $newName = trim($_POST['newName']);
-    $name = trim($_POST['name']);
+    $elementname = trim($_POST['elementname']);
     $description = trim($_POST['description']);
-    
 
-	if ($newName == "" || $name == "" || $description == "")
+
+	if ($newName == "" || $elementname == "" || $description == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
@@ -22,7 +23,7 @@
 		$db->beginTransaction();
 		$query = str_replace("?", $newName, "UPDATE element SET elementname = '?', description = '!' WHERE elementname = '£'");
         $query = str_replace("!", $description, $query);
-        $query = str_replace("£", $name, $query);
+        $query = str_replace("£", $elementname, $query);
 		$stmt = $db->prepare($query);
 		$stmt->execute();
 		$db->commit();

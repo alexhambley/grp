@@ -73,5 +73,39 @@
     <input type="submit" value="Submit"><br><br>
   </form>
 
+  <!-- Update Element  -->
+  <form action="_updateElement.php" style="margin-top: 62px" method="post">
+    <h4> Update Elements </h4>
+    Choose existing element to update:
+    <select name="elementname" ">
+    <?php
+      $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
+      $stmt->execute();
+      $stmt->bind_result($id, $elementname);
+      while ($stmt->fetch()) {
+          $id = htmlentities($id);
+          $elementname = htmlentities($elementname);
+          echo "<option name=\"$elementname\" value=\"$elementname\">$elementname</option>";
+      }
+    ?>
+  </select>
+  <br>
+
+  New Name:
+  <input type="text" name="newName">
+  <br>
+  New Description:
+  <input type="text" name="description">
+
+  <input type="submit" value="Submit"><br><br>
+</form>
+
+
+
+
+
+
+
+
 
 </body>
