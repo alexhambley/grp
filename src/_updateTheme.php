@@ -1,10 +1,18 @@
 <?php
-    
+    // var_dump($_POST);
+    $elements = implode(",", array_filter($_POST['elements']));
+    var_dump($elements);
+
+        // var_dump($_POST['themeName']);
+    // var_dump($_POST['explanation']);
+    // var_dump($_POST['newName']);
+    // var_dump($_POST['elements']);
+
+
     if (empty($_POST['themeName']) || empty($_POST['explanation']) || empty($_POST['newName']))
         exit("Invalid parameters.");
 
     $themeName = trim($_POST['themeName']);
-	$elements = trim($_POST['elements']);
     $explanation = trim($_POST['explanation']);
     $newName = trim($_POST['newName']);
 
@@ -20,19 +28,17 @@
 
 	try {
 		$db->beginTransaction();
-        
-        $query = "SELECT id FROM theme WHERE themename = '$themeName'";
-		$stmt = $db->prepare($query);
-		$stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($row['theme_id'] == "")
-        {
-            echo "Theme: '$name' could not be found.";
-            exit;
-        }
-        
-        $query = "UPDATE theme SET elements='$elements', explanation='$explanation', themename='$newName' WHERE themename='$themeName'";
-        $stmt = $db->prepare($query);
+    // $query = "SELECT id , themename FROM theme WHERE themename = '$themeName'";
+		// $stmt = $db->prepare($query);
+		// $stmt->execute();
+    //     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    //     if ($row['id'] == "")
+    //     {
+    //         echo "Theme: '$themeName' could not be found.";
+    //         exit;
+    //     }
+    $query = "UPDATE theme SET elements='$elements', explanation='$explanation', themename='$newName' WHERE themename='$themeName'";
+    $stmt = $db->prepare($query);
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {
