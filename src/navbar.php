@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php // include "js/footer.js"; ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 <body>
@@ -12,10 +11,10 @@
             <div class="navbar-header">
                 <a class="navbar-brand">Competencies for Food Graduates</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href="view_students.php"> Students </a></li>
-                <li><a href="index.php"> Public (View All) </a></li>
-                <li><a href="admin_login.php"> Admin Login </a></li>
+            <ul id='navbar' class="nav navbar-nav">
+                <li> <a href="view_students.php"> Students </a></li>
+                <li> <a href="index.php"> Public (View All) </a></li>
+                <li> <a href="admin_login.php"> Admin Login </a></li>
                 <li>
                     <form id="searchform" method="get" action="navbar_search.php">
                         <input type="text" name="selection" id="search" class="form-control" placeholder="Search">
@@ -53,8 +52,13 @@ $(document).ready(function() {
        }
    });
 });
-// $(document).ready(function() {
-//     $('li.active').removeClass('active');
-//     $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
-// });
+
+$(document).ready(function () {
+    var activePage = window.location;
+    $('ul.nav a[href="'+ activePage +'"]').parent().addClass('active');
+    $('ul.nav a').filter(function() {
+         return this.href == url;
+    }).parent().addClass('active');
+});
+
 </script>

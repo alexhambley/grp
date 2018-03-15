@@ -1,18 +1,18 @@
 <?php
     
-    if (empty($_GET['roleId']) || empty($_GET['elements']) || empty($_GET['entry']) || empty($_GET['names']) || empty($_GET['description']) || empty($_GET['themes']))
+    if (empty($_POST['entry']) || empty($_POST['elements']) || empty($_POST['newEntry']) || empty($_POST['names']) || empty($_POST['description']) || empty($_POST['themes']))
         exit("Invalid parameters.");
 
-    $roleId = trim($_GET['roleId']);
-	$elements = ",".trim($_GET['elements']).",";
-    $entry = trim($_GET['entry']);
-    $names = trim($_GET['names']);
-    $description = trim($_GET['description']);
-    $themes = trim($_GET['themes']);
+    $entry = trim($_POST['entry']);
+	$elements = ",".trim($_POST['elements']).",";
+    $newEntry = trim($_POST['newEntry']);
+    $names = trim($_POST['names']);
+    $description = trim($_POST['description']);
+    $themes = trim($_POST['themes']);
     
 
-	if ($roleID == "" || $elements == "" || $entry == "" || $names == "" || $decription == "" || $themes == "")
-	    exit("Invalid parameters.");
+	if ($entry == "" || $elements == "" || $newEntry == "" || $names == "" || $description == "" || $themes == "")
+	    exit("Invalid parameter.");
 
 	include 'credentials.php';
 
@@ -23,14 +23,9 @@
 
 	try {
 		$db->beginTransaction();
-		$query = "UPDATE role SET elements=:elements, entry=:entry, names=:names, description=:description, themes=:themes WHERE id=:id";
+        
+		$query = "UPDATE role SET elements = '$elements', entry = '$newEntry', names = '$names', description = '$description', themes = '$themes' WHERE entry = '$entry'";
 		$stmt = $db->prepare($query);
-		$stmt->bindParam(":elements",$elements,PDO::PARAM_STR);
-	    $stmt->bindParam(":id",$roleId,PDO::PARAM_INT);
-        $stmt->bindParam(":entry",$entry,PDO::PARAM_INT);
-        $stmt->bindParam(":names",$names,PDO::PARAM_INT);
-        $stmt->bindParam(":description",$descripton,PDO::PARAM_INT);
-        $stmt->bindParam(":themes",$themes,PDO::PARAM_INT);
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {

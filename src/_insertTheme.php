@@ -1,14 +1,13 @@
 <?php
-    
-    if (empty($_GET['themeName']) || empty($_GET['explanation']))
+
+    if (empty($_POST['name']) || empty($_POST['explanation']))
         exit("Invalid parameters.");
 
-    $themeName = trim($_GET['themeName']);
-	$elements = trim($_GET['elements']);
-    $description = trim($_GET['explanation']);
-    
+    $name = trim($_POST['name']);
+    $explanation = trim($_POST['explanation']);
 
-	if ($themeName == "" || $description == "")
+
+	if ($name == "" || $explanation == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
@@ -20,19 +19,19 @@
 
 	try {
 		$db->beginTransaction();
-		if (elements != "")
+		if (!empty($_POST['elements']))
         {
-            $query = "INSERT INTO theme (elements, explanation, themename) VALUES (:elements,:description,:themeName)";
+            $query = str_replace("?", $name, "INSERT INTO theme (themename, explanation, elements) VALUES ('!','?','£')");
+            $query = str_replace("!", $explanation, $query);
+            $query = str_replace("£", trim($_POST['elements']), $query);
             $stmt = $db->prepare($query);
-            $stmt->bindParam(":elements",$elements,PDO::PARAM_STR);
         }
         else
         {
-            query = "INSERT INTO theme (explanation, themename) VALUES (:description,:themeName)";
+            $query = str_replace("?", $name, "INSERT INTO theme (themename, explanation) VALUES ('?','!')");
+            $query = str_replace("!", $explanation, $query);
             $stmt = $db->prepare($query);
         }
-        $stmt->bindParam(":description",$descripton,PDO::PARAM_INT);
-        $stmt->bindParam(":themeName",$themeName,PDO::PARAM_INT);
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {
@@ -46,7 +45,7 @@
 	$db = null;
 
 
-	echo "The selected theme was updated.";
+	echo "The theme '$name' was added.";
 	exit;
 
 ?>

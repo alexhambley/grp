@@ -1,14 +1,14 @@
 <?php
     
-    if (empty($_GET['elementId']) || empty($_GET['elementName']) || empty($_GET['description']))
+    if (empty($_POST['newName']) || empty($_POST['name']) || empty($_POST['description']))
         exit("Invalid parameters.");
 
-    $elementID = trim($_GET['elementId']);
-    $elementName = trim($_GET['elementName']);
-    $description = trim($_GET['description']);
+    $newName = trim($_POST['newName']);
+    $name = trim($_POST['name']);
+    $description = trim($_POST['description']);
     
 
-	if ($elementID == "" || $elementName == "" || $description == "")
+	if ($newName == "" || $name == "" || $description == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
@@ -20,11 +20,10 @@
 
 	try {
 		$db->beginTransaction();
-		$query = "UPDATE element SET elementname=:elementName, description=:description WHERE id=:elementId";
+		$query = str_replace("?", $newName, "UPDATE element SET elementname = '?', description = '!' WHERE elementname = '£'");
+        $query = str_replace("!", $description, $query);
+        $query = str_replace("£", $name, $query);
 		$stmt = $db->prepare($query);
-		$stmt->bindParam(":elementName",$elementName,PDO::PARAM_STR);
-	    $stmt->bindParam(":elementId",$elementId,PDO::PARAM_INT);
-        $stmt->bindParam(":description",$descripton,PDO::PARAM_INT);
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {
@@ -38,7 +37,7 @@
 	$db = null;
 
 
-	echo "The selected element was updated.";
+	echo "The element has been updated.";
 	exit;
 
 ?>

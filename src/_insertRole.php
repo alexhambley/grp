@@ -1,34 +1,39 @@
 <?php
-    
-    if (empty($_GET['elements']) || empty($_GET['entry']) || empty($_GET['names']) || empty($_GET['description']) || empty($_GET['themes']))
+// var_dump($_POST);
+
+  $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
+  $names = implode(",", array_filter($tempAlternativeNames));
+
+  // var_dump($altNames);
+
+    if (empty($names) || empty($_POST['elements']) || empty($_POST['entry']) || empty($_POST['description']) || empty($_POST['themes']))
         exit("Invalid parameters.");
 
-	$elements = ",".trim($_GET['elements']).",";
-    $entry = trim($_GET['entry']);
-    $names = trim($_GET['names']);
-    $description = trim($_GET['description']);
-    $themes = trim($_GET['themes']);
-    
+    // $names = trim($_POST['names']);
+	  $elements = trim($_POST['elements']);
+    $entry = trim($_POST['entry']);
+    $description = trim($_POST['description']);
+    $themes = trim($_POST['themes']);
 
-	if ($elements == "" || $entry == "" || $names == "" || $decription == "" || $themes == "")
+
+	if ($elements == "" || $entry == "" || $names == "" || $description == "" || $themes == "")
 	    exit("Invalid parameters.");
 
 	include 'credentials.php';
 
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
-    $db = new PDO($dsn,$db_username,$db_password);
+  $db = new PDO($dsn,$db_username,$db_password);
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	try {
 		$db->beginTransaction();
-		$query = "INSERT INTO role (entry, description, names, elements, themes) VALUE (:elements,:entry,:names,:description,:themes)";
+		$query = str_replace("?", $entry, "INSERT INTO role (entry, description, names, elements, themes) VALUE ('?','!','£','%','*')");
+    $query = str_replace("!", $description, $query);
+    $query = str_replace("£", $names, $query);
+    $query = str_replace("%", ','.$elements.',', $query);
+    $query = str_replace("*", $themes, $query);
 		$stmt = $db->prepare($query);
-		$stmt->bindParam(":elements",$elements,PDO::PARAM_STR);
-        $stmt->bindParam(":entry",$entry,PDO::PARAM_INT);
-        $stmt->bindParam(":names",$names,PDO::PARAM_INT);
-        $stmt->bindParam(":description",$descripton,PDO::PARAM_INT);
-        $stmt->bindParam(":themes",$themes,PDO::PARAM_INT);
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {
@@ -42,7 +47,7 @@
 	$db = null;
 
 
-	echo "The role has been added.";
+	echo "The role '$entry' has been added.";
 	exit;
 
 ?>
