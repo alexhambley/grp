@@ -1,15 +1,25 @@
 <?php
-    
-    if (empty($_POST['entry']) || empty($_POST['elements']) || empty($_POST['newEntry']) || empty($_POST['names']) || empty($_POST['description']) || empty($_POST['themes']))
+
+    var_dump($_POST);
+    $elements = implode(",", array_filter($_POST['elements']));
+    $themes = implode(",", array_filter($_POST['themes']));
+    // var_dump($elements);
+    // var_dump($themes);
+
+    $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
+    $names = implode(",", array_filter($tempAlternativeNames));
+
+    if (empty($_POST['entry']) || empty($_POST['newEntry']) || empty($_POST['description']))
         exit("Invalid parameters.");
 
     $entry = trim($_POST['entry']);
-	$elements = ",".trim($_POST['elements']).",";
     $newEntry = trim($_POST['newEntry']);
-    $names = trim($_POST['names']);
     $description = trim($_POST['description']);
-    $themes = trim($_POST['themes']);
-    
+    // $names = trim($_POST['names']);
+
+	  // $elements = ",".trim($_POST['elements']).",";
+    // $themes = trim($_POST['themes']);
+
 
 	if ($entry == "" || $elements == "" || $newEntry == "" || $names == "" || $description == "" || $themes == "")
 	    exit("Invalid parameter.");
@@ -23,7 +33,7 @@
 
 	try {
 		$db->beginTransaction();
-        
+
 		$query = "UPDATE role SET elements = '$elements', entry = '$newEntry', names = '$names', description = '$description', themes = '$themes' WHERE entry = '$entry'";
 		$stmt = $db->prepare($query);
 		$stmt->execute();

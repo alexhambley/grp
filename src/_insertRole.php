@@ -1,17 +1,30 @@
 <?php
-  var_dump
+  // var_dump($_POST);
+  // $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
+  $names = implode(",", array_filter(array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5'])));
+  $elements = implode(",", array_filter($_POST['elements']));
+  $tempArr = $_POST['themes'];
+  // var_dump($tempArr);
 
-  $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
-  $names = implode(",", array_filter($tempAlternativeNames));
+  $i = 0;
+  while ($i != sizeof($tempArr)) {
+    $temp = $tempArr[$i];
+    $tempArr[$i] = 'D';
+    $tempArr[$i] .= $temp;
+    $i++;
+  }
+  // var_dump($tempArr);
 
+  $themes = implode(",", array_filter($tempArr));
+  var_dump($themes);
 
-    if (empty($names) || empty($_POST['elements']) || empty($_POST['entry']) || empty($_POST['description']) || empty($_POST['themes']))
+    if (empty($names) || empty($elements) || empty($_POST['entry']) || empty($_POST['description']))
         exit("Invalid parameters.");
 
-	  $elements = trim($_POST['elements']);
+	  // $elements = trim($_POST['elements']);
     $entry = trim($_POST['entry']);
     $description = trim($_POST['description']);
-    $themes = trim($_POST['themes']);
+    // $themes = trim($_POST['themes']);
 
 
 	if ($elements == "" || $entry == "" || $names == "" || $description == "" || $themes == "")
