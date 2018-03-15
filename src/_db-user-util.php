@@ -80,4 +80,15 @@
         $stmt->bindParam(':Password', $infos['password']);
         $stmt->execute();
     }
+
+    function fetchAnswers($username) {
+        global $pdo;
+
+        $stmt = $pdo->prepare('SELECT Email, Phone, Birthday FROM Users WHERE Name = :Name');
+        $stmt->bindParam(':Name', $username);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 ?>

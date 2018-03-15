@@ -1,15 +1,13 @@
 <?php
-// var_dump($_POST);
+  var_dump
 
   $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
   $names = implode(",", array_filter($tempAlternativeNames));
 
-  // var_dump($altNames);
 
     if (empty($names) || empty($_POST['elements']) || empty($_POST['entry']) || empty($_POST['description']) || empty($_POST['themes']))
         exit("Invalid parameters.");
 
-    // $names = trim($_POST['names']);
 	  $elements = trim($_POST['elements']);
     $entry = trim($_POST['entry']);
     $description = trim($_POST['description']);

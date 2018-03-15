@@ -5,16 +5,18 @@
     <style>
     /* Otherwise the navbar will cover stuff in body */
         body { padding-top: 70px; }
+        li{ 
     </style>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+            <a href="http://www.nottingham.ac.uk/" style="background-image: url(img/UoN_Primary_Logo_RGB.png); height: 50px; padding-left: 10px; padding-bottom: 5px"></a>
             <div class="navbar-header">
-                <a class="navbar-brand">Competencies for Food Graduates</a>
+                <a class="navbar-brand" href="view_all.php">Food Sciences Graduate Competencies</a>
             </div>
             <ul id='navbar' class="nav navbar-nav">
-                <li> <a href="view_students.php"> Students </a></li>
-                <li> <a href="index.php"> Public (View All) </a></li>
-                <li> <a href="admin_login.php"> Admin Login </a></li>
+                <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Students </a></li>
+                <li> <a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a></li>
+                <li> <a href="admin_login.php"  style="color: #1a296b; font-weight: bold"> Admin </a></li>
                 <li>
                     <form id="searchform" method="get" action="navbar_search.php">
                         <input type="text" name="selection" id="search" class="form-control" placeholder="Search">

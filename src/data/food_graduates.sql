@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2018 at 12:07 PM
+-- Generation Time: Mar 15, 2018 at 12:28 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -30,7 +30,8 @@ CREATE TABLE Users (
     Name VARCHAR(50) NOT NULL UNIQUE,
     Password VARCHAR(1000) NOT NULL,
     Phone VARCHAR(30) NOT NULL UNIQUE,
-    Email VARCHAR(255) NOT NULL UNIQUE
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    Birthday VARCHAR(20) NOT NULL,
 ) ENGINE = InnoDB;
 
 --
@@ -151,15 +152,15 @@ CREATE TABLE `theme` (
 --
 
 INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) VALUES
-(1, 'D0', 'Desirability for a general level of competence across all themes', 'Data indicates a desirability for a general level of competence across all themes', NULL),
-(2, 'D1', 'Positivity', 'Having the behaviours that drive success and wellbeing in the workplace', '7,19,39,35,29,31,3'),
-(3, 'D2', 'Appreciation of the Wider World', 'Engaging and embracing values, processes and ways of working in the industry with a diverse perspective.', '15,44,9,23,16,14,42'),
-(4, 'D3', 'Data, Numbers and Communications', 'The ability to embrace information of all types, then use it and disseminate to best advantage.', '4,17,40,48,1,11,45,13'),
-(5, 'D4', 'Getting the Job Done and Tackling Problems', 'Identifying and overcoming challenges to find solutions and reach your goals.', '10,8,18,36,30,21,2,24'),
-(6, 'D5', 'Working Well with Others', 'Using a variety of styles for effectiveness and synergy in your relationships and activities with others.', '41,22,24,45,12,5,28,25,37,13,9,21'),
-(7, 'D6', 'Innovation and Inquiry', 'Creativity in mind, approach and method to find new opportunities and enable results.', '20,14,26,27,1,33,38,5'),
-(8, 'D7', 'Dependability', 'Harnessing your experiences and skills to establish trust in your ability to deliver.', '43,47,34,46,32,30,29'),
-(9, 'D8', 'The Business World', 'Appreciation of systems and drivers that produce successful operational performance and profit.', '6,42,16');
+(0, 'D0', 'Desirability for a general level of competence across all themes', 'Data indicates a desirability for a general level of competence across all themes', NULL),
+(1, 'D1', 'Positivity', 'Having the behaviours that drive success and wellbeing in the workplace', '7,19,39,35,29,31,3'),
+(2, 'D2', 'Appreciation of the Wider World', 'Engaging and embracing values, processes and ways of working in the industry with a diverse perspective.', '15,44,9,23,16,14,42'),
+(3, 'D3', 'Data, Numbers and Communications', 'The ability to embrace information of all types, then use it and disseminate to best advantage.', '4,17,40,48,1,11,45,13'),
+(4, 'D4', 'Getting the Job Done and Tackling Problems', 'Identifying and overcoming challenges to find solutions and reach your goals.', '10,8,18,36,30,21,2,24'),
+(5, 'D5', 'Working Well with Others', 'Using a variety of styles for effectiveness and synergy in your relationships and activities with others.', '41,22,24,45,12,5,28,25,37,13,9,21'),
+(6, 'D6', 'Innovation and Inquiry', 'Creativity in mind, approach and method to find new opportunities and enable results.', '20,14,26,27,1,33,38,5'),
+(7, 'D7', 'Dependability', 'Harnessing your experiences and skills to establish trust in your ability to deliver.', '43,47,34,46,32,30,29'),
+(8, 'D8', 'The Business World', 'Appreciation of systems and drivers that produce successful operational performance and profit.', '6,42,16');
 
 -- --------------------------------------------------------
 
@@ -168,12 +169,11 @@ INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) V
 --
 
 CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Password` varchar(1000) NOT NULL,
-  `Answer1` varchar(1000) NOT NULL,
-  `Answer2` varchar(1000) NOT NULL,
-  `Answer3` varchar(1000) NOT NULL
+  `Phone` varchar(30) NOT NULL,
+  `Email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -202,8 +202,10 @@ ALTER TABLE `theme`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`),
-  ADD UNIQUE KEY `Name` (`Name`);
+  ADD PRIMARY KEY (`UserId`),
+  ADD UNIQUE KEY `Name` (`Name`),
+  ADD UNIQUE KEY `Phone` (`Phone`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -231,7 +233,7 @@ ALTER TABLE `theme`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
