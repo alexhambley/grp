@@ -9,12 +9,12 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Competencies for Food Graduates</a>
+                <a class="navbar-brand" href="view_all.php">Food Sciences Graduate Competencies</a>
             </div>
             <ul id='navbar' class="nav navbar-nav">
-                <li> <a href="view_students.php"> Students </a></li>
-                <li> <a href="index.php"> Public (View All) </a></li>
-                <li> <a href="admin_login.php"> Admin Login </a></li>
+                <li style="color: #1a296b"> <a href="view_students.php"> Students </a></li>
+                <li style="color: #1a296b"> <a href="index.php"> View All </a></li>
+                <li style="color: #1a296b"> <a href="admin_login.php"> Admin </a></li>
                 <li>
                     <form id="searchform" method="get" action="navbar_search.php">
                         <input type="text" name="selection" id="search" class="form-control" placeholder="Search">
