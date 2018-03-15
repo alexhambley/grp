@@ -7,20 +7,29 @@
     }
 
     $existName = false;
+    $existEmail = false;
+    $existPhone = false;
     $isValid = false;
     $errorDB = false;
-
-    session_start();
     
-    if (isset($_POST['submit']) and isset($_POST['username']) and isset($_POST['password'])) {
+    if (isset($_POST['submit']) and isset($_POST['username']) and isset($_POST['password']) and isset($_POST['email']) and isset($_POST['birthday']) and isset($_POST['phone'])) {
         $username = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
         $password = md5($_POST['password']);
+        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+        $birthday = filter_var(trim($_POST['birthday']), FILTER_SANITIZE_STRING);
+        $phone = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
 
         if (isExistUser($username)) {
             $existName = true;
         }
+        elseif (isExistEmail($email)) {
+            $existEmail = true;
+        }
+        elseif (isExistPhone($phone)) {
+            $existPhone = true;
+        }
         else {
-            $infos = array('username' => $username, 'password' => $password);
+            $infos = array('username' => $username, 'password' => $password, 'email' => $email, 'phone' => $phone);
 
             $isValid = true;
             try {
@@ -32,7 +41,7 @@
 
         }
 
-        if (!$existName and $isValid and !$errorDB) {
+        if (!$existName and !$existEmail and !$existPhone and $isValid and !$errorDB) {
             header('Location: index_admin.php');
             exit();
         }
@@ -56,6 +65,12 @@
             <?php if ($existName) { ?>
                 <p class="help-block">This username already exists!</p>
             <?php } ?>
+            <?php if ($existEmail) { ?>
+                <p class="help-block">This email has been used!</p>
+            <?php } ?>
+            <?php if ($existPhone) { ?>
+                <p class="help-block">This phone number has been used!</p>
+            <?php } ?>
             <?php if ($errorDB) { ?>
                 <p class="help-block">Error Connecting DB! Try again!</p>
             <?php } ?>
@@ -74,6 +89,29 @@
                     <input class="form-control" type="password" name="password" placeholder="Password" required>
                 </div>
                 <span class="help-block hidden" id="password-invalid">Invalid password! (Min length is 6)</span>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <h5>What's Your Email Address?</h5>
+                    <textarea class="form-control" name="email" placeholder="e.g. abc@nottingham.ac.uk"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <h5>What's Your Birthday?</h5>
+                    <textarea class="form-control" name="birthday" placeholder="e.g. 1970-01-01"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <h5>What's Your Phone Number?</h5>
+                    <textarea class="form-control" name="phone" placeholder="e.g. 1234-5678-90"></textarea>
+                </div>
             </div>
             <div class="form-group">
                 <input class="form-control btn btn-primary" type="submit" name="submit" value="Register">

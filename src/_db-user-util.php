@@ -20,6 +20,34 @@
         }
     }
 
+    function isExistEmail($email) {
+        global $pdo;
+        $stmt = $pdo->prepare('SELECT * FROM Users WHERE Email = :Email');
+        $stmt->bindParam(':Email', $email);
+        $stmt->execute();
+
+        if ($stmt->rowCount() != 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function isExistPhone($phone) {
+        global $pdo;
+        $stmt = $pdo->prepare('SELECT * FROM Users WHERE Phone = :Phone');
+        $stmt->bindParam(':Phone', $phone);
+        $stmt->execute();
+
+        if ($stmt->rowCount() != 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     function authenticate($username, $password) {
         global $pdo;
 
