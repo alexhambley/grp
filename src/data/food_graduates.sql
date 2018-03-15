@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2018 at 12:24 PM
+-- Generation Time: Mar 15, 2018 at 12:28 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -159,12 +159,11 @@ INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) V
 --
 
 CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Password` varchar(1000) NOT NULL,
-  `Answer1` varchar(1000) NOT NULL,
-  `Answer2` varchar(1000) NOT NULL,
-  `Answer3` varchar(1000) NOT NULL
+  `Phone` varchar(30) NOT NULL,
+  `Email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -193,8 +192,10 @@ ALTER TABLE `theme`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`),
-  ADD UNIQUE KEY `Name` (`Name`);
+  ADD PRIMARY KEY (`UserId`),
+  ADD UNIQUE KEY `Name` (`Name`),
+  ADD UNIQUE KEY `Phone` (`Phone`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -222,7 +223,7 @@ ALTER TABLE `theme`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
