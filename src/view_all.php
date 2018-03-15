@@ -26,6 +26,9 @@
     .thumbnail:hover {
         box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     }
+    .btn {
+        background-color: #192A6C;
+    }
   </style>
 </head>
 
