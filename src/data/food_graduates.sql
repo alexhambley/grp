@@ -31,7 +31,7 @@ CREATE TABLE Users (
     Password VARCHAR(1000) NOT NULL,
     Phone VARCHAR(30) NOT NULL UNIQUE,
     Email VARCHAR(255) NOT NULL UNIQUE,
-    Birthday VARCHAR(20) NOT NULL,
+    Birthday VARCHAR(20) NOT NULL
 ) ENGINE = InnoDB;
 
 --
