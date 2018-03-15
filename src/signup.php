@@ -17,7 +17,7 @@
         $password = md5($_POST['password']);
         $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
         $birthday = filter_var(trim($_POST['birthday']), FILTER_SANITIZE_STRING);
-        $phone = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
+        $phone = filter_var(trim($_POST['phone']), FILTER_SANITIZE_STRING);
 
         if (isExistUser($username)) {
             $existName = true;

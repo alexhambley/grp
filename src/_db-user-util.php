@@ -98,8 +98,8 @@
     function resetPassword($username) {
         global $pdo;
 
-        $stmt = $pdo->prepare('UPDATE Users SET Password = e10adc3949ba59abbe56e057f20f883e WHERE Name = :Name');
+        $stmt = $pdo->prepare('UPDATE Users SET Password = "e10adc3949ba59abbe56e057f20f883e" WHERE Name = :Name');
         $stmt->bindParam(':Name', $username);
-        $stmt->execte();
+        $stmt->execute();
     }
 ?>
