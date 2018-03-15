@@ -81,7 +81,6 @@
                     <input class="form-control" type="text" name="username" placeholder="Username" required>
                 </div>
                 <span class="help-block hidden" id="username-invalid">Invalid username! (only letters and spaces)</span>
-                <!-- <span class="help-block hidden" id="username-exist">This username has been used!</span> -->
             </div>
             <div class="form-group" id="div-password">
                 <div class="input-group">
@@ -98,19 +97,19 @@
             <div class="form-group">
                 <div class="input-group">
                     <h5>What's Your Email Address?</h5>
-                    <textarea class="form-control" name="email" placeholder="e.g. abc@nottingham.ac.uk"></textarea>
+                    <input class="form-control" type="text" name="email" placeholder="abc@nottingham.ac.uk">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <h5>What's Your Birthday?</h5>
-                    <textarea class="form-control" name="birthday" placeholder="e.g. 1970-01-01"></textarea>
+                    <input class="form-control" type="text" name="birthday" placeholder="1970-01-01">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <h5>What's Your Phone Number?</h5>
-                    <textarea class="form-control" name="phone" placeholder="e.g. 1234-5678-90"></textarea>
+                    <input class="form-control" type="text" name="phone" placeholder="123456789">
                 </div>
             </div>
             <div class="form-group">
