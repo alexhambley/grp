@@ -10,7 +10,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="http://www.nottingham.ac.uk/"><img src="img/UoN_Primary_Logo_RGB.png"></a>
+                <a href="http://www.nottingham.ac.uk/" style="background-image: url(img/UoN_Primary_Logo_RGB.png); height: 50px; padding-left: 10px; padding-bottom: 5px"></a>
                 <a class="navbar-brand" href="view_all.php">Food Sciences Graduate Competencies</a>
             </div>
             <ul id='navbar' class="nav navbar-nav">
