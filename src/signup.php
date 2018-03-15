@@ -29,7 +29,7 @@
             $existPhone = true;
         }
         else {
-            $infos = array('username' => $username, 'password' => $password, 'email' => $email, 'phone' => $phone);
+            $infos = array('username' => $username, 'password' => $password, 'email' => $email, 'phone' => $phone, 'birthday' => $birthday);
 
             $isValid = true;
             try {

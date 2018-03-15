@@ -75,9 +75,12 @@
     // function for signup a user account
     function signup($infos) {
         global $pdo;
-        $stmt = $pdo->prepare('INSERT INTO Users (Name, Password) VALUES (:Name, :Password)');
+        $stmt = $pdo->prepare('INSERT INTO Users (Name, Password, Phone, Email, Birthday) VALUES (:Name, :Password, :Phone, :Email, :Birthday)');
         $stmt->bindParam(':Name', $infos['username']);
         $stmt->bindParam(':Password', $infos['password']);
+        $stmt->bindParam(':Phone', $infos['phone']);
+        $stmt->bindParam(':Email', $infos['email']);
+        $stmt->bindParam(':Birthday', $infos['birthday']);
         $stmt->execute();
     }
 
