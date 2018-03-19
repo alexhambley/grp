@@ -14,7 +14,7 @@
                 <a class="navbar-brand" href="view_all.php">Competencies for Food Graduate Careers</a>
             </div>
             <ul id='navbar' class="nav navbar-nav">
-                <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Students </a></li>
+                <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Find a Career </a></li>
                 <li> <a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a></li>
                 <li> <a href="admin_login.php"  style="color: #1a296b; font-weight: bold"> Admin </a></li>
                 <li>
