@@ -34,8 +34,42 @@
 
 <body class="bg-grey">
 
+
+
 <div class="container-fluid text-center">
 <br>
+
+
+<div class="col-sm-4">
+    <div class="thumbnail">
+    <img src="roles.jpg" alt="Roles" style="width:500px;height:300px;">
+<button type="button" class="btn btn-primary" onclick="showRoles()"> Show / Hide Roles </button>
+<div id="Roles" style="display:none;">
+<?php
+    include "view_all_roles.php"
+?>
+
+</div>
+<script>
+    function showRoles() {
+        var x = document.getElementById("Roles");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+</div>
+</div>
+
+
+
+
+
+
+
+
     <div class="col-sm-0.5" style="background:blue">
     </div>
     <div class="col-sm-4">
@@ -48,6 +82,11 @@
         ?>
 
     </div>
+
+
+
+
+
     <script>
         function showThemes(myButton) {
             var x = document.getElementById("Themes");
@@ -60,28 +99,15 @@
     </script>
     </div>
     </div>
-    <div class="col-sm-4">
-        <div class="thumbnail">
-        <img src="roles.jpg" alt="Roles" style="width:500px;height:300px;">
-    <button type="button" class="btn btn-primary" onclick="showRoles()"> Show / Hide Roles </button>
-    <div id="Roles" style="display:none;">
-    <?php
-        include "view_all_roles.php"
-    ?>
-        
-    </div>
-    <script>
-        function showRoles() {
-            var x = document.getElementById("Roles");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-    </script>
-    </div>
-    </div>
+
+
+
+
+
+
+
+
+
     <div class="col-sm-4">
         <div class="thumbnail">
         <img src="4-elements-of-nature.jpg" style="width:500px;height:300px;">
@@ -90,7 +116,7 @@
     <?php
         include "view_all_elements.php"
     ?>
-        
+
     </div>
     <script>
         function showElements() {

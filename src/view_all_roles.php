@@ -1,9 +1,9 @@
 <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">
+                    <!-- <th scope="col">
                         #
-                    </th>
+                    </th> -->
                     <th scope="col">
                         Role Name
                     </th>
@@ -25,14 +25,16 @@
                     $elements = htmlentities($elements);
                     $themes = htmlentities($themes);
                     echo "<tr>";
-                        echo "<th scope=\"row\"> $id </th>";
+                        // echo "<th scope=\"row\"> $id </th>";
+                        // echo "<th scope=\"row\"> $id </th>";
+
                         echo "<td> $entry </td>";
                         echo "<td>";
                             echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#role_mod$id\">See More</button>";
-                            // Modal 
+                            // Modal
                             echo "<div class=\"modal fade\" id=\"role_mod$id\" role=\"dialog\">";
                                 echo "<div class=\"modal-dialog\">";
-                                    // Modal content 
+                                    // Modal content
                                     echo "<div class=\"modal-content\">";
                                         echo "<div class=\"modal-header\">";
                                             echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
@@ -47,8 +49,8 @@
                                             $counter = 0;
                                             while($counter != count($example_roles)) {
                                                 echo "<li class=\"list-group-item\">$example_roles[$counter]</li>";
-                                                $counter++;   
-                                            }                                 
+                                                $counter++;
+                                            }
                                         echo "</div>";
                                     echo "<div class=\"modal-footer\">";
                                         echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";

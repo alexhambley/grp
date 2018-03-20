@@ -3,9 +3,9 @@
 <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">
+                    <!-- <th scope="col">
                         #
-                    </th>
+                    </th> -->
                     <th scope="col">
                         Element Name
                     </th>
@@ -24,14 +24,16 @@
                     $elename = htmlentities($elename);
                     $desc = htmlentities($desc);
                     echo "<tr>";
-                        echo "<th scope=\"row\"> $id </th>";
+                        // echo "<th scope=\"row\"> $id </th>";
+                        // echo "<th scope=\"row\"> $id </th>";
+
                         echo "<td> $elename </td>";
                         echo "<td>";
                             echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#ele_mod$id\">See More</button>";
-                            // Modal 
+                            // Modal
                             echo "<div class=\"modal fade\" id=\"ele_mod$id\" role=\"dialog\">";
                                 echo "<div class=\"modal-dialog\">";
-                                    // Modal content 
+                                    // Modal content
                                     echo "<div class=\"modal-content\">";
                                         echo "<div class=\"modal-header\">";
                                             echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
