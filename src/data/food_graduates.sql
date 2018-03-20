@@ -105,7 +105,7 @@ INSERT INTO `element` (`id`, `elementname`, `description`) VALUES
 --
 
 CREATE TABLE `role` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `entry` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `names` varchar(400) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -140,7 +140,7 @@ INSERT INTO `role` (`id`, `entry`, `description`, `names`, `elements`, `themes`)
 --
 
 CREATE TABLE `theme` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `theme_id` varchar(4) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `themename` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `explanation` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -165,18 +165,6 @@ INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `UserId` int(11) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Password` varchar(1000) NOT NULL,
-  `Phone` varchar(30) NOT NULL,
-  `Email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
 -- Indexes for dumped tables
 --
 
@@ -198,14 +186,6 @@ ALTER TABLE `role`
 ALTER TABLE `theme`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserId`),
-  ADD UNIQUE KEY `Name` (`Name`),
-  ADD UNIQUE KEY `Phone` (`Phone`),
-  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
