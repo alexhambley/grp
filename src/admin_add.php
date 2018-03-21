@@ -13,8 +13,7 @@
       alert ("You can't add any more alternative names")
     } else {
       var newAltName = document.createElement('div');
-      var aN = 'altName' + (currNameNumber + 1);
-      newAltName.innerHTML = "Name  " + (currNameNumber + 1) + "<br><input type='text' name='" + aN + "'>";
+      newAltName.innerHTML = "Name  " + (currNameNumber + 1) + "<br><input type='text' name='altName[]'>";
       document.getElementById(numOfNames).appendChild(newAltName);
       currNameNumber++;
       return false;
@@ -58,6 +57,22 @@
       Explanation:
       <input type="text" name="explanation">
       <br>
+      Related Elements:
+      <br>
+      <?php
+        $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
+        $stmt->execute();
+        $stmt->bind_result($id, $elementname);
+        while ($stmt->fetch()) {
+            $id = htmlentities($id);
+            $elementname = htmlentities($elementname);
+            echo "<input type=\"checkbox\" name=\"elements[]\" value=\"$id\">";
+            echo $elementname;
+            echo "<br>";
+        }
+      ?>
+      <br>
+      <br>
       <input type="submit" value="Submit"><br><br>
     </form>
 
@@ -76,9 +91,9 @@
       <div id="numOfNames">
         Name 1
         <br>
-        <input type="text" name="altName1">
+        <input type="text" name="altName[]">
       </div>
-      <button onclick="return myFunc('numOfNames')"> Add new alternative name </button>
+      <button type=button onclick="return myFunc('numOfNames')"> Add new alternative name </button>
       <br>
       Related Elements:
       <br>
