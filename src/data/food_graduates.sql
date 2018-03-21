@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2018 at 12:28 PM
+-- Generation Time: Mar 21, 2018 at 01:43 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -23,23 +23,13 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
---
--- Table structure for table `Users`
-CREATE TABLE Users (
-    UserId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(50) NOT NULL UNIQUE,
-    Password VARCHAR(1000) NOT NULL,
-    Phone VARCHAR(30) NOT NULL UNIQUE,
-    Email VARCHAR(255) NOT NULL UNIQUE,
-    Birthday VARCHAR(20) NOT NULL
-) ENGINE = InnoDB;
 
 --
 -- Table structure for table `element`
 --
 
 CREATE TABLE `element` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(11) NOT NULL,
   `elementname` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -105,7 +95,7 @@ INSERT INTO `element` (`id`, `elementname`, `description`) VALUES
 --
 
 CREATE TABLE `role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(11) NOT NULL,
   `entry` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `names` varchar(400) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -140,7 +130,7 @@ INSERT INTO `role` (`id`, `entry`, `description`, `names`, `elements`, `themes`)
 --
 
 CREATE TABLE `theme` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(11) NOT NULL,
   `theme_id` varchar(4) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `themename` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `explanation` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -165,6 +155,19 @@ INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `UserId` int(11) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Password` varchar(1000) NOT NULL,
+  `Phone` varchar(30) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Birthday` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
 -- Indexes for dumped tables
 --
 
@@ -186,6 +189,14 @@ ALTER TABLE `role`
 ALTER TABLE `theme`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`UserId`),
+  ADD UNIQUE KEY `Name` (`Name`),
+  ADD UNIQUE KEY `Phone` (`Phone`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
