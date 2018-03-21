@@ -1,4 +1,4 @@
-<?php 
+<?php
     include "header.php";
     include "navbar.php";
     include "db.php";
@@ -34,8 +34,8 @@
 
                     $elementArray = explode(",", $elements);
 
-                    $stmt = $conn->prepare("SELECT id, elementname 
-                                            FROM element 
+                    $stmt = $conn->prepare("SELECT id, elementname
+                                            FROM element
                                             WHERE id = (?)
                                             ORDER BY id ASC");
 
@@ -68,8 +68,8 @@
 
                     $elementArray = explode(",", $elements);
 
-                    $stmt = $conn->prepare("SELECT id, elementname 
-                                            FROM element 
+                    $stmt = $conn->prepare("SELECT id, elementname
+                                            FROM element
                                             WHERE id = (?)
                                             ORDER BY id ASC");
 
@@ -102,8 +102,8 @@
 
                     $elementArray = explode(",", $elements);
 
-                    $stmt = $conn->prepare("SELECT id, elementname 
-                                            FROM element 
+                    $stmt = $conn->prepare("SELECT id, elementname
+                                            FROM element
                                             WHERE id = (?)
                                             ORDER BY id ASC");
 
@@ -120,8 +120,8 @@
                     $stmt->close();
                 ?>
                 <br><br>
-                <button class="btn btn-primary" 
-                    type="submit"">
+                <button class="btn btn-primary"
+                    type="submit">
                     Submit Element Choices
                 </button>
             </fieldset>
