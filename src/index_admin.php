@@ -38,7 +38,9 @@
             <p>&nbsp;</p>
             
             <h2>1. Database Management</h2>
-            <p><a href="dataUpdate.php">Update Role Elements</a></p>
+            <p><a href="admin_add.php">Add</a></p>
+            <p><a href="admin_update.php">Update</a></p>
+            <p><a href="admin_remove.php">Remove</a></p>
             <p>&nbsp;</p>
             
             <h2>2. View Role Profile</h2>
