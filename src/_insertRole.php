@@ -1,7 +1,7 @@
 <?php
   // var_dump($_POST);
   // $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
-  $names = implode(",", array_filter(array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5'])));
+  $names = implode(",", array_filter($_POST['altName']));
   $elements = implode(",", array_filter($_POST['elements']));
   $tempArr = $_POST['themes'];
   // var_dump($tempArr);
@@ -16,7 +16,7 @@
   // var_dump($tempArr);
 
   $themes = implode(",", array_filter($tempArr));
-  var_dump($themes);
+  //var_dump($themes);
 
     if (empty($names) || empty($elements) || empty($_POST['entry']) || empty($_POST['description']))
         exit("Invalid parameters.");
@@ -39,11 +39,7 @@
 
 	try {
 		$db->beginTransaction();
-		$query = str_replace("?", $entry, "INSERT INTO role (entry, description, names, elements, themes) VALUE ('?','!','£','%','*')");
-    $query = str_replace("!", $description, $query);
-    $query = str_replace("£", $names, $query);
-    $query = str_replace("%", ','.$elements.',', $query);
-    $query = str_replace("*", $themes, $query);
+		$query = "INSERT INTO role (entry, description, names, elements, themes) VALUE ('$entry','$description','$names',',$elements,','$themes')";
 		$stmt = $db->prepare($query);
 		$stmt->execute();
 		$db->commit();
