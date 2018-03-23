@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 include "navbar.php";
-include "db.php";
+
     session_start();
     if (!$_SESSION['loggedin']) {
         header('Location: login.php');
