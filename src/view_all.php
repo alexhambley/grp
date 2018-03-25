@@ -7,29 +7,9 @@
 
 <!DOCTYPE html>
 <head>
+    <link rel="stylesheet" href="css/view_all.css" />
     <Title> View All </Title>
-     <style>
 
-       .bg-grey {
-      background-color: #f6f6f6;
-  }
-       .thumbnail {
-      padding: 0 0 15px 0;
-      border: none;
-      border-radius: 0;
-  }
-     .thumbnail img {
-        width: 100%;
-      height: 100%;
-      margin-bottom: 10px;
-  }
-    .thumbnail:hover {
-        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-    }
-    .btn {
-        background-color: #192A6C;
-    }
-  </style>
 </head>
 
 <body class="bg-grey">
@@ -38,12 +18,13 @@
 
 <div class="container-fluid text-center">
 <br>
-
-<div>
-    <h3>Welcome to the Competencies for Food Graduates Toolkit</h3>
-    <h5>On this site, you can select your competencies, either as key themes, roles, or elements that you feel you are strong in, and learn more about the individual roles available to you as a food graduate.</h5>
+<section id="banner">
+<div id="text">
+    <h1>Welcome to the Competencies for Food Graduates Toolkit</h1>
+    <p>On this site, you can select your competencies, either as key themes, roles, or elements that you feel you are strong in, and learn more about the individual roles available to you as a food graduate.</p>
     </div>
-
+    
+</section>
 <div class="col-sm-4">
     <div class="thumbnail">
     <img src="img/roles.jpg" alt="Roles" style="width:500px;height:300px;">

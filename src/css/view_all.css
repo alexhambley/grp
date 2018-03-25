@@ -35,6 +35,7 @@
     position: relative;
     text-align: center;
     overflow: hidden;
+    padding-bottom: 20px;
   }
   #banner .inner {
       -moz-transform: scale(1);
@@ -52,10 +53,11 @@
 #banner h1 {
       font-size: 4em;
       margin-bottom: .25em;
+      color:white;
     }
 
     #banner p {
-      color: rgba(255, 255, 255, 0.65);
+      color: white;
       font-size: 1.5em;
     }
 
