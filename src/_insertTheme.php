@@ -21,20 +21,32 @@
 		$db->beginTransaction();
 		if (!empty($_POST['elements']))
         {
-            $query = str_replace("?", $name, "INSERT INTO theme (themename, explanation, elements) VALUES ('!','?','£')");
-            $query = str_replace("!", $explanation, $query);
-            $query = str_replace("£", trim($_POST['elements']), $query);
+            $elements = implode(",", array_filter($_POST['elements']));
+            $query = "INSERT INTO theme (themename, explanation, elements) VALUES ('$name','$explanation','$elements')";
             $stmt = $db->prepare($query);
         }
         else
         {
-            $query = str_replace("?", $name, "INSERT INTO theme (themename, explanation) VALUES ('?','!')");
-            $query = str_replace("!", $explanation, $query);
+            $query = "INSERT INTO theme (themename, explanation) VALUES ('$name','$explanation')";
             $stmt = $db->prepare($query);
         }
 		$stmt->execute();
 		$db->commit();
-	} catch (PDOException $e) {
+        
+        $query = "SELECT MAX(id) AS max FROM theme";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        
+        foreach($stmt as $row)
+        {
+            $id = $row['max'];
+            $theme_id = 'D'.$id;
+            $query = "UPDATE theme SET theme_id = '$theme_id' WHERE id = $id";
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+        }
+        
+        } catch (PDOException $e) {
 		$db = null;
 		$msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
 		$msg .= "Query: $query";
