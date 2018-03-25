@@ -20,30 +20,41 @@ include "navbar.php";
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-
-        <link type="text/css" rel="stylesheet" href="css/shared.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-
-        <style type="text/css">
-            a {color: #36f; }
-            select {font-size: 14px; line-height: 18px; color: royalblue;}
-        </style>
-
+        <style>
+       .bg-grey {
+      background-color: #f6f6f6;
+  }
+       .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+     .thumbnail img {
+        width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+    .thumbnail:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+    .btn {
+        background-color: #192A6C;
+    }
+  </style>
 
 
     </head>
 
-    <body onload="loadAllRoles()">
+    <body class="bg-grey" onload="loadAllRoles()">
 
-        <div class="mainlayer">
+        <div class="container-fluid text-center">
             <h1>Competencies for Food Graduate Careers</h1>
             <p>&nbsp;</p>
 
             <h2>Database Management</h2>
-            <p><a href="admin_add.php">Add</a></p>
-            <p><a href="admin_update.php">Update</a></p>
-            <p><a href="admin_remove.php">Remove</a></p>
+            <p><a href="admin_add.php" class="btn btn-primary">Add</a></p>
+            <p><a href="admin_update.php" class="btn btn-primary">Update</a></p>
+            <p><a href="admin_remove.php" class="btn btn-primary">Remove</a></p>
             <p>&nbsp;</p>
 
             <!-- <h2>2. View Role Profile</h2>
@@ -62,7 +73,7 @@ include "navbar.php";
             <p><a href="allThemes.php">List all themes with their elements</a></p> -->
 
             <h2>Create an new account</h2>
-            <p><a href="signup.php">Create!</a></p>
+            <p><a href="signup.php" class="btn btn-primary">Create!</a></p>
         </div>
 
 
