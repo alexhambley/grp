@@ -22,32 +22,45 @@
                 <label>Theme 1 - Elements</label>
                 <br>
                 <?php
-                    $themeid = trim($_GET['theme1']);
-                    $stmt = $conn->prepare("SELECT elements
-                                            FROM theme
-                                            WHERE theme_id = (?)");
-                    $stmt->bind_param("s", $themeid);
-                    $stmt->execute();
-                    $stmt->bind_result($elements);
-                    $stmt->fetch();
-                    $stmt->close();
-
-                    $elementArray = explode(",", $elements);
-
-                    $stmt = $conn->prepare("SELECT id, elementname
-                                            FROM element
-                                            WHERE id = (?)
-                                            ORDER BY id ASC");
-
-                    foreach ($elementArray as $value) {
-                        $value = (int)$value;
-                        $stmt->bind_param("i", $value);
+                    if (empty($_GET['skip']))
+                    {
+                        $themeid = trim($_GET['theme1']);
+                        $stmt = $conn->prepare("SELECT elements
+                                                FROM theme
+                                                WHERE theme_id = (?)");
+                        $stmt->bind_param("s", $themeid);
                         $stmt->execute();
-                        $stmt->bind_result($id, $name);
+                        $stmt->bind_result($elements);
                         $stmt->fetch();
-                        $id = htmlentities($id);
-                        $name = htmlentities($name);
-                        echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\">$name<br>";
+                        $stmt->close();
+
+                        $elementArray = explode(",", $elements);
+
+                        $stmt = $conn->prepare("SELECT id, elementname
+                                                FROM element
+                                                WHERE id = (?)
+                                                ORDER BY id ASC");
+                        foreach ($elementArray as $value) {
+                            $value = (int)$value;
+                            $stmt->bind_param("i", $value);
+                            $stmt->execute();
+                            $stmt->bind_result($id, $name);
+                            $stmt->fetch();
+                            $id = htmlentities($id);
+                            $name = htmlentities($name);
+                            echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\">$name<br>";
+                        }
+                    }
+                    else
+                    {
+                        $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
+                        $stmt->execute();
+                        $stmt->bind_result($id, $elementname);
+                        while ($stmt->fetch()) {
+                            $id = htmlentities($id);
+                            $elementname = htmlentities($elementname);
+                            echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\">$elementname<br>";
+                        }
                     }
                     $stmt->close();
                 ?>

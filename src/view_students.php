@@ -89,6 +89,10 @@
                     type="submit">
                     Submit Theme Choices
             </button>
+            <button class="btn btn-primary"
+                    type="submit" name=skip value="true">
+                    Enter Element Choices Only
+            </button>
         </fieldset>
     </form>
     </div>
