@@ -40,8 +40,12 @@
 <br>
 
 <div>
-    <h3>Welcome to the Competencies for Food Graduates Toolkit</h3>
-    <h5>On this site, you can select your competencies, either as key themes, roles, or elements that you feel you are strong in, and learn more about the individual roles available to you as a food graduate.</h5>
+    <h1>Welcome to the Competencies for Food Graduates Toolkit</h1>
+    <p>&nbsp</p>
+    <h4>On this site, you can select your competencies, either as key themes, roles, or elements that you feel you are strong in, and learn more about the individual roles available to you as a food graduate. Learn more about the individual roles, themes, and elements below, or click "Find a Career" to fill out our interactive online form and find a graduate career in the world of Food Sciences.</h4>
+    <p>&nbsp</p>
+    <a href="view_students.php" class="btn btn-primary">Find a Career</a>
+    <p>&nbsp</p>
     </div>
 
 <div class="col-sm-4">
