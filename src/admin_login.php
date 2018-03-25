@@ -25,9 +25,30 @@
 <html>
 <head>
     <title> Admin Login </title>
+    <style>
+       .bg-grey {
+      background-color: #f6f6f6;
+  }
+       .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+     .thumbnail img {
+        width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+    .thumbnail:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+    .btn {
+        background-color: #192A6C;
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
+<body class="bg-grey">
+    <div class="container-fluid text-center">
         <div class="text-center">
             <h1>Food Science</h1>
         </div>
