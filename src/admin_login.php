@@ -50,7 +50,8 @@
 <body class="bg-grey">
     <div class="container-fluid text-center">
         <div class="text-center">
-            <h1>Food Science</h1>
+            <h1>Admin Login</h1>
+            <h4>Please use your usual University username and password.</h4>
         </div>
 
         <form class="col-md-4 col-md-offset-4" action="admin_login.php" method="POST">
