@@ -51,10 +51,12 @@ include "navbar.php";
             <h1>Competencies for Food Graduate Careers</h1>
             <p>&nbsp;</p>
 
-            <h2>Database Management</h2>
-            <p><a href="admin_add.php" class="btn btn-primary">Add</a></p>
-            <p><a href="admin_update.php" class="btn btn-primary">Update</a></p>
-            <p><a href="admin_remove.php" class="btn btn-primary">Remove</a></p>
+            <h3>Database Management</h3>
+            <p>
+                <a href="admin_add.php" class="btn btn-primary">Add</a>
+                <a href="admin_update.php" class="btn btn-primary">Update</a>
+                <a href="admin_remove.php" class="btn btn-primary">Remove</a>
+            </p>
             <p>&nbsp;</p>
 
             <!-- <h2>2. View Role Profile</h2>
@@ -72,8 +74,8 @@ include "navbar.php";
             <h2>4. Elements of Themes</h2>
             <p><a href="allThemes.php">List all themes with their elements</a></p> -->
 
-            <h2>Create an new account</h2>
-            <p><a href="signup.php" class="btn btn-primary">Create!</a></p>
+            <h3>Create an new account</h3>
+            <p><a href="signup.php" class="btn btn-primary">Create</a></p>
         </div>
 
 
