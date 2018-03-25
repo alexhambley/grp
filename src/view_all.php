@@ -42,7 +42,7 @@
 
 <div class="col-sm-4">
     <div class="thumbnail">
-    <img src="roles.jpg" alt="Roles" style="width:500px;height:300px;">
+    <img src="img/roles.jpg" alt="Roles" style="width:500px;height:300px;">
 <button type="button" class="btn btn-primary" onclick="showRoles()"> Show / Hide Roles </button>
 <div id="Roles" style="display:none;">
 <?php
@@ -74,7 +74,7 @@
     </div>
     <div class="col-sm-4">
         <div class="thumbnail">
-        <img src="/src/img/maxresdefault.jpg" alt = "Theme" style="width:500px;height:300px;">
+        <img src="img/maxresdefault.jpg" alt = "Theme" style="width:500px;height:300px;">
     <button type="button" class="btn btn-primary" onclick="showThemes(this)"> Show / Hide Themes </button>
     <div id="Themes" style="display:none;">
         <?php
@@ -110,7 +110,7 @@
 
     <div class="col-sm-4">
         <div class="thumbnail">
-        <img src="4-elements-of-nature.jpg" style="width:500px;height:300px;">
+        <img src="img/4-elements-of-nature.jpg" style="width:500px;height:300px;">
     <button type="button" class="btn btn-primary" onclick="showElements()"> Show / Hide Elements </button>
     <div id="Elements" style="display:none;">
     <?php
