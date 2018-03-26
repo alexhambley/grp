@@ -13,17 +13,18 @@
 
 <body class="bg-grey">
 
-
-
-<div class="container-fluid text-center">
-<br>
 <section id="banner">
 <div id="text">
     <h1>Welcome to the Competencies for Food Graduates Toolkit</h1>
     <p>On this site, you can select your competencies, either as key themes, roles, or elements that you feel you are strong in, and learn more about the individual roles available to you as a food graduate.</p>
     </div>
-
 </section>
+<div class="container-fluid text-center">
+<br>
+
+
+
+<section>
 <div class="col-sm-4">
     <div class="thumbnail">
     <img src="img/roles.jpg" alt="Roles" style="width:500px;height:300px;">
@@ -47,15 +48,6 @@
 </div>
 </div>
 
-
-
-
-
-
-
-
-    <div class="col-sm-0.5" style="background:blue">
-    </div>
     <div class="col-sm-4">
         <div class="thumbnail">
         <img src="img/themes.jpg" alt = "Theme" style="width:500px;height:300px;">
