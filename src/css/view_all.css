@@ -35,7 +35,7 @@
     position: relative;
     text-align: center;
     overflow: hidden;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   #banner .inner {
       -moz-transform: scale(1);
@@ -62,12 +62,12 @@
     }
 
 .col-sm-4 {
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 /* Thumbnail*/
 .thumbnail {
-      padding-top: 20px;
+      
       padding: 0 0 15px 0;
       border: none;
       border-radius: 0;

@@ -20,10 +20,6 @@
     </div>
 </section>
 <div class="container-fluid text-center">
-<br>
-
-
-
 <section>
 <div class="col-sm-4">
     <div class="thumbnail">
