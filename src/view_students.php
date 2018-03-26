@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <head>
     <Title> View All </Title>
+    <link rel="stylesheet" href="css/view_students.css" />
 </head>
 
 <body>
@@ -22,13 +23,15 @@
 
      If we show all 40+ elements, that is poor UI design.
      User chooses 3 different themes, then 10 correspondng elements.
-     We then show the best matching roles.  -->
-    <div class="container">
+     We then show the best matching role    s.  -->
+    <div class="container" style="padding-top: 10px;">
         <form action="view_elements.php">
         <fieldset>
-            <legend> Themes </legend>
+            <legend class="legend"> Themes </legend>
+
             <label for="theme1"> Theme 1 </label>
             <br>
+            <div class="select">
             <select class="custom-select" name="theme1">
                 <option selected>Please select theme 1 </option>
                 <?php
@@ -44,10 +47,12 @@
                     }
                 ?>
             </select>
+            </div>
             <br>
 <!-- Theme 2 -->
             <label for="theme2"> Theme 2 </label>
             <br>
+            <div class="select">
             <select class="custom-select" name="theme2">
                 <option selected> Please select theme 2 </option>
                 <?php
@@ -63,11 +68,13 @@
                     }
                 ?>
             </select>
+            </div>
             <br>
 
     <!-- Theme 3 -->
             <label for="theme3"> Theme 3 </label>
             <br>
+            <div class="select">
             <select class="custom-select" name="theme3">
                 <option selected>Please select theme 3</option>
                 <?php
@@ -83,6 +90,7 @@
                     }
                 ?>
             </select>
+            </div>
             <br>
             <br>
             <button class="btn btn-primary"
