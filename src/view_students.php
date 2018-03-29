@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <head>
-    <Title> View All </Title>
+    <Title> Find A Career </Title>
     <link rel="stylesheet" href="css/view_students.css" />
 </head>
 
@@ -24,10 +24,11 @@
      If we show all 40+ elements, that is poor UI design.
      User chooses 3 different themes, then 10 correspondng elements.
      We then show the best matching role    s.  -->
+
     <div class="container" style="padding-top: 10px;">
         <form action="view_elements.php">
         <fieldset>
-            <legend class="legend"> Themes </legend>
+            <legend class="legend"> Find a Career </legend>
 
             <label for="theme1"> Theme 1 </label>
             <br>
