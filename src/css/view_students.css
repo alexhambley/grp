@@ -8,6 +8,10 @@ align-items: center;
 
 }
 
+.bg-grey {
+  background-color: #f6f6f6;
+}
+
 /* Reset Select */
 select {
   -webkit-appearance: none;

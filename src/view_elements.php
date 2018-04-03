@@ -15,11 +15,13 @@
     <Title> Find A Career </Title>
     <link rel="stylesheet" href="css/view_students.css" />
 </head>
-<body>
-    <div class="container" style="padding-top: 10px;">
+<body class="bg-grey">
+    <div class="container">
         <form action="view_roles.php">
             <fieldset>
-                <legend class="legend"> Find a Career </legend>
+                <div class="text-center">
+                    <h1>Find a Career</h1>
+                </div>
                 <h4> Explanation: </h4>
                 <p> Below is a list of elements.
                     <br>

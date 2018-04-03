@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/view_students.css" />
 </head>
 
-<body>
+<body class="bg-grey">
 <!-- Search Bar goes here -->
 
 <!-- Form Starts here
@@ -25,10 +25,12 @@
      User chooses 3 different themes, then 10 correspondng elements.
      We then show the best matching role    s.  -->
 
-    <div class="container" style="padding-top: 10px;">
+    <div class="container">
         <form action="view_elements.php">
         <fieldset>
-            <legend class="legend"> Find a Career </legend>
+            <div class="text-center">
+                <h1> Find a Career </h1>
+            </div>
             <h4> Explanation: </h4>
             <p> All of the elements, or skills, are associated with themes. <br>
                 Here, you can select the three themes that you believe are most appropiate to you, and then submit these choices. <br>
