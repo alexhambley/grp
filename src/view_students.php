@@ -29,12 +29,15 @@
         <form action="view_elements.php">
         <fieldset>
             <legend class="legend"> Find a Career </legend>
-
+            <h4> Explanation: </h4>
+            <p> All of the elements, or skills, are associated with themes. <br>
+                Here, you can select the three themes that you believe are most appropiate to you, and then submit these choices. <br>
+                You may also wish to select elements from all the themes.  </p>
             <label for="theme1"> Theme 1 </label>
             <br>
             <div class="select">
             <select class="custom-select" name="theme1">
-                <option selected>Please select theme 1 </option>
+                <option selected> Please select theme 1 </option>
                 <?php
                     $stmt = $conn->prepare("SELECT theme_id, themename
                                             FROM theme
@@ -94,12 +97,10 @@
             </div>
             <br>
             <br>
-            <button class="btn btn-primary"
-                    type="submit">
+            <button class="btn btn-primary" type="submit">
                     Submit Theme Choices
             </button>
-            <button class="btn btn-primary"
-                    type="submit" name=skip value="true">
+            <button class="btn btn-primary" type="submit" name=skip value="true">
                     Enter Element Choices Only
             </button>
         </fieldset>
