@@ -5,7 +5,7 @@ align-items: center;
 	      font-size: 3em;
       margin-bottom: .25em;
       text-align: center;
-      
+
 }
 
 /* Reset Select */
@@ -56,10 +56,14 @@ select::-ms-expand {
 }
 /* Transition */
 .select:hover::after {
-  color: #f39c12;
+  color: #ffffff;
 }
 .select::after {
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
+}
+
+.btn {
+  background-color: #192A6C;
 }

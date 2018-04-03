@@ -78,7 +78,7 @@
     /* max-height: 292px; */
     /* width: 100%; */
     max-height: auto;
-    /* padding-left: 10px; */
+    padding-bottom: 10px;
     object-fit: contain
   }
 
