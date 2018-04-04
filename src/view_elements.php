@@ -151,11 +151,12 @@
                     }
                     $stmt->close();
                 ?>
-                <br><br>
+                <br>
                 <button class="btn btn-primary"
                     type="submit">
                     Submit Element Choices
                 </button>
+                <br>
             </fieldset>
         </form>
     </div>

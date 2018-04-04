@@ -18,6 +18,9 @@
                 echo "<h1>Search Results for \"$selection\"</h1>";
             ?>
         </div>
+        <h4> Explanation: </h4>
+        <p> Please click on the result for more information about the element, role or theme. </p>
+
         <?php
             // var_dump($selection);
             // Get any elements that they may have searched for. 

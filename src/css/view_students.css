@@ -71,3 +71,14 @@ select::-ms-expand {
 .btn {
   background-color: #192A6C;
 }
+
+/* .list-group {
+  background: #192A6C;
+  color: #192A6C;
+} */
+
+
+.list-group-item-info {
+  background-color: #192A6C;
+  color: #ffffff;
+}

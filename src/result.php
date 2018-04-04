@@ -2,30 +2,25 @@
     include "header.php";
     include "navbar.php";
     include "db.php";
-
+    include "credentials.php";
     if (!isset($_GET['tid']) || !isset($_GET['eid'])) {
         header("Location: search.html");
         exit;
     }
-
     $themeIdStr = "";
     $elementIdStr = "";
-
     if (trim($_GET['tid']) != "") {
         $themeIdStr = trim($_GET['tid']);
     }
     if (trim($_GET['eid']) != "") {
         $elementIdStr = trim($_GET['eid']);
     }
-
-    //--- Generate SQL condition string
     $themeCondition = '';
     if ($themeIdStr != "") {
         $tmpArr = explode(",",$themeIdStr);
         $themeCondition = implode('%" OR themes LIKE "%',$tmpArr);
     }
     $themeCondition = 'themes LIKE "%'.$themeCondition.'%"';
-
     $elementCondition = '';
     if ($elementIdStr != "") {
         $tmpArr = explode(",",$elementIdStr);
@@ -34,18 +29,11 @@
     } else {
         $elementCondition = 'elements LIKE "%"';
     }
-
     $query_condition = 'WHERE ('.$themeCondition.') AND ('.$elementCondition.')';
-    //echo $query_condition;
-
-    include 'credentials.php';
-
     $dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
     $db = new PDO($dsn,$db_username,$db_password);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    //----- Get Role
     try {
     	$db->beginTransaction();
     	$query = "SELECT * FROM role ".$query_condition;
@@ -59,91 +47,55 @@
     	echo $msg;
     	exit;
     }
-
     $roles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    //echo "<pre>";
-    //var_dump($roles);
-    //echo "</pre>";
-
     $db = null;
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Related Roles</title>
-        <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>Related Roles</title>
+    <link rel="stylesheet" href="css/view_students.css" />
+</head>
 
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-        <link type="text/css" rel="stylesheet" href="css/shared.css"> -->
-
-        <!-- <style type="text/css">
-            h1 { line-height: 35px; color: cornflowerblue; font-weight: 400; text-transform: uppercase; }
-            h2 { background-color: cornflowerblue; color: white; text-transform:uppercase; text-align: center; padding: 10px; margin: 0px;}
-            h3 { color:royalblue; text-indent: 5px;}
-
-            table {
-                border-collapse: separate; border-spacing: 5px; width: 100%;
-            }
-            td {
-                width: 50%; padding: 10px; font-size: 13px; vertical-align: top; background-color: aliceblue;
-            }
-
-            input[type="button"] {
-                height:45px; font-size:15px; font-weight: bold; border-radius:0px; padding-left:15px; padding-right:15px; line-height: 40px; -webkit-appearance:none;  -moz-appearance:none;  -ms-appearance:none; appearance:none; margin: 5px; width:200px; border-radius: 5px; box-shadow: 0px 1px 2px #666;
-                text-transform: uppercase;
-            }
-            .btnBlue { color: #fff; background-color: cornflowerblue; border: none; }
-            .btnGrey { color: #fff; background-color: grey; border: none; }
-
-            .btnRole {
-                color: cornflowerblue; background-color: aliceblue; border: lightBlue 1px solid; padding: 10px 15px; margin: 10px 0px;
-                cursor: pointer;
-                position: relative;
-            }
-            .btnRole::after {
-                content: "»";
-                color:cornflowerblue;
-                position: absolute;
-                right: 15px;
-            }
-
-        </style> -->
-    </head>
-    <body>
-        <div class="mainlayer">
-            <h3>Related Roles</h3>
-            <?php
-                if (count($roles) == 0) {
-                    echo "<p>&nbsp;No roles are satisfied the search criteria. Please search again.</p>";
-                } else {
-                    echo "<div class=\"list-group\">";
-                    $i = 0;
-                    while ($i != count($roles)) {
-                      $temp = $roles[$i];
-                      $tempID = $temp['id'];
-                      echo "<a href=\"#\" onclick='gotoRole($tempID)'";
-                      echo "class='list-group-item list-group-item-action'>";
-                      echo ($temp['entry']);
-                      echo "</a>";
-                      $i++;
-                    }
-                }
-            ?>
-          </div>
+<body class="bg-grey">
+    <div class="container">
+        <div class="text-center">
+            <h1> Related Roles </h1>
         </div>
-        <p aligh="center">
-            <input type="button" class="btnGrey" value="Search Again" onclick="window.history.back()" />
-        </p>
-        <script>
-            function gotoRole(q) {
-                window.location = "roleProfile.php?id="+q;
+        <?php
+            if (count($roles) == 0) {
+                echo "<h4> Your selected options have no appropriate roles. <br> Please try again with different selections. </h4>";
+            } else {
+                echo "<h4> Explanation: </h4>";
+                echo "<p> Below are the roles that we feel suit the elements that you chose on the previous page. <br>";
+                echo "You can click on each result to see more information about the role. <br>";
+                echo "You may also wish to search again with different criteria. </p>";
+                echo "<br>";
+                $i = 0;
+                while ($i != count($roles)) {
+                    $temp = $roles[$i];
+                    $tempID = $temp['id'];
+                    echo "<ul class=\"list-group\">";
+                        echo "<li class=\"list-group-item list-group-item-info\" onclick='gotoRole($tempID)'>";
+                            echo ($temp['entry']);
+                        echo "</li>";
+                        echo "<li class=\"list-group-item\">";
+                            echo ($temp['description']);
+                        echo "</li>";
+                    echo "</ul>";
+                    $i++;
+                }
             }
-        </script>
-    </body>
+        ?>
+        <br>
+        <button class="btn btn-primary" type="submit" onclick="window.history.back()">
+             Choose Again
+        </button>
+    </div>
+    <script>
+        function gotoRole(q) {
+            window.location = "roleProfile.php?id="+q;
+        }
+    </script>
+</body>
 </html>
