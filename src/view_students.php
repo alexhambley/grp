@@ -30,7 +30,7 @@
         <fieldset>
             <div class="text-center">
                 <h1> Find a Career </h1>
-            </div>
+            </div> 
             <h4> Explanation: </h4>
             <p> All of the elements, or skills, are associated with themes. <br>
                 Here, you can select the three themes that you believe are most appropiate to you, and then submit these choices. <br>
