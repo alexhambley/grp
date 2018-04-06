@@ -37,10 +37,7 @@
       <div class="text-center">
         <h2> Update Role </h2>
       </div>
-
       <p> Please use this form to update the roles within the database. </p>
-
-
       <div class="select">
         <select name="entry" class="custom-select">
           <?php
@@ -55,23 +52,17 @@
           ?>
         </select>
       </div>
-
       <br>
-
       <div class="form-group">
         <label for="themename"> Updated role name: </label>
           <input type="text" class="form-control" name="newEntry" placeholder="New role entry name">
       </div>
-
       <div class="form-group">
         <label for="roledesc"> Updated role description: </label>
         <textarea class="form-control" name="description" rows="2"></textarea>
       </div>
-
-
       <div class="form-group">
         <label for="rolealt"> Alternative Names: </label>
-      <!-- <br> -->
         <div id="numOfNames">
           Name 1
           <br>
@@ -81,8 +72,6 @@
         <button type=button class="btn btn-default" onclick="return myFunc('numOfNames')"> Add another name </button>
         <br>
       </div>
-
-
       <div class="form-group">
         <label for="roleelements"> Related Elements: </label>
         <br>
@@ -99,7 +88,6 @@
           }
         ?>
       </div>
-
       <div class="form-group">
         <label for="rolethemes"> Related Themes: </label>
         <br>
@@ -147,7 +135,6 @@
         <label for="themename"> Updated theme name: </label>
           <input type="text" class="form-control" name="newName" placeholder="New theme name">
       </div>
-
       <div class="form-group">
         <label for="themeelements"> Related Elements: </label>
         <br>
@@ -164,14 +151,12 @@
           }
         ?>
       </div>
-
       <div class="form-group">
         <label for="themedesc"> New theme explanation: </label>
         <textarea class="form-control" name="explanation" rows="1"></textarea>
       </div>
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Update the database">
     </form>
-
     <form action="_updateElement.php" method="post">
       <div class="text-center">
         <h2> Update Elements </h2>
@@ -198,12 +183,10 @@
         <label for="themename"> Updated element name: </label>
           <input type="text" class="form-control" name="newName" placeholder="New element name">
       </div>
-
       <div class="form-group">
         <label for="themedesc"> Updated element explanation: </label>
         <textarea class="form-control" name="description" rows="1"></textarea>
       </div>
-
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Update the database">
   </form>
   <br>

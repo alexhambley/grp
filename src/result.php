@@ -31,11 +31,8 @@
     }
     $query_condition = 'WHERE ('.$themeCondition.') AND ('.$elementCondition.')';
     $dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
-<<<<<<< HEAD
     $db = new PDO($dsn,$db_username,$db_password);
-=======
     $db = new PDO($dsn, $db_username, $db_password);
->>>>>>> dev
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {

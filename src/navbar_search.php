@@ -127,7 +127,6 @@
             echo "<h4> Elements </h4>";
             while ($stmt->fetch()) {
                 $id = htmlentities($id);
-                // var_dump($id);
                 if (!empty($id)) {
                     $element_name = htmlentities($element_name);
                     $desc = htmlentities($desc);

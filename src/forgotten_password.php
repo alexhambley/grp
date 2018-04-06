@@ -54,8 +54,6 @@
           <label for "number"> Phone Number: </label>
           <input class="form-control" type="number" name="phone" placeholder="07770000000" required>
         </div>
-
-
         <input class="btn btn-primary" type="submit">
     </form>
     <?php } ?>

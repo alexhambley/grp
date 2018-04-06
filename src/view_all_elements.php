@@ -3,9 +3,6 @@
 <table class="table table-striped">
             <thead>
                 <tr>
-                    <!-- <th scope="col">
-                        #
-                    </th> -->
                     <th scope="col">
                         Element Name
                     </th>
@@ -24,9 +21,6 @@
                     $elename = htmlentities($elename);
                     $desc = htmlentities($desc);
                     echo "<tr>";
-                        // echo "<th scope=\"row\"> $id </th>";
-                        // echo "<th scope=\"row\"> $id </th>";
-
                         echo "<td> $elename </td>";
                         echo "<td>";
                             echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#ele_mod$id\">See More</button>";
