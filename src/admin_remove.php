@@ -8,43 +8,97 @@
 
 <!DOCTYPE html>
 <head>
-	<title> Admin Login </title>
+	<title> Remove Database Elements </title>
+  <link rel="stylesheet" href="css/view_students.css" />
 </head>
 
-<body>
-    <style>
-    /* Otherwise the navbar will cover stuff in body */
-        body { padding-bottom: : 140px; }
-    </style>
-    <nav class="navbar navbar-default navbar-fixed-top" style="margin-top: 62px">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand"></a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="admin_add.php"> Add </a></li>
-                <li><a href="admin_remove.php"> Remove  </a></li>
-                <li><a href="admin_update.php"> Update</a></li>
-                
-                <div id="display"></div>
-            </ul>
-        </div>
-    </nav>
+<body class="bg-grey">
+  <div class="container">
+    <div class="text-center">
+      <h1> Remove Database Elements </h1>
+    </div>
 
-    <form action="_deleteTheme.php" style="margin-top: 62px" method="post">
-            <legend>Remove:</legend>
-            Themes:<br>
-            <input type="text" name="name">
-            <input type="submit" value="Submit"><br><br>
+    <h4> Warning: </h4>
+    This page will permanently delete elements from the database.
+    <br>
+    You will have to add the elements back manually, or by using the add tool on the previous page. <p>
+
+    <div class="text-center">
+      <h2> Remove Roles </h2>
+    </div>
+
+    <form action="_deleteRole.php" method="post">
+      <div class="form-group">
+        <label for="roleentry"> Please use this form to remove roles from the database. </label>
+        <div class="select">
+          <select name="entry" class="custom-select">
+            <?php
+              $stmt = $conn->prepare("SELECT id, entry FROM role ORDER BY id ASC");
+              $stmt->execute();
+              $stmt->bind_result($id, $entry);
+              while ($stmt->fetch()) {
+                  $id = htmlentities($id);
+                  $entry = htmlentities($entry);
+                  echo "<option name=\"$entry\" value=\"$entry\">$entry</option>";
+              }
+            ?>
+          </select>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-danger" style="background-color: #e84c4c" value="Remove from database">
     </form>
-    <form action="_deleteRole.php" style="margin-top: 62px" method="post">
-            Role:<br>
-            <input type="text" name="name" >
-            <input type="submit" value="Submit"><br><br>
+
+
+    <div class="text-center">
+      <h2> Remove Themes </h2>
+    </div>
+
+    <form action="_deleteTheme.php" method="post">
+      <div class="form-group">
+        <label for="roleentry"> Please use this form to remove themes from the database. </label>
+        <div class="select">
+            <select name="themeName" class="custom-select">
+              <?php
+                $stmt = $conn->prepare("SELECT id, themename FROM theme ORDER BY id ASC");
+                $stmt->execute();
+                $stmt->bind_result($id, $themeName);
+                while ($stmt->fetch()) {
+                    $id = htmlentities($id);
+                    $themeName = htmlentities($themeName);
+                    echo "<option name=\"$themeName\" value=\"$themeName\">$themeName</option>";
+                }
+              ?>
+            </select>
+          </div>
+      </div>
+      <input type="submit" class="btn btn-danger" style="background-color: #e84c4c" value="Remove from database">
     </form>
-    <form action="_deleteElement.php" style="margin-top: 62px" method="post">
-            Elements:<br>
-            <input type="text" name="name" >
-            <input type="submit" value="Submit"><br><br>
+
+    <div class="text-center">
+      <h2> Remove Elements </h2>
+    </div>
+
+
+    <form action="_deleteElement.php" method="post">
+      <div class="form-group">
+        <label for="roleentry"> Please use this form to remove elements from the database. </label>
+        <div class="select">
+          <select name="elementname" class="custom-select">
+            <?php
+              $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
+              $stmt->execute();
+              $stmt->bind_result($id, $elementname)
+              ;
+              while ($stmt->fetch()) {
+                  $id = htmlentities($id);
+                  $elementname = htmlentities($elementname);
+                  echo "<option name=\"$elementname\" value=\"$elementname\">$elementname</option>";
+              }
+            ?>
+          </select>
+      </div>
+    </div>
+      <input type="submit" class="btn btn-danger" style="background-color: #e84c4c" value="Remove from database">
     </form>
+  </div>
 </body>

@@ -119,7 +119,7 @@
       </div>
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Update the database">
     </form>
-    
+
     <form action="_updateTheme.php" method="post">
       <div class="text-center">
         <h2> Update Themes </h2>
@@ -178,6 +178,8 @@
         <h2> Update Elements </h2>
       </div>
       <p> Please use this form to update the elements within the database. </p>
+      <label for="roleentry"> Plesse select an element to update: </label>
+
       <div class="select">
         <select name="elementname" class="custom-select">
           <?php

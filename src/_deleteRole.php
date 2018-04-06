@@ -1,10 +1,10 @@
 <?php
-    
-    if (empty($_POST['name']))
+
+    if (empty($_POST['entry']))
         exit("Invalid parameters.");
 
-    $name = trim($_POST['name']);
-    
+    $name = trim($_POST['entry']);
+
 	if ($name == "")
 	    exit("Invalid parameters.");
 
@@ -17,7 +17,7 @@
 
 	try {
 		$db->beginTransaction();
-		
+
         $query = str_replace("?", $name, "SELECT id FROM role WHERE entry = '?'");
 		$stmt = $db->prepare($query);
 		$stmt->execute();
@@ -28,7 +28,7 @@
             echo "Role: '$name' could not be found.";
             exit;
         }
-        
+
         $query = str_replace("?", $name, "DELETE FROM role WHERE entry='?'");
 		$stmt = $db->prepare($query);
 		$stmt->execute();
