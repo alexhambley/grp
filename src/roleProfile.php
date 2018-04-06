@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     if (trim($_GET['id']) == "" || empty($_GET['id'])) {
         exit("No parameters.");
@@ -80,7 +81,7 @@
 
     try {
     	$db->beginTransaction();
-    	$query = "SELECT name FROM element WHERE id='$condition'";
+    	$query = "SELECT id, elementname FROM element WHERE id='$condition'";
     	$stmt = $db->prepare($query);
     	
     	$stmt->execute();
@@ -95,7 +96,7 @@
 
     //echo($query."<br><br>");
 
-    $element = $stmt->fetchAll(PDO::FETCH_COLUMN,0);
+    $element = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     //echo "<pre>";
     //var_dump($element);
@@ -251,6 +252,9 @@
                 
                 
                 <h3>Desirable Themes for this Role</h3>
+                <p style="color:green">Green: Themes you have</p>
+                <p style="color:red">Red: Themes to improve</p>
+
                 <div align="center">
                     <table width="90%">
                         <?php
@@ -258,15 +262,30 @@
                         foreach ($themeOrderArray as $themeId) {
                             foreach ($themes as $item) {
                                 if ($item["theme_id"] == $themeId) {
-                                    $themeName = $item["name"];
+                                    $themeName = $item["themename"];
                                     $themeText = $item["explanation"];
-                                    echo "
-                                    <tr>
-                                        <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
-                                        <td width='33%' class='tableCellDarkBlue'>$themeName</td>
-                                        <td width='60%' class='tableCellLightBlue'>$themeText</td>
-                                    </tr>
-                                    ";
+
+                                    if ($_SESSION['theme1'] != $themeId &&
+                                        $_SESSION['theme2'] != $themeId &&
+                                        $_SESSION['theme3'] != $themeId) {
+                                        echo "
+                                        <tr>
+                                            <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                            <td width='33%' class='tableCellDarkBlue' style='color:red'>$themeName</td>
+                                            <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                        </tr>
+                                        ";
+                                    }
+                                    else {
+                                        echo "
+                                        <tr>
+                                            <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                            <td width='33%' class='tableCellDarkBlue' style='color:green'>$themeName</td>
+                                            <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                        </tr>
+                                        ";
+                                    }
+                                    
                                 }
                             }
                         }
@@ -278,11 +297,19 @@
                 
                 
                 <h3>Desirable Elements for this Role</h3>
+                <p style="color:green">Green: Elements you have</p>
+                <p style="color:red">Red: Elements to improve</p>
                 <div align="center">
                     <div class="boxElement">
                     <?php
                         foreach ($element as $item) {
-                            echo "$item<br>";
+                            if (array_search($item['id'], $_SESSION['selectedElement']) == FALSE) {
+                                echo "<span style='color:red'>".$item['elementname']."</span><br>";
+                            }
+                            else {
+                                echo "<span style='color:green'>".$item['elementname']."<br>";
+                            }
+                            
                         }
                     ?>
                     </div>

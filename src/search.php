@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+<?php
+include "header.php";
+include "navbar.php";
+
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>CFGC Role Search</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        
-
         <link type="text/css" rel="stylesheet" href="css/shared.css">
 
         

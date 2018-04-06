@@ -1,0 +1,17 @@
+.bg-grey {
+  background-color: #f6f6f6;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.bg {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../img/admin-background.jpg");
+}
+.btn {
+  background-color: #192A6C;
+}

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 10:59 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Mar 21, 2018 at 01:43 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `food graduates`
+-- Database: `g52grp`
 --
 
 -- --------------------------------------------------------
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `element` (
-  `id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `elementname` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -38,7 +38,7 @@ CREATE TABLE `element` (
 -- Dumping data for table `element`
 --
 
-INSERT INTO `element` (`id`, `name`, `description`) VALUES
+INSERT INTO `element` (`id`, `elementname`, `description`) VALUES
 (1, 'Academic Expertise', 'Evidence of the required level of academic ability whether by degree calibre, further study or specific competencies such as research, evaluation, speaking or writing.'),
 (2, 'Acceptance of Ambiguity', 'Appreciation that there may be different ways of achieving a result or more than one positive outcome.'),
 (3, 'Adaptability', 'A constructive approach to handling change.'),
@@ -95,7 +95,7 @@ INSERT INTO `element` (`id`, `name`, `description`) VALUES
 --
 
 CREATE TABLE `role` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL,
   `entry` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(800) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `names` varchar(400) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -130,9 +130,9 @@ INSERT INTO `role` (`id`, `entry`, `description`, `names`, `elements`, `themes`)
 --
 
 CREATE TABLE `theme` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL,
   `theme_id` varchar(4) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `name` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `themename` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `explanation` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `elements` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -141,16 +141,31 @@ CREATE TABLE `theme` (
 -- Dumping data for table `theme`
 --
 
-INSERT INTO `theme` (`id`, `theme_id`, `name`, `explanation`, `elements`) VALUES
-(1, 'D0', 'Desirability for a general level of competence across all themes', 'Data indicates a desirability for a general level of competence across all themes', NULL),
-(2, 'D1', 'Positivity', 'Having the behaviours that drive success and wellbeing in the workplace', '7,19,39,35,29,31,3'),
-(3, 'D2', 'Appreciation of the Wider World', 'Engaging and embracing values, processes and ways of working in the industry with a diverse perspective.', '15,44,9,23,16,14,42'),
-(4, 'D3', 'Data, Numbers and Communications', 'The ability to embrace information of all types, then use it and disseminate to best advantage.', '4,17,40,48,1,11,45,13'),
-(5, 'D4', 'Getting the Job Done and Tackling Problems', 'Identifying and overcoming challenges to find solutions and reach your goals.', '10,8,18,36,30,21,2,24'),
-(6, 'D5', 'Working Well with Others', 'Using a variety of styles for effectiveness and synergy in your relationships and activities with others.', '41,22,24,45,12,5,28,25,37,13,9,21'),
-(7, 'D6', 'Innovation and Inquiry', 'Creativity in mind, approach and method to find new opportunities and enable results.', '20,14,26,27,1,33,38,5'),
-(8, 'D7', 'Dependability', 'Harnessing your experiences and skills to establish trust in your ability to deliver.', '43,47,34,46,32,30,29'),
-(9, 'D8', 'The Business World', 'Appreciation of systems and drivers that produce successful operational performance and profit.', '6,42,16');
+INSERT INTO `theme` (`id`, `theme_id`, `themename`, `explanation`, `elements`) VALUES
+(0, 'D0', 'Desirability for a general level of competence across all themes', 'Data indicates a desirability for a general level of competence across all themes', NULL),
+(1, 'D1', 'Positivity', 'Having the behaviours that drive success and wellbeing in the workplace', '7,19,39,35,29,31,3'),
+(2, 'D2', 'Appreciation of the Wider World', 'Engaging and embracing values, processes and ways of working in the industry with a diverse perspective.', '15,44,9,23,16,14,42'),
+(3, 'D3', 'Data, Numbers and Communications', 'The ability to embrace information of all types, then use it and disseminate to best advantage.', '4,17,40,48,1,11,45,13'),
+(4, 'D4', 'Getting the Job Done and Tackling Problems', 'Identifying and overcoming challenges to find solutions and reach your goals.', '10,8,18,36,30,21,2,24'),
+(5, 'D5', 'Working Well with Others', 'Using a variety of styles for effectiveness and synergy in your relationships and activities with others.', '41,22,24,45,12,5,28,25,37,13,9,21'),
+(6, 'D6', 'Innovation and Inquiry', 'Creativity in mind, approach and method to find new opportunities and enable results.', '20,14,26,27,1,33,38,5'),
+(7, 'D7', 'Dependability', 'Harnessing your experiences and skills to establish trust in your ability to deliver.', '43,47,34,46,32,30,29'),
+(8, 'D8', 'The Business World', 'Appreciation of systems and drivers that produce successful operational performance and profit.', '6,42,16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `UserId` int(11) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Password` varchar(1000) NOT NULL,
+  `Phone` varchar(30) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Birthday` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -173,6 +188,43 @@ ALTER TABLE `role`
 --
 ALTER TABLE `theme`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`UserId`),
+  ADD UNIQUE KEY `Name` (`Name`),
+  ADD UNIQUE KEY `Phone` (`Phone`),
+  ADD UNIQUE KEY `Email` (`Email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `element`
+--
+ALTER TABLE `element`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `theme`
+--
+ALTER TABLE `theme`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
