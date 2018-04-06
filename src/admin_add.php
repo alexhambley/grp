@@ -102,6 +102,7 @@
       <div class="text-center">
         <h2> Add Themes </h2>
       </div>
+      <p> Please use this form to insert new themes to the database. </p>
 
       <div class="form-group">
         <label for="themename"> New theme name: </label>
@@ -136,6 +137,8 @@
       <div class="text-center">
         <h2> Add Elements </h2>
       </div>
+      <p> Please use this form to insert new elements to the database. </p>
+
 
       <div class="form-group">
         <label for="elename"> New element name: </label>
