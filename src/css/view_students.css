@@ -72,6 +72,17 @@ select::-ms-expand {
   background-color: #192A6C;
 }
 
+h1, h2, h3, h4, h5 {
+	color: #1c2c67;
+}
+
+label {
+	color: #1c2c67;
+}
+
+
+
+
 /* .list-group {
   background: #192A6C;
   color: #192A6C;
