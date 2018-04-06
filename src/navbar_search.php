@@ -28,7 +28,11 @@
                                 LIKE lower('%$selection%')");
         $stmt->execute();
         $stmt->bind_result($id, $role_entry, $desc, $names, $elements, $themes);
-        echo "<h4> Roles </h4>";
+        ?>
+        <div class="text-center">
+            <h1>Roles</h1>
+        </div>
+        <?php
         while ($stmt->fetch()) {
             $id = htmlentities($id);
             if (!empty($id)) {
@@ -82,7 +86,11 @@
         $stmt->execute();
         $numberOfRows = $stmt->num_rows();
         $stmt->bind_result($id, $tid, $tname, $exp, $elements);
-        echo "<h4> Themes </h4>";
+        ?>
+        <div class="text-center">
+            <h1>Themes</h1>
+        </div>
+        <?php
         while ($stmt->fetch()) {
             $id = htmlentities($id);
             if (!empty($id)) {
@@ -124,7 +132,11 @@
                                     LIKE lower('%$selection%')");
             $stmt->execute();
             $stmt->bind_result($id, $element_name, $desc);
-            echo "<h4> Elements </h4>";
+            ?>
+            <div class="text-center">
+                <h1>Elements</h1>
+            </div>
+            <?php
             while ($stmt->fetch()) {
                 $id = htmlentities($id);
                 // var_dump($id);
