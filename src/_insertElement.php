@@ -1,11 +1,11 @@
 <?php
-    
+
     if (empty($_POST['name']) || empty($_POST['description']))
         exit("Invalid parameters.");
 
     $name = trim($_POST['name']);
     $description = trim($_POST['description']);
-    
+
 	if ($name == "" || $description == "")
 	    exit("Invalid parameters.");
 
@@ -35,6 +35,15 @@
 
 
 	echo "The element '$name' has been added.";
+
+  session_unset();
+  session_destroy();
+
+  header("Location: index_admin.php");
+  exit();
+  $conn->close();
+
+
 	exit;
 
 ?>
