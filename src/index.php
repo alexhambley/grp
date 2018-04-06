@@ -1,6 +1,4 @@
 <?php
-<<<<<<< HEAD
-
     include 'credentials.php';
 
     $dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
@@ -12,7 +10,7 @@
     	$db->beginTransaction();
     	$query = "SELECT * FROM role";
     	$stmt = $db->prepare($query);
-    	
+
     	$stmt->execute();
     	$db->commit();
     } catch (PDOException $e) {
@@ -26,17 +24,10 @@
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $db = NULL;
 
-
-    //echo "<pre>";
-    //var_dump($result);
-    //exit;
-
-=======
     include "header.php";
     include "navbar.php";
     include "db.php";
     session_start();
->>>>>>> dev
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +40,7 @@
     <section id="banner">
         <div id="text">
             <h1> Welcome to the Competencies for Food Graduate Careers Toolkit </h1>
-            <p> On this site, you can select your competencies, either as key themes, roles, or elements that 
+            <p> On this site, you can select your competencies, either as key themes, roles, or elements that
                 you feel you are strong in, and learn more about the individual roles available to you as a food graduate. </p>
         </div>
     </section>

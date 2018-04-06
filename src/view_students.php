@@ -2,7 +2,7 @@
     include "header.php";
     include "navbar.php";
     include "db.php";
-    session_start(); 
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -12,25 +12,12 @@
 </head>
 
 <body class="bg-grey">
-<!-- Search Bar goes here -->
-
-<!-- Form Starts here
-     Theme 1 -->
-
-<!-- See Trello if confused.
-     The idea is that user chooses three themes, and then we show the
-     elements from these three themes.
-
-     If we show all 40+ elements, that is poor UI design.
-     User chooses 3 different themes, then 10 correspondng elements.
-     We then show the best matching role    s.  -->
-
     <div class="container">
         <form action="view_elements.php">
         <fieldset>
             <div class="text-center">
                 <h1> Find a Career </h1>
-            </div> 
+            </div>
             <h4> Explanation: </h4>
             <p> All of the elements, or skills, are associated with themes. <br>
                 Here, you can select the three themes that you believe are most appropiate to you, and then submit these choices. <br>
