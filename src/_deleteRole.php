@@ -11,13 +11,12 @@
 	include 'credentials.php';
 
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
-    $db = new PDO($dsn,$db_username,$db_password);
+  $db = new PDO($dsn,$db_username,$db_password);
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	try {
 		$db->beginTransaction();
-
         $query = str_replace("?", $name, "SELECT id FROM role WHERE entry = '?'");
 		$stmt = $db->prepare($query);
 		$stmt->execute();

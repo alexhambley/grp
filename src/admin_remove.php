@@ -5,7 +5,6 @@
     session_start();
 ?>
 
-
 <!DOCTYPE html>
 <head>
 	<title> Remove Database Elements </title>
@@ -77,7 +76,6 @@
     <div class="text-center">
       <h2> Remove Elements </h2>
     </div>
-
 
     <form action="_deleteElement.php" method="post">
       <div class="form-group">

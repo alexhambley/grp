@@ -6,7 +6,7 @@
         width: 15%;
         height: auto;
         float:left;
-        text-align: center;  
+        text-align: center;
         vertical-align: middle;
         padding: 4pt;
     }
@@ -30,8 +30,8 @@
     <style>
     /* Otherwise the navbar will cover stuff in body */
     /* <a href="http://www.nottingham.ac.uk/" style="background-image: url(img/UoN_Primary_Logo_RGB.png); float: left; padding-left: 10px; padding-bottom: 5px"></a>*/
-        body { 
-            padding-top: 70px; 
+        body {
+            padding-top: 70px;
         }
     </style>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -40,8 +40,8 @@
                 <img id = "image" href="http://www.nottingham.ac.uk/" src="img/UoN_Primary_Logo_RGB.png">
                 <a class="navbar-brand" href="index.php">Competencies for Food Graduate Careers</a>
                 <ul id='navbar' class="nav navbar-nav ">
-                    <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Find a Career </a></li>
                     <li> <a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a></li>
+                    <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Find a Career </a></li>
                     <li> <a href="admin_login.php"  style="color: #1a296b; font-weight: bold"> Admin </a></li>
                     <li>
                         <form id="searchform" class="navbar-form navbar-left" method="get" action="navbar_search.php">

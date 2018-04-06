@@ -7,6 +7,8 @@
 
 /* Banner*/
 #banner {
+
+
     display: -ms-flexbox;
     -ms-flex-pack: center;
     -ms-flex-align: center;
@@ -31,7 +33,7 @@
     /* this is to change the banner size*/
     min-height: 75vh;
     height: 75vh !important;
-    
+
     position: relative;
     text-align: center;
     overflow: hidden;

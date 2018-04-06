@@ -100,7 +100,6 @@
         ?>
       </div>
 
-
       <div class="form-group">
         <label for="rolethemes"> Related Themes: </label>
         <br>
@@ -179,7 +178,6 @@
       </div>
       <p> Please use this form to update the elements within the database. </p>
       <label for="roleentry"> Plesse select an element to update: </label>
-
       <div class="select">
         <select name="elementname" class="custom-select">
           <?php
