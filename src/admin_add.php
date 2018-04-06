@@ -54,7 +54,7 @@
         <div id="numOfNames">
           Name 1
           <br>
-          <input type="text" class="form-control" classname="altName[]">
+          <input type="text" class="form-control" name="altName[]">
         </div>
         <br>
         <button type=button class="btn btn-default" onclick="return myFunc('numOfNames')"> Add another name </button>
@@ -71,7 +71,7 @@
           while ($stmt->fetch()) {
               $id = htmlentities($id);
               $elementname = htmlentities($elementname);
-              echo "<input type=\"checkbox\" name=\"elements[]\" style=\"margin-right:10px; value=\"$id\">";
+              echo "<input type=\"checkbox\" name=\"elements[]\" style=\"margin-right:10px\" value=\"$id\">";
               echo $elementname;
               echo "<br>";
           }
@@ -88,7 +88,7 @@
           while ($stmt->fetch()) {
               $themeid = htmlentities($themeid);
               $themename = htmlentities($themename);
-              echo "<input type=\"checkbox\" name=\"themes[]\" style=\"margin-right:10px; value=\"$themeid\">";
+              echo "<input type=\"checkbox\" name=\"themes[]\" style=\"margin-right:10px\" value=\"$themeid\">";
               echo $themename;
               echo "<br>";
           }
@@ -124,7 +124,7 @@
           while ($stmt->fetch()) {
               $id = htmlentities($id);
               $elementname = htmlentities($elementname);
-              echo "<input type=\"checkbox\" name=\"elements[]\" style=\"margin-right:10px; value=\"$id\">";
+              echo "<input type=\"checkbox\" name=\"elements[]\" style=\"margin-right:10px\" value=\"$id\">";
               echo $elementname;
               echo "<br>";
           }

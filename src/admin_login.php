@@ -25,8 +25,10 @@
 <html>
 <head>
     <title> Admin Login </title>
+    <link rel="stylesheet" href="css/view_students.css" />
+
     <style>
-       .bg-grey {
+       /* .bg-grey {
       background-color: #f6f6f6;
   }
        .thumbnail {
@@ -44,7 +46,7 @@
     }
     .btn {
         background-color: #192A6C;
-    }
+    } */
   </style>
 </head>
 <body class="bg-grey">
