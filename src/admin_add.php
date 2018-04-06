@@ -49,7 +49,7 @@
       </div>
 
       <div class="form-group">
-        <label for="rolealr"> Alternative Names: </label>
+        <label for="rolealt"> Alternative Names: </label>
       <!-- <br> -->
         <div id="numOfNames">
           Name 1
