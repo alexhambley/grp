@@ -1,9 +1,9 @@
 <?php
     include "header.php";
     include "navbar.php";
-    include "db.php";    
+    include "db.php";
     include '_db-user-util.php';
-    
+
     session_start();
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
@@ -72,7 +72,7 @@
                 <input class="form-control btn btn-primary" type="submit" name="submit" value="Login">
             </div>
             <div class="form-group text-center">
-                <a class="help-block" href="forget.php">Forget your password?</a>
+                <a class="help-block" href="forgotten_password.php">Forgot your password?</a>
             </div>
         </form>
     </div>
