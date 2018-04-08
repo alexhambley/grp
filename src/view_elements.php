@@ -2,8 +2,8 @@
     include "header.php";
     include "navbar.php";
     include "db.php";
-    session_start();
 
+    session_start();
     $_SESSION['theme1'] = $_GET['theme1'];
     $_SESSION['theme2'] = $_GET['theme2'];
     $_SESSION['theme3'] = $_GET['theme3'];
@@ -35,42 +35,156 @@
                     elements will be shown to you.
                 </p>
 
-                <label> Elements related to Theme 1 </label>
-                <br>
+
                 <?php
                     if (empty($_GET['skip']))
                     {
                         $themeid = trim($_GET['theme1']);
-                        $stmt = $conn->prepare("SELECT elements
-                                                FROM theme
-                                                WHERE theme_id = (?)");
-                        $stmt->bind_param("s", $themeid);
-                        $stmt->execute();
-                        $stmt->bind_result($elements);
-                        $stmt->fetch();
-                        $stmt->close();
-
-                        $elementArray = explode(",", $elements);
-
-                        $stmt = $conn->prepare("SELECT id, elementname
-                                                FROM element
-                                                WHERE id = (?)
-                                                ORDER BY id ASC");
-                        foreach ($elementArray as $value) {
-                            $value = (int)$value;
-                            $stmt->bind_param("i", $value);
+                        if ($themeid != "D0") {
+                            $stmt = $conn->prepare("SELECT themename
+                                                    FROM theme
+                                                    WHERE theme_id = '$themeid'");
                             $stmt->execute();
-                            $stmt->bind_result($id, $name);
+                            $stmt->bind_result($name);
+                            while ($stmt->fetch()) {
+                              $name = htmlentities($name);
+                            }
+                            echo "<label> Elements related to \"$name\" (Theme 1) </label>";
+                            echo "<br>";
+                            $stmt->close();
+                            $stmt = $conn->prepare("SELECT elements
+                                                    FROM theme
+                                                    WHERE theme_id = (?)");
+                            $stmt->bind_param("s", $themeid);
+                            $stmt->execute();
+                            $stmt->bind_result($elements);
                             $stmt->fetch();
-                            $id = htmlentities($id);
-                            $name = htmlentities($name);
-                            echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\" style=\"margin-right:10px;\">$name<br>";
+                            $stmt->close();
+
+                            $elementArray = explode(",", $elements);
+
+                            $stmt = $conn->prepare("SELECT id, elementname
+                                                    FROM element
+                                                    WHERE id = (?)
+                                                    ORDER BY id ASC");
+                            foreach ($elementArray as $value) {
+                                $value = (int)$value;
+                                $stmt->bind_param("i", $value);
+                                $stmt->execute();
+                                $stmt->bind_result($id, $name);
+                                $stmt->fetch();
+                                $id = htmlentities($id);
+                                $name = htmlentities($name);
+                                echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\" style=\"margin-right:10px;\">$name<br>";
+                            }
+                            echo "<br>";
+                            $stmt->close();
                         }
+                        else {
+                          echo "<label> Theme 1 does not have any related elements </label>";
+                          echo "<br>";
+                        }
+                        $themeid = trim($_GET['theme2']);
+                        if ($themeid != "D0") {
+                            $stmt = $conn->prepare("SELECT themename
+                                                    FROM theme
+                                                    WHERE theme_id = '$themeid'");
+                            $stmt->execute();
+                            $stmt->bind_result($name);
+                            while ($stmt->fetch()) {
+                              $name = htmlentities($name);
+                            }
+                            echo "<label> Elements related to \"$name\" (Theme 2) </label>";
+                            echo "<br>";
+                            $stmt->close();
+                            $stmt = $conn->prepare("SELECT elements
+                                                    FROM theme
+                                                    WHERE theme_id = (?)");
+                            $stmt->bind_param("s", $themeid);
+                            $stmt->execute();
+                            $stmt->bind_result($elements);
+                            $stmt->fetch();
+                            $stmt->close();
+
+                            $elementArray = explode(",", $elements);
+
+                            $stmt = $conn->prepare("SELECT id, elementname
+                                                    FROM element
+                                                    WHERE id = (?)
+                                                    ORDER BY id ASC");
+
+                            foreach ($elementArray as $value) {
+                                $value = (int)$value;
+                                $stmt->bind_param("i", $value);
+                                $stmt->execute();
+                                $stmt->bind_result($id, $name);
+                                $stmt->fetch();
+                                $id = htmlentities($id);
+                                $name = htmlentities($name);
+                                echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\" style=\"margin-right:10px;\">$name<br>";
+                            }
+                            echo "<br>";
+                            $stmt->close();
+                        }
+                        else {
+                          echo "<label> Theme 2 does not have any associated elements </label>";
+                          echo "<br>";
+                        }
+                        $themeid = trim($_GET['theme3']);
+                        if ($themeid != "D0") {
+                            $stmt = $conn->prepare("SELECT themename
+                                                    FROM theme
+                                                    WHERE theme_id = '$themeid'");
+                            $stmt->execute();
+                            $stmt->bind_result($name);
+                            while ($stmt->fetch()) {
+                              $name = htmlentities($name);
+                            }
+                            echo "<label> Elements related to \"$name\" (Theme 3) </label>";
+                            echo "<br>";
+                            $stmt->close();
+                            $stmt = $conn->prepare("SELECT elements
+                                                    FROM theme
+                                                    WHERE theme_id = (?)");
+                            $stmt->bind_param("s", $themeid);
+                            $stmt->execute();
+                            $stmt->bind_result($elements);
+                            $stmt->fetch();
+                            $stmt->close();
+
+                            $elementArray = explode(",", $elements);
+
+                            $stmt = $conn->prepare("SELECT id, elementname
+                                                    FROM element
+                                                    WHERE id = (?)
+                                                    ORDER BY id ASC");
+
+                            foreach ($elementArray as $value) {
+                                $value = (int)$value;
+                                $stmt->bind_param("i", $value);
+                                $stmt->execute();
+                                $stmt->bind_result($id, $name);
+                                $stmt->fetch();
+                                $id = htmlentities($id);
+                                $name = htmlentities($name);
+                                echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\" style=\"margin-right:10px;\">$name<br>";
+                            }
+                            $stmt->close();
+                          }
+                          else {
+                            echo "<label> Theme 3 does not have any associated elements </label>";
+                            echo "<br>";
+                          }
                     }
                     else
                     {
-                        $stmt = $conn->prepare("SELECT id, elementname 
-                                                FROM element 
+                      ?>
+                      <label> Elements: </label>
+                      <br>
+                      <?php
+
+                        $stmt = $conn->prepare("SELECT id, elementname
+                                                FROM element
                                                 ORDER BY id ASC");
                         $stmt->execute();
                         $stmt->bind_result($id, $elementname);
@@ -80,76 +194,6 @@
                             echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\" style=\"margin-right:10px;\">$elementname<br>";
                         }
                     }
-                    $stmt->close();
-                ?>
-                <br>
-
-
-                <label> Elements related to Theme 2 </label>
-                <br>
-                <?php
-                    $themeid = trim($_GET['theme2']);
-                    $stmt = $conn->prepare("SELECT elements
-                                            FROM theme
-                                            WHERE theme_id = (?)");
-                    $stmt->bind_param("s", $themeid);
-                    $stmt->execute();
-                    $stmt->bind_result($elements);
-                    $stmt->fetch();
-                    $stmt->close();
-
-                    $elementArray = explode(",", $elements);
-
-                    $stmt = $conn->prepare("SELECT id, elementname
-                                            FROM element
-                                            WHERE id = (?)
-                                            ORDER BY id ASC");
-
-                    foreach ($elementArray as $value) {
-                        $value = (int)$value;
-                        $stmt->bind_param("i", $value);
-                        $stmt->execute();
-                        $stmt->bind_result($id, $name);
-                        $stmt->fetch();
-                        $id = htmlentities($id);
-                        $name = htmlentities($name);
-                        echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\" style=\"margin-right:10px;\">$name<br>";
-                    }
-                    $stmt->close();
-                ?>
-                <br>
-
-                <label> Elements related to Theme 3 </label>
-                <br>
-                <?php
-                    $themeid = trim($_GET['theme3']);
-                    $stmt = $conn->prepare("SELECT elements
-                                            FROM theme
-                                            WHERE theme_id = (?)");
-                    $stmt->bind_param("s", $themeid);
-                    $stmt->execute();
-                    $stmt->bind_result($elements);
-                    $stmt->fetch();
-                    $stmt->close();
-
-                    $elementArray = explode(",", $elements);
-
-                    $stmt = $conn->prepare("SELECT id, elementname
-                                            FROM element
-                                            WHERE id = (?)
-                                            ORDER BY id ASC");
-
-                    foreach ($elementArray as $value) {
-                        $value = (int)$value;
-                        $stmt->bind_param("i", $value);
-                        $stmt->execute();
-                        $stmt->bind_result($id, $name);
-                        $stmt->fetch();
-                        $id = htmlentities($id);
-                        $name = htmlentities($name);
-                        echo "<input type=\"checkbox\" name=\"selectedElement[]\" value=\"$id\" style=\"margin-right:10px;\">$name<br>";
-                    }
-                    $stmt->close();
                 ?>
                 <br>
                 <button class="btn btn-primary"
