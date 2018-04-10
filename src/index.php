@@ -11,7 +11,7 @@
     <Title> View All </Title>
 </head>
 
-<body class="bg-grey">
+<body class="bg">
     <section id="banner">
         <div id="text">
             <h1> Welcome to the Competencies for Food Graduate Careers Toolkit </h1>
