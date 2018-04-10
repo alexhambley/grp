@@ -30,8 +30,8 @@
     background-repeat: no-repeat;
     border-top: 0;
     /* this is to change the banner size*/
-    min-height: 43vh;
-    height: 43vh !important;
+    min-height: 25vh;
+    height: 25vh !important;
 
     position: relative;
     text-align: center;
