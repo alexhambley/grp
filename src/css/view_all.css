@@ -2,6 +2,9 @@
 
 .bg {
    background-image:  url("../img/uon.jpg");
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
 }
 /* Main */
 
@@ -25,9 +28,6 @@
     -ms-justify-content: center;
     justify-content: center;
     background-color: #192A6C;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     border-top: 0;
     /* this is to change the banner size*/
     min-height: 25vh;
