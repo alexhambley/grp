@@ -13,10 +13,10 @@
 
 <body class="bg">
     <section id="banner">
-        <div id="text">
+        <div id="text" style="color: white">
             <h1> Welcome to the Competencies for Food Graduate Careers Toolkit </h1>
-            <p> On this site, you can select your competencies, either as key themes, roles, or elements that 
-                you feel you are strong in, and learn more about the individual roles available to you as a food graduate. </p>
+            <h4> On this site, you can select your competencies, either as key themes, roles, or elements that 
+                you feel you are strong in, and learn more about the individual roles available to you as a food graduate. </h4>
         </div>
     </section>
     <div class="container-fluid text-center">
