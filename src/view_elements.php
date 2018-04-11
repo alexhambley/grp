@@ -19,6 +19,10 @@
     <div class="container">
         <form action="view_roles.php">
             <fieldset>
+            <nav class="breadcrumb">
+                <li><a class="breadcrumb-item" href="view_students.php">Find A Career</a></li>
+                <li><span class="breadcrumb-item active">View Elements</span></li>
+            </nav>
                 <div class="text-center">
                     <h1>Find a Career</h1>
                 </div>
