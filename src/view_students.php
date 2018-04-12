@@ -41,8 +41,8 @@
             <label for="theme1"> Theme 1 </label>
             <br>
             <div class="select">
-            <select class="custom-select" name="theme1">
-                <option selected> Please select theme 1 </option>
+            <select class="custom-select" name="theme1" required>
+                <option value="" selected> Please select theme 1 </option>
                 <?php
                     $stmt = $conn->prepare("SELECT theme_id, themename
                                             FROM theme
@@ -62,8 +62,8 @@
             <label for="theme2"> Theme 2 </label>
             <br>
             <div class="select">
-            <select class="custom-select" name="theme2">
-                <option selected> Please select theme 2 </option>
+            <select class="custom-select" name="theme2" required>
+                <option value="" selected> Please select theme 2 </option>
                 <?php
                     $stmt = $conn->prepare("SELECT theme_id, themename
                                             FROM theme
@@ -84,8 +84,8 @@
             <label for="theme3"> Theme 3 </label>
             <br>
             <div class="select">
-            <select class="custom-select" name="theme3">
-                <option selected>Please select theme 3</option>
+            <select class="custom-select" name="theme3" required>
+                <option value="" selected>Please select theme 3</option>
                 <?php
                     $stmt = $conn->prepare("SELECT theme_id, themename
                                             FROM theme
