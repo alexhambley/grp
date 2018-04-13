@@ -18,13 +18,14 @@ A compentence evaluating system for Food Science graduates.
 
 ### Trello
 
-Planning
+(To view you must have been invited)
 
-https://trello.com/invite/b/vjlo6bSZ/1cdf94f063efd97b7ea6992d1ace49ac/planning
+| Board | Link |
+| - | - |
+| Planning | https://trello.com/b/W1guhkC1 |
+| Coding   | https://trello.com/b/vjlo6bSZ |
+| TDD      | https://trello.com/b/AQ639kJH |
 
-Coding
-
-https://trello.com/invite/b/W1guhkC1/9e3a73a38243476be0b57478f9d8c05f/coding
 
 ### Dropbox
 
@@ -38,13 +39,12 @@ https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
 
 - Comprehensive themes
 - User-friendly interface
-- Lightweighted architecture
-
+- Lightweight architecture
 
 ## Useful for...
 - Graduates of Food Science
 - Undergraduates of Food Science
-- Teachers of Food Science
+- Lecturers in Food Science
 
 ## Installation
 
@@ -59,23 +59,38 @@ https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
 
 4) If you are running XAMPP, then you should be greeted with a webpage similar to this:
 
-  ![localhost-screenshot](readme-img/1-localhost-screenshot.png)
+  ![localhost](readme-img/localhost.jpg)
 
 5) Browse to PHPMyAdmin (_your-public-ip/phpmyadmin_) and create a new database called `g52grp`.
   * Please note that the database **must** be named `g52grp`:
-  ![create-database-screenshot](readme-img/2-create-database.png)
+
+![db1](readme-img/database.jpg)
   * Your PHPMyAdmin may be password protected. Log in, and we will deal with that later.
 
 6) Import the SQL file '_/grp/src/data/foodgraduates.sql_'.
+
+![db2](readme-img/database-2.jpg)
 
 7) If your PHPMyAdmin is password protected, then you will have to add these credentials to the `db.php` and `credentials.php` files.
 
 * There is not much to change, just add your username and password to these files.
 *  They should be similar to this afterwards:
   * `credentials.php`
-  ![cred-screenshot](readme-img/3-cred.png)
+  ```php
+  <?php
+      $db_host = 'localhost';
+      $db_username = 'root';
+      $db_password = '';
+      $db_database = 'g52grp';
+  ?>
+  ```
   * `db.php`
-  ![db-screenshot](readme-img/4-db.png)
+  ```php
+  <?php
+  $conn = new mysqli("localhost", "root", "", "g52grp");
+  if ($conn->connect_errno != 0)
+    die('Failed to connect to the database.');
+  ```
 
 8) You will now need to set up a new admin user in order to edit the database.
   * We first need to create a hash of your chosen password.
@@ -84,14 +99,14 @@ https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
   <?php
   echo hash('sha256', 'YOUR PASSWORD HERE');
   ?>
-
   ```
 
   * Save this as `password.php` and browse to it by the following:  '_your-public-ip/grp/src/password.php_'
 
   * Copy this result.
   * In PHPMyAdmin, go to the users table on the left hand side, and click Browse. You should have a page like below:
-    ![phpmyadmin-screenshot](readme-img/5-phpmyadmin-sql.png)
+
+![db3](readme-img/database-3.jpg)
 
   * Edit the following SQL command to contain the attributes that you want. Remember to use the hash that you generated for the password.
 
