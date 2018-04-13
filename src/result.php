@@ -59,11 +59,6 @@
 
 <body class="bg-grey">
     <div class="container">
-    <nav class="breadcrumb">
-        <li><a class="breadcrumb-item" href="view_students.php">Find a Career</a></li>
-        <li><a class="breadcrumb-item" href="view_elements.php">View Elements</a></li>
-        <li><span class="breadcrumb-item active">Related Roles</span></li>
-    </nav>
         <div class="text-center">
             <h1> Related Roles </h1>
         </div>

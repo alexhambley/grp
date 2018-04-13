@@ -11,7 +11,7 @@
     <Title> View All </Title>
 </head>
 
-<body class="bg">
+<body class="bg-grey">
     <section id="banner">
         <div id="text" style="color: white">
             <h1> Welcome to the Competencies for Food Graduate Careers Toolkit </h1>
@@ -19,7 +19,15 @@
                 you feel you are strong in, and learn more about the individual roles available to you as a food graduate. </h4>
         </div>
     </section>
-    <div class="container-fluid text-center">
+
+    <div style="padding-left: 30px">
+    <h4> Explaination: </h4>
+    <p> Select roles, themes or elements to see a list of all roles, themes or elements. <br> You can then choose to see more information for an individual option by selecting 'See More'. </p>
+
+    </div> 
+    
+
+    <div class="container-fluid text-center"> 
 
     <section>
         <!-- Roles -->
