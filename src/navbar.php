@@ -45,7 +45,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img id = "image" href="http://www.nottingham.ac.uk/" src="img/UoN_Primary_Logo_RGB.png">
+                <a href="http://www.nottingham.ac.uk/"> <img id="image" src="img/UoN_Primary_Logo_RGB.png"> </a>        
                 <a class="navbar-brand" href="index.php" style="color: #1c2c67; font-weight: bold">Competencies for Food Graduate Careers</a>
                 <ul id='navbar' class="nav navbar-nav ">
                     <li> <a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a></li>
