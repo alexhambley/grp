@@ -78,12 +78,13 @@ https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
   ![db-screenshot](readme-img/4-db.png)
 
 8) You will now need to set up a new admin user in order to edit the database.
-  * We first need to create an md5 hash of your chosen password.
+  * We first need to create a hash of your chosen password.
   * Create a new php file with the following php code inside:
   ```php
-  <?
-  echo(md5("YOUR-PASSWORD-HERE"));
+  <?php
+  echo hash('sha256', 'YOUR PASSWORD HERE');
   ?>
+
   ```
 
   * Save this as `password.php` and browse to it by the following:  '_your-public-ip/grp/src/password.php_'
@@ -92,7 +93,7 @@ https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
   * In PHPMyAdmin, go to the users table on the left hand side, and click Browse. You should have a page like below:
     ![phpmyadmin-screenshot](readme-img/5-phpmyadmin-sql.png)
 
-  * Edit the following SQL command to contain the attributes that you want. Remember to use the md5 hash that you generated for the password.
+  * Edit the following SQL command to contain the attributes that you want. Remember to use the hash that you generated for the password.
 
     ```sql
     INSERT INTO 'users' (Name, Password, Phone, Email, Birthday)

@@ -14,7 +14,7 @@
     $errorDB = false;
     if (isset($_POST['submit']) and isset($_POST['username']) and isset($_POST['password']) and isset($_POST['email']) and isset($_POST['birthday']) and isset($_POST['phone'])) {
         $username = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
-        $password = md5($_POST['password']);
+        $password = hash('sha256', $_POST['password']);
         $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
         $birthday = filter_var(trim($_POST['birthday']), FILTER_SANITIZE_STRING);
         $phone = filter_var(trim($_POST['phone']), FILTER_SANITIZE_STRING);
