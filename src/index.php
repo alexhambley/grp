@@ -11,7 +11,7 @@
     <Title> View All </Title>
 </head>
 
-<body class="bg-grey">
+<body class="bg-grey" style="background-color: #f6f6f6">
     <section id="banner">
         <div id="text" style="color: white">
             <h1> Welcome to the Competencies for Food Graduate Careers Toolkit </h1>
@@ -21,7 +21,7 @@
     </section>
 
     <div style="padding-left: 30px">
-    <h4> Explaination: </h4>
+    <h4 style="color: #1c2c67;"> Explaination: </h4>
     <p> Select roles, themes or elements to see a list of all roles, themes or elements. <br> You can then choose to see more information for an individual option by selecting 'See More'. </p>
 
     </div> 
