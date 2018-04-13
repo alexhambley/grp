@@ -27,7 +27,7 @@ include "navbar.php";
         <p><a href="admin_remove.php" class="btn btn-default" style="border-color: #192A6C">Remove</a></p>
           <h2>Create a new account:</h2>
           <h4 style="color: black;"> This account will have admin privileges, and therefore will be able to update and remove elements from the database. </h4>
-          <p><a href="signup.php" class="btn btn-primary">Create Account</a></p>
+          <p><a href="signup.php" class="btn btn-default" style="border-color: #192A6C">Create Account</a></p>
     </div>
   </div>
     <script src="js/index.js"> </script>

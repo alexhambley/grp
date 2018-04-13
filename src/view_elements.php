@@ -196,7 +196,7 @@
                     }
                 ?>
                 <br>
-                <button class="btn btn-primary"
+                <button class="btn btn-default" style="border-color: #192A6C"
                     type="submit">
                     Submit Element Choices
                 </button>
