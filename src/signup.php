@@ -56,7 +56,7 @@
 <body class="bg-grey">
     <div class="container">
         <div class="text-center">
-            <h1>Register Your Account</h1>
+            <h1>Add New Admin</h1>
         </div>
 
         <h4> Explanation: </h4>

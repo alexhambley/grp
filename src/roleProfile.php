@@ -253,7 +253,7 @@
                 
                 <h3>Desirable Themes for this Role</h3>
                 <p style="color:green">Green: Themes you have</p>
-                <p style="color:red">Red: Themes to improve</p>
+                <p style="color:red">Red: Themes to consider</p>
 
                 <div align="center">
                     <table width="90%">
@@ -298,7 +298,7 @@
                 
                 <h3>Desirable Elements for this Role</h3>
                 <p style="color:green">Green: Elements you have</p>
-                <p style="color:red">Red: Elements to improve</p>
+                <p style="color:red">Red: Elements to consider</p>
                 <div align="center">
                     <div class="boxElement">
                     <?php
