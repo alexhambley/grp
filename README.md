@@ -1,6 +1,5 @@
 # G52GRP - Group 35
-A compentence evaluating system for Food Science graduates.
-
+### Competencies for Food Graduate Careers
 ## Members
 
 - Alexander Hambley Jones (Leader)
@@ -14,7 +13,7 @@ A compentence evaluating system for Food Science graduates.
 - Peter Blanchfield (Supervisor)
 - Emma Weston (Sponsor)
 
-## Documentations
+## Documentation
 
 ### Trello
 
@@ -46,9 +45,9 @@ https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
 - Undergraduates of Food Science
 - Lecturers in Food Science
 
-## Installation
+## Installation 
 
-⚠️ If you are installing this software, please read the entire readme, and not just this installation section.
+If you are installing this software, please read the entire readme, and not just this installation section. ⚠️
 
 1) Install [XAMPP](https://www.apachefriends.org/index.html) or set up a [LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04) stack.
 

@@ -94,8 +94,10 @@
           }
         ?>
         <br>
-        <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Add to Database"><br><br>
-    </form>
+        <input type="submit" class="btn btn-success" value="Add to database">    
+        <br>
+        <br>
+        </form>
 
 
     <form action="_insertTheme.php" method="post">
@@ -130,7 +132,7 @@
           }
         ?>
       </div>
-      <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Add to database">
+      <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Add to database">    
     </form>
 
     <form action="_insertElement.php" method="post">
