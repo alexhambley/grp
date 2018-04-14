@@ -66,3 +66,7 @@
 .btn {
   background-color: #192A6C;
 }
+.btn:hover, btn:active {
+  background-color: #fff;
+  color: #192A6C;
+}

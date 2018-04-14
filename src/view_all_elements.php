@@ -29,7 +29,7 @@
 
                         echo "<td> $elename </td>";
                         echo "<td>";
-                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#ele_mod$id\">See More</button>";
+                            echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" data-toggle=\"modal\" data-target=\"#ele_mod$id\">See More</button>";
                             // Modal
                             echo "<div class=\"modal fade\" id=\"ele_mod$id\" role=\"dialog\">";
                                 echo "<div class=\"modal-dialog\">";
@@ -45,7 +45,7 @@
                                         echo "<p>$desc</p>";
                                     echo "</div>";
                                     echo "<div class=\"modal-footer\">";
-                                        echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                                        echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" data-dismiss=\"modal\">Close</button>";
                                     echo "</div>";
                                 echo "</div>";
                             echo "</div>";
