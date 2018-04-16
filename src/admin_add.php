@@ -18,6 +18,20 @@
       return false;
     }
 }
+
+// function checkParams() {
+  // alert(document.querySelector('.roleelements').checked);
+
+//   var checkedValue = null; 
+//   var inputElements = document.getElementsByClassName('roleelements');
+//   for(var i=0; inputElements[i]; ++i){
+//         if(inputElements[i].checked) {
+//             checkedValue = inputElements[i].value;
+//             return true;
+//         }
+//   }
+  // return false;
+// }
 </script>
 
 <!DOCTYPE html>
@@ -32,7 +46,7 @@
       <h1> Add to Database </h1>
     </div>
 
-    <form action="_insertRole.php" method="post">
+    <form name="rolesForm" action="_insertRole.php" method="post">
       <div class="text-center">
         <h2> Add Roles </h2>
       </div>
@@ -40,12 +54,12 @@
       <p> Please use this form to insert new roles to the database. </p>
       <div class="form-group">
         <label for="roleentry"> New role name: </label>
-        <input type="text" class="form-control" name="entry" placeholder="New role name">
+        <input type="text" class="form-control" name="entry" placeholder="New role name" required>
       </div>
 
       <div class="form-group">
         <label for="roledesc"> New role description: </label>
-        <textarea class="form-control" name="description" rows="2"></textarea>
+        <textarea class="form-control" name="description" rows="2" required></textarea>
       </div>
 
       <div class="form-group">
@@ -54,7 +68,7 @@
         <div id="numOfNames">
           Name 1
           <br>
-          <input type="text" class="form-control" name="altName[]">
+          <input type="text" class="form-control" name="altName[]" required>
         </div>
         <br>
         <button type=button class="btn btn-default" onclick="return myFunc('numOfNames')"> Add another name </button>
@@ -62,7 +76,7 @@
       </div>
 
       <div class="form-group">
-        <label for="roleelements"> Related Elements: </label>
+        <label name="roleelements" for="roleelements"> Related Elements: </label>
         <br>
         <?php
           $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
@@ -76,6 +90,8 @@
               echo "<br>";
           }
         ?>
+        <small id="rehelp" class="form-text text-muted">Must select at least one</small>
+
       </div>
 
       <div class="form-group">
@@ -93,9 +109,10 @@
               echo "<br>";
           }
         ?>
+        <small id="rehelp" class="form-text text-muted">Must select at least one</small>        
+        <br>
         <br>
         <input type="submit" class="btn btn-success" value="Add to database">    
-        <br>
         <br>
         </form>
 

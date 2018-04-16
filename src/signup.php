@@ -111,7 +111,7 @@
               <label for "number"> Phone Number: </label>
               <input class="form-control" type="number" name="phone" placeholder="07770000000" required>
             </div>
-            <input class="btn btn-primary" type="submit" name="submit" style="background-color: #2a8c3e;" value="Register New Admin">
+            <input class="btn btn-success" type="submit" name="submit" value="Register New Admin">
         </form>
     </div>
 </body>
