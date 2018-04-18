@@ -20,19 +20,21 @@
         <form action="view_roles.php">
       
                 <div class="text-center">
-                    <h1>Find a Career</h1>
+                    <h1>Find Ideal Career Pathways for You</h1>
                 </div>
                 <h4> Explanation: </h4>
                 <p> Below is a list of elements.
-                    <br>
-                    These elements are skills that are deemed critical to various roles related to the food
+                    <br> 
+                    These elements are skills that are considered desirable to various roles related to the food
                     science industry.
                     <br>
                     By selecting the skills that you feel you are competent in, the website will show you
                     roles that you may be suited for.
                     <br>
-                    If you chose three themes, then these are related to your choice. If not, then all the
-                    elements will be shown to you.
+                    If you chose three themes, then we have shown below those that are related to your choice. If not, then all the
+                    elements will be shown to you. <br> <br>
+
+                    You can click as many elements as you wish. 
                 </p>
 
 
@@ -127,7 +129,7 @@
                             $stmt->close();
                         }
                         else {
-                          echo "<label> Theme 2 does not have any associated elements </label>";
+                          echo "<label> Theme 2 does not have any related elements </label>";
                           echo "<br>";
                         }
                         $themeid = trim($_GET['theme3']);
@@ -172,7 +174,7 @@
                             $stmt->close();
                           }
                           else {
-                            echo "<label> Theme 3 does not have any associated elements </label>";
+                            echo "<label> Theme 3 does not have any related elements </label>";
                             echo "<br>";
                           }
                     }
