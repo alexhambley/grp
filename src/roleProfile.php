@@ -241,8 +241,8 @@
                 
                 
                 <h3>Desirable Themes for this Role</h3>
-                <p style="color:green">Green: Themes you have</p>
-                <p style="color:red">Red: Themes to consider</p>
+                <p style="color:green">Green: Themes you have selected your competence</p>
+                <p style="color:red">Red: Themes you may wish to develop further</p>
 
                 <div align="center">
                     <table width="90%">
@@ -286,8 +286,8 @@
                 
                 
                 <h3>Desirable Elements for this Role</h3>
-                <p style="color:green">Green: Elements you have</p>
-                <p style="color:red">Red: Elements to consider</p>
+                <p style="color:green">Green: Elements you have selected you are competent in</p>
+                <p style="color:red">Red: Elements you may wish to develop further</p>
                 <div align="center">
                     <div class="boxElement">
                     <?php

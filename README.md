@@ -45,7 +45,7 @@ https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
 - Undergraduates of Food Science
 - Lecturers in Food Science
 
-## Installation 
+## Installation
 
 If you are installing this software, please read the entire readme, and not just this installation section. ⚠️
 
@@ -113,7 +113,7 @@ If you are installing this software, please read the entire readme, and not just
 
     ```sql
     INSERT INTO 'users' (Name, Password, Phone, Email, Birthday)
-    VALUES ("USERNAME", "PASSWORD", "PHONE NUMBER" "EMAIL", "BIRTHDAY")
+    VALUES ("USERNAME", "PASSWORD", "PHONE NUMBER", "EMAIL", "BIRTHDAY")
     ```
 
   * Press the Edit Inline link and paste your SQL command in, pressing 'Go'.
