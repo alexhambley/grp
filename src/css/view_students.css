@@ -114,6 +114,14 @@ label {
   color: #ffffff;
 }
 
+.wheel-image img {
+  margin-left: auto;
+	margin-right: auto;
+  display: block;
+  max-width: 300px;
+  max-height: auto;
+}
+
 @media only screen and (max-width: 450px) {
   .select {
     /* position: relative; */
