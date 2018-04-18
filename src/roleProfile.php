@@ -115,10 +115,10 @@
     $roleNames = explode(",",$roles[0]["names"]);
 
     $subTitle = "So What is Desirable for a ".$mainTitle;
-    $subText = "
-    <p>14 typical graduate roles have been identified and this is one of them.  Industry have outlined what they think may be the most valuable skills, knowledge and behaviours for this role.<br>
-    They are outlined in <b>8 general themes</b>. Also there is more detail provided on specific elements (there are <b>48 elements grouped into 11 Zones</b>). Below is the profile for this role.</p>
-    ";
+    $subText = "<p>There are standards for the technical content of Food Sciences degrees; but there are more aspects you can 
+    develop to support success in the workplace. <b>14 typical graduate roles types</b> have been identified & this is one of them. 
+    Industry have outlined what they think may be the most valuable skills, knowledge and behaviours for this role. <br>
+    They are outlined in <b>8 themes</b> then more detail is provided on specific <b>elements</b>. Below is the profile for this role</p>";
 
     if (substr($mainTitle, 0, 3) == "NPD") {
         $tmparr = explode("NPD",$mainTitle);
@@ -144,17 +144,6 @@
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
