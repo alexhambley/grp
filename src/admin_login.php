@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <input class="form-control btn btn-primary" type="submit" name="submit" value="Login">
+                <input class="form-control btn btn-default" type="submit" name="submit" value="Login">
             </div>
             <div class="form-group text-center">
                 <a class="help-block" href="forgotten_password.php">Forgot your password?</a>

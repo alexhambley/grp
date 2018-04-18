@@ -25,7 +25,7 @@
                         echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $name </td>";
                         echo "<td>";
-                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#theme_mod$id\">See More</button>";
+                            echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" data-toggle=\"modal\" data-target=\"#theme_mod$id\">See More</button>";
                             // Modal 
                             echo "<div class=\"modal fade\" id=\"theme_mod$id\" role=\"dialog\">";
                             echo "<div class=\"modal-dialog\">";
@@ -41,7 +41,7 @@
                                         echo "<p>$exp</p>";
                                     echo "</div>";
                                     echo "<div class=\"modal-footer\">";
-                                        echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                                        echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" data-dismiss=\"modal\">Close</button>";
                                     echo "</div>";
                                 echo "</div>";
                             echo "</div>";

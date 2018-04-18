@@ -14,7 +14,7 @@
     $errorDB = false;
     if (isset($_POST['submit']) and isset($_POST['username']) and isset($_POST['password']) and isset($_POST['email']) and isset($_POST['birthday']) and isset($_POST['phone'])) {
         $username = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
-        $password = md5($_POST['password']);
+        $password = hash('sha256', $_POST['password']);
         $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
         $birthday = filter_var(trim($_POST['birthday']), FILTER_SANITIZE_STRING);
         $phone = filter_var(trim($_POST['phone']), FILTER_SANITIZE_STRING);
@@ -56,7 +56,7 @@
 <body class="bg-grey">
     <div class="container">
         <div class="text-center">
-            <h1>Register Your Account</h1>
+            <h1>Add New Admin</h1>
         </div>
 
         <h4> Explanation: </h4>
@@ -111,7 +111,7 @@
               <label for "number"> Phone Number: </label>
               <input class="form-control" type="number" name="phone" placeholder="07770000000" required>
             </div>
-            <input class="btn btn-primary" type="submit" name="submit" style="background-color: #2a8c3e;" value="Register New Admin">
+            <input class="btn btn-success" type="submit" name="submit" value="Register New Admin">
         </form>
     </div>
 </body>

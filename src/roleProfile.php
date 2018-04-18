@@ -69,10 +69,10 @@
     $roleNames = explode(",",$roles[0]["names"]);
 
     $subTitle = "So What is Desirable for a ".$mainTitle;
-    $subText = "
-    <p>14 typical graduate roles have been identified and this is one of them.  Industry have outlined what they think may be the most valuable skills, knowledge and behaviours for this role.<br>
-    They are outlined in <b>8 general themes</b>. Also there is more detail provided on specific elements (there are <b>48 elements grouped into 11 Zones</b>). Below is the profile for this role.</p>
-    ";
+    $subText = "<p>There are standards for the technical content of Food Sciences degrees; but there are more aspects you can 
+    develop to support success in the workplace. <b>14 typical graduate roles types</b> have been identified & this is one of them. 
+    Industry have outlined what they think may be the most valuable skills, knowledge and behaviours for this role. <br>
+    They are outlined in <b>8 themes</b> then more detail is provided on specific <b>elements</b>. Below is the profile for this role</p>";
 
     if (substr($mainTitle, 0, 3) == "NPD") {
         $tmparr = explode("NPD",$mainTitle);
@@ -168,8 +168,8 @@
                 <div><?php echo $subText; ?></div>
 
                 <h3>Desirable Themes for this Role</h3>
-                <p style="color:green">Green: Themes you have</p>
-                <p style="color:red">Red: Themes to improve</p>
+                <p style="color:green">Green: Themes you have selected your competence</p>
+                <p style="color:red">Red: Themes you may wish to develop further</p>
 
                 <div align="center">
                     <table width="90%">
@@ -209,8 +209,8 @@
                     </table>
                 </div>
                 <h3>Desirable Elements for this Role</h3>
-                <p style="color:green">Green: Elements you have</p>
-                <p style="color:red">Red: Elements to improve</p>
+                <p style="color:green">Green: Elements you have selected you are competent in</p>
+                <p style="color:red">Red: Elements you may wish to develop further</p>
                 <div align="center">
                     <div class="boxElement">
                     <?php

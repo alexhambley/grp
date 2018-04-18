@@ -69,7 +69,7 @@
             } else {
                 echo "<h4> Explanation: </h4>";
                 echo "<p> Below are the roles that we feel suit the elements that you chose on the previous page. <br>";
-                echo "You can click on each result to see more information about the role. <br>";
+                echo "You can click on each result to see more information about the role and its desirable competencies <br>";
                 echo "You may also wish to search again with different criteria. </p>";
                 echo "<br>";
                 $i = 0;
@@ -99,7 +99,7 @@
                     echo "<p>";
                     echo($temp['description']);
                     echo "</p>";
-                    echo "<h5> Example jobs: </h5>";
+                    echo "<h5> Examples of job titles: </h5>";
                     $example_roles = explode(",", $temp['names']);
                     $counter = 0;
                     while ($counter != count($example_roles)) {
@@ -109,7 +109,7 @@
                     echo "</div>";
                     echo "<div class=\"modal-footer\">";
                     echo "<button type=\"button\" class=\"btn btn-default\" onclick='gotoRole($tempID)'> See More </button>";
-                    echo "<button type=\"button\" class=\"btn btn-default\"> Generate PDF </button>";
+                    echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" onclick=\"window.open('img/posters/$tempID-poster.pdf')\"> View Poster </button>";
                     echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\"> Close </button>";
                     echo "</div>";
                     echo "</div>";

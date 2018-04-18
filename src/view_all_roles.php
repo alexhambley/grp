@@ -24,7 +24,7 @@
                     echo "<tr>";
                         echo "<td> $entry </td>";
                         echo "<td>";
-                            echo "<button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#role_mod$id\">See More</button>";
+                            echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" data-toggle=\"modal\" data-target=\"#role_mod$id\">See More</button>";
                             // Modal
                             echo "<div class=\"modal fade\" id=\"role_mod$id\" role=\"dialog\">";
                                 echo "<div class=\"modal-dialog\">";
@@ -38,7 +38,7 @@
                                         echo "<div class=\"modal-body\">";
                                             // This is the description
                                             echo "<p>$desc</p>";
-                                            echo "<h5> Example jobs: </h5>";
+                                            echo "<h5> Examples of job titles: </h5>";
                                             $example_roles = explode(",", $names);
                                             $counter = 0;
                                             while($counter != count($example_roles)) {
@@ -47,7 +47,8 @@
                                             }
                                         echo "</div>";
                                     echo "<div class=\"modal-footer\">";
-                                        echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                                        echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" onclick=\"window.open('img/posters/$id-poster.pdf')\"> View Poster </button>";
+                                        echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" data-dismiss=\"modal\">Close</button>";
                                     echo "</div>";
                                 echo "</div>";
                             echo "</div>";

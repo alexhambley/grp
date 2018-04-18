@@ -1,7 +1,10 @@
 
 
-.bg-grey {
-  background-color: #f6f6f6;
+.bg {
+   /* background-image:  url("../img/uon.jpg"); */
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
 }
 /* Main */
 
@@ -12,7 +15,6 @@
     display: -ms-flexbox;
     -ms-flex-pack: center;
     -ms-flex-align: center;
-    padding: 8em 0 6em 0;
     -moz-align-items: center;
     -webkit-align-items: center;
     -ms-align-items: center;
@@ -25,43 +27,19 @@
     -webkit-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
-    background-image: url("../img/uon.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #192A6C;
     border-top: 0;
     /* this is to change the banner size*/
-    min-height: 75vh;
-    height: 75vh !important;
+    min-height: 30vh;
+    height: auto !important;
 
     position: relative;
     text-align: center;
     overflow: hidden;
+    padding-left: 30px;
+    padding-right: 30px;
     padding-bottom: 10px;
   }
-  #banner .inner {
-      -moz-transform: scale(1);
-      -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-      transform: scale(1);
-      -moz-transition: opacity 1s ease, -moz-transform 1s ease;
-      -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-      -ms-transition: opacity 1s ease, -ms-transform 1s ease;
-      transition: opacity 1s ease, transform 1s ease;
-      opacity: 1;
-      position: relative;
-      z-index: 2;
-    }
-#banner h1 {
-      font-size: 4em;
-      margin-bottom: .25em;
-      color:white;
-    }
-
-    #banner p {
-      color: white;
-      font-size: 1.5em;
-    }
 
 .col-sm-4 {
   padding-top: 10px;
@@ -89,4 +67,16 @@
 }
 .btn {
   background-color: #192A6C;
+}
+.btn:hover, btn:active {
+  background-color: #fff;
+  color: #192A6C;
+}
+
+.wheel-image img {
+  margin-left: auto;
+	margin-right: auto;
+  display: block;
+  max-width: 300px;
+  max-height: auto;
 }
