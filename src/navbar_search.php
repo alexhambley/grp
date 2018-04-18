@@ -57,7 +57,7 @@
                 echo "<div class=\"modal-body\">";
                 // This is the description
                 echo "<p>$desc</p>";
-                echo "<h5> Example jobs: </h5>";
+                echo "<h5> Examples of job titles: </h5>";
                 $example_roles = explode(",", $names);
                 $counter = 0;
                 while ($counter != count($example_roles)) {
