@@ -30,12 +30,14 @@
     background-color: #192A6C;
     border-top: 0;
     /* this is to change the banner size*/
-    min-height: 25vh;
-    height: 25vh !important;
+    min-height: 30vh;
+    height: auto !important;
 
     position: relative;
     text-align: center;
     overflow: hidden;
+    padding-left: 30px;
+    padding-right: 30px;
     padding-bottom: 10px;
   }
 
@@ -69,4 +71,12 @@
 .btn:hover, btn:active {
   background-color: #fff;
   color: #192A6C;
+}
+
+.wheel-image img {
+  margin-left: auto;
+	margin-right: auto;
+  display: block;
+  max-width: 300px;
+  max-height: auto;
 }
