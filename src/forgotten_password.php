@@ -33,7 +33,7 @@
           </div>
           <span class="help-block hidden" id="username-invalid">Invalid username! (Letters and spaces only)</span>
       </div>
-        <input class="btn btn-primary" type="submit">
+        <input class="btn btn-default" type="submit" value="Forgotten Password">
     </form>
     <?php } else {?>
     <form method="POST" action="_resetPassword.php">
@@ -56,7 +56,7 @@
         </div>
 
 
-        <input class="btn btn-primary" type="submit">
+        <input class="btn btn-primary" type="submit" value="Forgotten Password">
     </form>
     <?php } ?>
 </body>

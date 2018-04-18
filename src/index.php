@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/view_all.css?<?=filemtime('css/view_all.css');?>" />
+    <link rel="stylesheet" type="text/css" href="css/view_all.css?"/>
     
     <Title> View All </Title>
 </head>
