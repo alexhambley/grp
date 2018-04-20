@@ -49,7 +49,7 @@
                 <a href="http://www.nottingham.ac.uk/"> <img id="image" src="img/UoN_Primary_Logo_RGB.png"> </a>        
                 <a class="navbar-brand" href="index.php" style="color: #1c2c67; font-weight: bold">Competencies for Food Graduate Careers</a>
                 <ul id='navbar' class="nav navbar-nav ">
-                    <li id="navbar-index"> 
+                    <li id="navbar-index"></li>
                         <script>
                          if (window.location.pathname == "index.php")
                          {
@@ -60,7 +60,7 @@
                              document.getElementById("navbar-index").innerHTML = "<a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a>";
                          }
                         </script>
-                    </li>
+                    
                     <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Find a Career </a></li>
                     <li> <a href="admin_login.php"  style="color: #1a296b; font-weight: bold"> Admin </a></li>
                     <li>
