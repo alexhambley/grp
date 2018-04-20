@@ -55,7 +55,7 @@ select::-ms-expand {
   right: 0;
   bottom: 0;
   padding: 0 1em;
-  background: #34495e;
+  background: #adb6be;
   pointer-events: none;
 }
 /* Transition */
