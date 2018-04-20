@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/view_all.css?"/>
-    <Title> View All </Title>
+    <Title> Competencies for Food Graduates Careers Toolkit</Title>
 </head>
 
 <body class="bg-grey" style="background-color: #f6f6f6">
@@ -26,6 +26,8 @@
                 Alternatively if you click on the ‘Find a Career’ link, you can select the competencies that you feel you are strong 
                 in (there are themes and specific elements) and see the roles that may be initially suitable for you.</p>
  
+                <a type="button" class="btn btn-default" style="color: #192A6C; background-color: #ffffff; border-color: #ffffff" href="view_students.php"> Find a Career </a>
+            
         </div>
     </section>
     <div class="row">
