@@ -42,8 +42,25 @@
 <body class="bg-grey">
   <div class="container">
 
+  <div class="row">
+        <div class="col-sm-4">
+          <div style="padding-top: 30px;"> 
+            <button type="button" 
+                    class="btn btn-default"
+                    onclick="window.location.href='index_admin.php'">
+              <span class="glyphicon glyphicon-arrow-left"> </span> 
+              Back to Admin Page
+            </button>     
+          </div>
+   
+        </div>
+        <div class="col-sm-4">
+          <div class="text-center">
+            <h1> Add to Database </h1>
+          </div>
+        </div>
+     </div>
     <div class="text-center">
-      <h1> Add to Database </h1>
       <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
         <button type="button" 
                 class="btn btn-secondary" 
@@ -64,8 +81,7 @@
       </div>
     </div>
 
-    
-
+  
 
     <form action="_insertElement.php" method="post">
       <div class="text-center">
