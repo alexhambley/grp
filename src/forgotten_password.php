@@ -1,9 +1,10 @@
 <?php
+    session_start();
+
   include "header.php";
   include "navbar.php";
   include "db.php";
     include '_db-user-util.php';
-    session_start();
     $showQuestion = false;
     if (isset($_GET['username']) and isExistUser($_GET['username'])) {
         $showQuestion = true;
