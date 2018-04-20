@@ -1,15 +1,23 @@
 window.onload = function() {
-    document.getElementById('signup').addEventListener('submit', validate);
+    document.getElementById('form-username').addEventListener('submit', validateName);
+    document.getElementById('form-other').addEventListener('submit', validate);
+}
+
+function validateName(event) {
+    var form = document.forms['form-username'];
+    var username = form['username'].value;
+    if (!validateUsername(username)) {
+        event.preventDefault();
+        return;
+    }
 }
 
 function validate(event) {
-    var form = document.forms['signup'];
-    var username = form['username'].value;
-    var password = form['password'].value;
+    var form = document.forms['form-other'];
     var email = form['email'].value;
     var phone = form['phone'].value;
 
-    if (!validateUsername(username) || !validatePassword(password) || !validateEmail(email) || !validatePhone(phone)) {
+    if (!validateEmail(email) || !validatePhone(phone)) {
         event.preventDefault();
         return;
     }
