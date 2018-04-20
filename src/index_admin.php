@@ -22,8 +22,8 @@ include "navbar.php";
       </div>
         <h2>Database Management: </h2>
         <h4 style="color: black;"> Here you can add new roles, themes and elements, as well as update and remove existing ones. </h4>
-        <p><a href="admin_add.php" class="btn btn-default" style="border-color: #192A6C">Add</a></p>
-        <p><a href="admin_update.php" class="btn btn-default" style="border-color: #192A6C">Update</a></p>
+        <p><a href="admin_add_roles.php" class="btn btn-default" style="border-color: #192A6C">Add</a></p>
+        <p><a href="admin_update_roles.php" class="btn btn-default" style="border-color: #192A6C">Update</a></p>
         <p><a href="admin_remove.php" class="btn btn-default" style="border-color: #192A6C">Remove</a></p>
           <h2>Create a new account:</h2>
           <h4 style="color: black;"> This account will have admin privileges, and therefore will be able to update and remove elements from the database. </h4>
