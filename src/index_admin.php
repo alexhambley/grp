@@ -1,8 +1,7 @@
 <?php
-    session_start();
-
 include "header.php";
 include "navbar.php";
+    session_start();
     if (!$_SESSION['loggedin']) {
         header('Location: login.php');
         exit();

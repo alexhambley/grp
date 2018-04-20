@@ -1,7 +1,6 @@
 <?php
-    session_start();
-
     include '_db-user-util.php';
+    session_start();
     $answers = fetchAnswers($_SESSION['username-forget']);
 
     if (strcmp($answers['Email'], $_POST['email']) == 0 and

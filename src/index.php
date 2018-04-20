@@ -1,8 +1,8 @@
 <?php
-    session_start();
     include "header.php";
     include "navbar.php";
     include "db.php";
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
         <div id="text" style="color: white">
             <h1>Welcome to the Competencies for Food Graduate Careers Toolkit</h1>
 
-            <p> This is an interactive online tool where you can explore a range of roles that food science graduates can enter 
+            <p>This is an interactive online tool where you can explore a range of roles that food science graduates can enter 
                 the food industry with, including in retail and research. The industry has identified key competencies that are 
                 desirable for these roles. 
                 Below you can identify which competencies are desired in the roles that you are interested in. You can see what 
@@ -31,7 +31,7 @@
         </div>
     </section>
     <div class="row">
-        <div class="col-sm-8" style="padding-left: 40px;">
+        <div class="col-sm-8" style="padding-left: 30px;">
             <h4 style="color: #1c2c67;"> Explaination: </h4>
             <p> Select roles, themes or elements to see a list of all roles, themes or elements. <br> 
             You can then choose to see more information for an individual option by selecting 'See More'. <br>
