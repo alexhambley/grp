@@ -33,6 +33,14 @@
 
     }
 
+    #nav_bar .active {
+    color:            #F8F8F8;
+    background-color: #4f81bd;
+}
+
+    /* li:active { 
+        background-color: yellow;
+    } */
     </style>
 </head>
 <body>
@@ -49,16 +57,18 @@
                 <a href="http://www.nottingham.ac.uk/"> <img id="image" src="img/UoN_Primary_Logo_RGB.png"> </a>        
                 <a class="navbar-brand" href="index.php" style="color: #1c2c67; font-weight: bold">Competencies for Food Graduate Careers</a>
                 <ul id='navbar' class="nav navbar-nav ">
-                    <li id="navbar-index"></li>
+                    <!-- <li id="navbar-index"></li> --> 
+                    <li> <a href="index.php" style="color: #1a296b; font-weight: bold"> View All </a></li>
+
                         <script>
-                         if (window.location.pathname == "index.php")
-                         {
-                             document.getElementById("navbar-index").innerHTML = "<a href="index.php"  style="color: #92918e; font-weight: bold"> View All </a>";
-                         }
-                         else
-                         {
-                             document.getElementById("navbar-index").innerHTML = "<a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a>";
-                         }
+                        //  if (window.location.pathname == "index.php")
+                        //  {
+                        //      document.getElementById("navbar-index").innerHTML = "<a href="index.php"  style="color: #92918e; font-weight: bold"> View All </a>";
+                        //  }
+                        //  else
+                        //  {
+                        //      document.getElementById("navbar-index").innerHTML = "<a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a>";
+                        //  }
                         </script>
                     
                     <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Find a Career </a></li>
@@ -86,37 +96,22 @@
 
 
 <script>
-function fill(Value) {
-   $('#search').val(Value);
-   $('#display').hide();
-}
+    $(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active'); $(this).parents('li').addClass('active');
+            }
+        });
+    });
 
-$(document).ready(function() {
-   $("#search").keyup(function() {
-       var name = $('#search').val();
-       if (name == "") {
-           $("#display").html("");
-       } else {
-           $.ajax({
-               type: "POST",
-               url: "ajax.php",
-               data: {
-                   search: name
-               },
-               success: function(html) {
-                //    $("#display").html(html).show();
-               }
-           });
-       }
-   });
-});
 
-$(document).ready(function () {
-    var activePage = window.location;
-    $('ul.nav a[href="'+ activePage +'"]').parent().addClass('active');
-    $('ul.nav a').filter(function() {
-         return this.href == url;
-    }).parent().addClass('active');
-});
+
+// $(document).ready(function () {
+//     var activePage = window.location;
+//     $('li.nav navbar-nav a[href="'+ activePage +'"]').parent().addClass('active');
+//     $('li.nav a').filter(function() {
+//          return this.href == url;
+//     }).parent().addClass('active');
+// });
 
 </script>
