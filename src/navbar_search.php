@@ -52,16 +52,16 @@
                 echo "<div class=\"modal-header\">";
                 echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                 // This is the heading
-                echo "<h4 class=\"modal-title\">$role_entry</h4>";
+                echo "<h4 class=\"modal-title\" style=\"text-align: center;\">$role_entry</h4>";
                 echo "</div>";
                 echo "<div class=\"modal-body\">";
                 // This is the description
-                echo "<p>$desc</p>";
-                echo "<h5> Examples of job titles: </h5>";
+                echo "<p style=\"text-align: center;\">$desc</p>";
+                echo "<h5 style=\"text-align: center;\"> Examples of job titles: </h5>";
                 $example_roles = explode(",", $names);
                 $counter = 0;
                 while ($counter != count($example_roles)) {
-                    echo "<li class=\"list-group-item\">$example_roles[$counter]</li>";
+                    echo "<li class=\"list-group-item\" style=\"text-align: center;\">$example_roles[$counter]</li>";
                     $counter++;
                 }
                 echo "</div>";
@@ -108,11 +108,11 @@
                 echo "<div class=\"modal-header\">";
                 echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                 // This is the heading
-                echo "<h4 class=\"modal-title\">$tname</h4>";
+                echo "<h4 class=\"modal-title\" style=\"text-align: center;\">$tname</h4>";
                 echo "</div>";
                 echo "<div class=\"modal-body\">";
                 // This is the description
-                echo "<p>$exp</p>";
+                echo "<p style=\"text-align: center;\">$exp</p>";
                 echo "</div>";
                 echo "<div class=\"modal-footer\">";
                 echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
@@ -153,11 +153,11 @@
                     echo "<div class=\"modal-header\">";
                     echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                     // This is the heading
-                    echo "<h4 class=\"modal-title\">$element_name</h4>";
+                    echo "<h4 class=\"modal-title\" style=\"text-align: center;\">$element_name</h4>";
                     echo "</div>";
                     echo "<div class=\"modal-body\">";
                     // This is the description
-                    echo "<p>$desc</p>";
+                    echo "<p style=\"text-align: center;\">$desc</p>";
                     echo "</div>";
                     echo "<div class=\"modal-footer\">";
                     echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";

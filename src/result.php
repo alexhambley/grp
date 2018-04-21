@@ -66,11 +66,14 @@
             if (count($roles) == 0) {
                 echo "<h4> Your selected options have no appropriate roles. <br> Please try again with different selections. </h4>";
             } else {
-                echo "<h4> Explanation: </h4>";
-                echo "<p> Below are the roles that we feel suit the elements that you chose on the previous page. <br>";
-                echo "You can click on each result to see more information about the role and its desirable competencies <br>";
-                echo "You may also wish to search again with different criteria. </p>";
-                echo "<br>";
+                ?>
+                <h4> Explanation: </h4>
+                <p> Below are the roles that we feel suit the elements that you chose on the previous page. <br>
+                You can click on each result to view more information about the role and its desirable competencies <br>
+                Each role has a related poster that you can also view. <br>
+                You may also wish to search again with different criteria. </p>
+                <br>
+                <?php
                 $i = 0;
                 while ($i != count($roles)) {
                     $temp = $roles[$i];
@@ -89,20 +92,20 @@
                     echo "<div class=\"modal-header\">";
                     echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                     // This is the heading
-                    echo "<h4 class=\"modal-title\">";
+                    echo "<h4 class=\"modal-title\" style=\"text-align: center;\">";
                     echo($temp['entry']);
                     echo "</h4>";
                     echo "</div>";
                     echo "<div class=\"modal-body\">";
                     // This is the description
-                    echo "<p>";
+                    echo "<p style=\"text-align: center;\">";
                     echo($temp['description']);
                     echo "</p>";
-                    echo "<h5> Examples of job titles: </h5>";
+                    echo "<h5 style=\"text-align: center;\"> Examples of job titles: </h5>";
                     $example_roles = explode(",", $temp['names']);
                     $counter = 0;
                     while ($counter != count($example_roles)) {
-                        echo "<li class=\"list-group-item\">$example_roles[$counter]</li>";
+                        echo "<li class=\"list-group-item\" style=\"text-align: center;\">$example_roles[$counter]</li>";
                         $counter++;
                     }
                     echo "</div>";
@@ -111,6 +114,7 @@
                     echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" onclick=\"window.open('img/posters/$tempID-poster.pdf')\"> View Poster </button>";
                     echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\"> Close </button>";
                     echo "</div>";
+
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
