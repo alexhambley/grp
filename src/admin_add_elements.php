@@ -18,20 +18,6 @@
       return false;
     }
 }
-
-// function checkParams() {
-  // alert(document.querySelector('.roleelements').checked);
-
-//   var checkedValue = null; 
-//   var inputElements = document.getElementsByClassName('roleelements');
-//   for(var i=0; inputElements[i]; ++i){
-//         if(inputElements[i].checked) {
-//             checkedValue = inputElements[i].value;
-//             return true;
-//         }
-//   }
-  // return false;
-// }
 </script>
 
 <!DOCTYPE html>
@@ -92,12 +78,12 @@
 
       <div class="form-group">
         <label for="elename"> New element name: </label>
-        <input type="text" class="form-control" name="name" placeholder="New element name">
+        <input type="text" class="form-control" name="name" placeholder="New element name" required>
       </div>
 
       <div class="form-group">
         <label for="eledesc"> New element description: </label>
-        <textarea class="form-control" name="description" rows="2"></textarea>
+        <textarea class="form-control" name="description" rows="2" required></textarea>
       </div>
 
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Add to database">
