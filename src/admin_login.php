@@ -1,9 +1,10 @@
 <?php
+    session_start();
+
     include "header.php";
-    include "navbar.php";
     include "db.php";
     include '_db-user-util.php';
-    session_start();
+
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = md5($_POST['password']);
@@ -17,6 +18,9 @@
             exit();
         }
     }
+
+    include "navbar.php";
+
 ?>
 
 <!DOCTYPE html>
