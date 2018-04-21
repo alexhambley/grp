@@ -76,7 +76,7 @@
                     $temp = $roles[$i];
                     $tempID = $temp['id'];
                     echo "<ul class=\"list-group\">";
-                    echo "<li class=\"list-group-item list-group-item-info\" data-toggle=\"modal\" data-target=\"#role_mod$tempID\">";
+                    echo "<li class=\"list-group-item list-group-item-info clickable\" data-toggle=\"modal\" data-target=\"#role_mod$tempID\">";
                     echo($temp['entry']);
                     echo "</li>";
                     echo "<li class=\"list-group-item\">";
@@ -123,6 +123,9 @@
         <button class="btn btn-primary" type="submit" onclick="window.history.back()">
              Choose Again
         </button>
+        <br>
+        <br>
+        
     </div>
     <script>
         function gotoRole(q) {

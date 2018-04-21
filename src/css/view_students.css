@@ -122,6 +122,10 @@ label {
   max-height: auto;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 450px) {
   .select {
     /* position: relative; */
@@ -133,4 +137,6 @@ label {
     overflow: hidden;
     border-radius: .25em;
   }
+  
 }
+

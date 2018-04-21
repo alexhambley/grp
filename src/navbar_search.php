@@ -1,8 +1,8 @@
 <?php
+    session_start();
     include "header.php";
     include "navbar.php";
     include "db.php";
-    session_start();
 ?>
 <!DOCTYPE html>
 <head>
@@ -42,7 +42,7 @@
                 $elements = htmlentities($elements);
                 $themes = htmlentities($themes);
                 echo "<ul class=\"list-group\">";
-                echo "<li class=\"list-group-item list-group-item-info\" data-toggle=\"modal\" data-target=\"#role_mod$id\">$role_entry</li>";
+                echo "<li class=\"list-group-item list-group-item-info clickable\" data-toggle=\"modal\" data-target=\"#role_mod$id\">$role_entry</li>";
                 echo "<li class=\"list-group-item\">$desc</li>";
                 // Modal
                 echo "<div class=\"modal fade\" id=\"role_mod$id\" role=\"dialog\">";
