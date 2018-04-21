@@ -9,7 +9,7 @@
         /* max-height:auto; */
         /* width: auto; */
         /* height: auto; */
-        width: 20%;
+        width: 25%;
         height: auto;
         float:left;
         text-align: center; 
@@ -44,7 +44,7 @@
     background-color: #4f81bd;
 }
 
-@media (max-width: 1080px) {
+@media (min-width: 450px) and (max-width: 1080px) {
     .navbar-header {
         float: none;
     }
@@ -71,6 +71,50 @@
     }
     .navbar-nav>li {
         float: none;
+        text-align: center; 
+
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+    .uon-image {
+        display: none;
+    }
+}
+
+@media (min-width: 350px) and (max-width: 449px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+        text-align: center; 
+
     }
     .navbar-nav>li>a {
         padding-top: 10px;
@@ -85,7 +129,51 @@
     .navbar-brand {
         font-size: 12px;
     }
+}
 
+@media (max-width: 349px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+        text-align: center; 
+
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+    .uon-image {
+        display: none;
+    }
+    .navbar-brand {
+        font-size: 10px;
+    }
 }
 
     
