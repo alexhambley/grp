@@ -37,10 +37,6 @@
     color:            #F8F8F8;
     background-color: #4f81bd;
 }
-
-    /* li:active { 
-        background-color: yellow;
-    } */
     </style>
 </head>
 <body>
@@ -59,18 +55,6 @@
                 <ul id='navbar' class="nav navbar-nav ">
                     <!-- <li id="navbar-index"></li> --> 
                     <li> <a href="index.php" style="color: #1a296b; font-weight: bold"> View All </a></li>
-
-                        <script>
-                        //  if (window.location.pathname == "index.php")
-                        //  {
-                        //      document.getElementById("navbar-index").innerHTML = "<a href="index.php"  style="color: #92918e; font-weight: bold"> View All </a>";
-                        //  }
-                        //  else
-                        //  {
-                        //      document.getElementById("navbar-index").innerHTML = "<a href="index.php"  style="color: #1a296b; font-weight: bold"> View All </a>";
-                        //  }
-                        </script>
-                    
                     <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Find a Career </a></li>
                     <li> <a href="admin_login.php"  style="color: #1a296b; font-weight: bold"> Admin </a></li>
                     <li>
@@ -90,8 +74,6 @@
             </div>
         </div>
     </nav>
-    <!-- <div id="display">
-    </div> -->
 </body>
 
 
@@ -103,15 +85,4 @@
             }
         });
     });
-
-
-
-// $(document).ready(function () {
-//     var activePage = window.location;
-//     $('li.nav navbar-nav a[href="'+ activePage +'"]').parent().addClass('active');
-//     $('li.nav a').filter(function() {
-//          return this.href == url;
-//     }).parent().addClass('active');
-// });
-
 </script>

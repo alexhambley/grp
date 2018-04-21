@@ -1,12 +1,13 @@
 <?php
-    include "header.php";
-    include "navbar.php";
-    include '_db-user-util.php';
     session_start();
     if (!$_SESSION['loggedin']) {
         header('Location: index.php');
         exit();
     }
+    include "header.php";
+    include "navbar.php";
+    include '_db-user-util.php';
+  
     $existName = false;
     $existEmail = false;
     $existPhone = false;
