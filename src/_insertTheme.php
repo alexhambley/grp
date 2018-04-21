@@ -1,14 +1,22 @@
 <?php
 
-    if (empty($_POST['name']) || empty($_POST['explanation']))
-        exit("Invalid parameters.");
+    if (empty($_POST['name']) || empty($_POST['explanation'])) {
+        header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+    }
 
     $name = trim($_POST['name']);
     $explanation = trim($_POST['explanation']);
 
 
-	if ($name == "" || $explanation == "")
-	    exit("Invalid parameters.");
+	if ($name == "" || $explanation == "") {
+        header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+    }
 
 	include 'credentials.php';
 
@@ -57,7 +65,10 @@
 	$db = null;
 
 
-	echo "The theme '$name' was added.";
-	exit;
-
+	// echo "The theme '$name' was added.";
+    session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
 ?>

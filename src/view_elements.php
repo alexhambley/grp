@@ -202,6 +202,7 @@
                     Submit Element Choices
                 </button>
                 <br>
+                <br>
             </fieldset>
         </form>
     </div>

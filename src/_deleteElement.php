@@ -1,12 +1,18 @@
 <?php
     
-    if (empty($_POST['name']))
-        exit("Invalid parameters.");
-
-    $name = trim($_POST['name']);
-
-	if ($name == "")
-	    exit("Invalid parameters.");
+    if (empty($_POST['elementname'])) {
+        header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+    }
+    $name = trim($_POST['elementname']);
+	if ($name == "") {
+        header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+        exit("Invalid parameters. Redirecting in 3 seconds");
+    }
 
 	include 'credentials.php';
 
@@ -95,14 +101,22 @@
 		$db = null;
 		$msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
 		$msg .= "Query: $query";
-		echo $msg;
-		exit;
-	}
+        echo $msg;
+        header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+    }
 
 	$db = null;
 
 
-	echo "The element '$name' has been deleted.";
-	exit;
+    // echo "The element '$name' has been deleted.";
+    session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
+	// exit;
 
 ?>

@@ -113,4 +113,6 @@
       <input type="submit" class="btn btn-danger" style="background-color: #e84c4c" value="Remove from database">
     </form>
   </div>
+  <br>
+  <br>
 </body>

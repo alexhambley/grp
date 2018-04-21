@@ -1,13 +1,20 @@
 <?php
 
-    if (empty($_POST['entry']))
-        exit("Invalid parameters.");
+    if (empty($_POST['entry'])) {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 
     $name = trim($_POST['entry']);
 
-	if ($name == "")
-	    exit("Invalid parameters.");
-
+	if ($name == "") {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 	include 'credentials.php';
 
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
@@ -24,8 +31,11 @@
         $id = $row['id'];
         if ($id == "")
         {
-            echo "Role: '$name' could not be found.";
-            exit;
+			echo "Role: '$name' could not be found.";
+			header( "refresh:3;url=index_admin.php" );
+			session_unset();
+			session_destroy();
+			exit("Invalid parameters. Redirecting in 3 seconds");
         }
 
         $query = str_replace("?", $name, "DELETE FROM role WHERE entry='?'");
@@ -37,13 +47,21 @@
 		$msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
 		$msg .= "Query: $query";
 		echo $msg;
-		exit;
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
 	}
 
 	$db = null;
 
 
-	echo "The role '$name' has been deleted.";
+	// echo "The role '$name' has been deleted.";
+	session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
 	exit;
 
 ?>

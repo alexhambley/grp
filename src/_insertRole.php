@@ -18,8 +18,12 @@
   $themes = implode(",", array_filter($tempArr));
   //var_dump($themes);
 
-    if (empty($names) || empty($elements) || empty($_POST['entry']) || empty($_POST['description']))
-        exit("Invalid parameters.");
+    if (empty($names) || empty($elements) || empty($_POST['entry']) || empty($_POST['description'])) {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 
 	  // $elements = trim($_POST['elements']);
     $entry = trim($_POST['entry']);
@@ -27,9 +31,12 @@
     // $themes = trim($_POST['themes']);
 
 
-	if ($elements == "" || $entry == "" || $names == "" || $description == "" || $themes == "")
-	    exit("Invalid parameters.");
-
+	if ($elements == "" || $entry == "" || $names == "" || $description == "" || $themes == "") {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 	include 'credentials.php';
 
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
@@ -54,7 +61,11 @@
 	$db = null;
 
 
-	echo "The role '$entry' has been added.";
-	exit;
+	// echo "The role '$entry' has been added.";
+	session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
 
 ?>

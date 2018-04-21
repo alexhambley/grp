@@ -88,7 +88,9 @@
                     <br>
                     <button class="btn btn-default" type="submit" style="border-color: #192A6C">
                         Submit Theme Choices
-                    </button>
+                    </button> 
+                    <p>
+                    </p>
                     <button class="btn btn-default" type="submit" name=skip value="true" style="border-color: #192A6C">
                         Enter Element Choices Only
                     </button>
