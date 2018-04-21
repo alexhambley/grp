@@ -1,39 +1,14 @@
 <?php
-    include 'credentials.php';
-
-    $dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
-    $db = new PDO($dsn,$db_username,$db_password);
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    try {
-    	$db->beginTransaction();
-    	$query = "SELECT * FROM role";
-    	$stmt = $db->prepare($query);
-
-    	$stmt->execute();
-    	$db->commit();
-    } catch (PDOException $e) {
-    	$db = NULL;
-    	$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
-    	$msg .= "<p>Query: $query</p>";
-    	echo $msg;
-    	exit;
-    }
-
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $db = NULL;
-
+    session_start();
     include "header.php";
     include "navbar.php";
     include "db.php";
-    session_start();
 ?>
 
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/view_all.css?"/>
-    <Title> View All </Title>
+    <Title> Competencies for Food Graduates Careers Toolkit</Title>
 </head>
 
 <body class="bg-grey" style="background-color: #f6f6f6">
@@ -41,16 +16,20 @@
         <div id="text" style="color: white">
             <h1>Welcome to the Competencies for Food Graduate Careers Toolkit</h1>
 
-            <p>This is an interactive online tool where you can explore a range of roles that food science graduates can enter 
+            <p style="font-size: 16px">
+                This is an interactive online tool where you can explore a range of roles that food science graduates can enter 
                 the food industry with, including in retail and research. The industry has identified key competencies that are 
                 desirable for these roles. 
-                Below you can identify which competencies are desired in the roles that you are interested in. You can see what 
-                you already feel that you are strong in and where there are gaps, and identify a personal development plan.
-                You can also find out about the themes and elements the industry has. <br>
+                Below, you can identify which competencies are desired in the roles that you are interested in. You can see what 
+                you already feel that you are strong in, or where there are gaps, and identify a personal development plan. <br>
+                You can also find out about the themes and elements the industry has. 
                 <br>
-                Alternatively if you click on the ‘Find a Career’ link, you can select the competencies that you feel you are strong 
+                <br>
+                Alternatively, if you click on the ‘Find a Career’ link, you can select the competencies that you feel you are strong 
                 in (there are themes and specific elements) and see the roles that may be initially suitable for you.</p>
  
+                <a type="button" class="btn btn-default" style="color: #192A6C; background-color: #ffffff; border-color: #ffffff" href="view_students.php"> Find a Career </a>
+            
         </div>
     </section>
     <div class="row">

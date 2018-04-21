@@ -1,8 +1,9 @@
 <?php
+    session_start();
+
     include "header.php";
     include "navbar.php";
     include "db.php";
-    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +14,23 @@
 
 <body class="bg-grey">
   <div class="container">
-    <div class="text-center">
-      <h1> Remove Database Elements </h1>
+    <div class="row">
+      <div class="col-sm-4">
+        <div style="padding-top: 30px;"> 
+          <button type="button" 
+                  class="btn btn-default"
+                  onclick="window.location.href='index_admin.php'">
+                  <span class="glyphicon glyphicon-arrow-left"> </span> 
+                  Back to Admin Page
+          </button>     
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="text-center">
+          <h1> Remove From Database </h1>  
+        </div>
+      </div>
     </div>
-
     <h4> Warning: </h4>
     This page will permanently delete elements from the database.
     <br>
@@ -99,4 +113,6 @@
       <input type="submit" class="btn btn-danger" style="background-color: #e84c4c" value="Remove from database">
     </form>
   </div>
+  <br>
+  <br>
 </body>

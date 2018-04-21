@@ -1,9 +1,9 @@
 <?php
     
-    if (empty($_POST['name']))
+    if (empty($_POST['themeName']))
         exit("Invalid parameters.");
 
-    $name = trim($_POST['name']);;
+    $name = trim($_POST['themeName']);;
 
 	if ($name == "")
 	    exit("Invalid parameters.");
@@ -84,7 +84,12 @@
 	$db = null;
 
 
-	echo "The theme '$name' was deleted.";
-	exit;
+    // echo "The theme '$name' was deleted.";
+    session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
+	// exit;
 
 ?>

@@ -33,12 +33,12 @@
                                         echo "<div class=\"modal-header\">";
                                             echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                                             // This is the heading
-                                            echo "<h4 class=\"modal-title\">$entry</h4>";
+                                            echo "<h4 class=\"modal-title\" style=\"color: #1c2c67;\">$entry</h4>";
                                         echo "</div>";
                                         echo "<div class=\"modal-body\">";
                                             // This is the description
                                             echo "<p>$desc</p>";
-                                            echo "<h5> Examples of job titles: </h5>";
+                                            echo "<h5 style=\"color: #1c2c67;\"> Examples of job titles: </h5>";
                                             $example_roles = explode(",", $names);
                                             $counter = 0;
                                             while($counter != count($example_roles)) {

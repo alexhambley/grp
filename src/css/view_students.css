@@ -55,7 +55,7 @@ select::-ms-expand {
   right: 0;
   bottom: 0;
   padding: 0 1em;
-  background: #34495e;
+  background: #adb6be;
   pointer-events: none;
 }
 /* Transition */
@@ -122,6 +122,10 @@ label {
   max-height: auto;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 450px) {
   .select {
     /* position: relative; */
@@ -133,4 +137,6 @@ label {
     overflow: hidden;
     border-radius: .25em;
   }
+  
 }
+

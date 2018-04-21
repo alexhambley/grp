@@ -1,12 +1,11 @@
 <?php
-    include "header.php";
-    include "navbar.php";
-    include "db.php";
-
     session_start();
     $_SESSION['theme1'] = $_GET['theme1'];
     $_SESSION['theme2'] = $_GET['theme2'];
     $_SESSION['theme3'] = $_GET['theme3'];
+    include "header.php";
+    include "navbar.php";
+    include "db.php";
  ?>
 
 <!DOCTYPE html>
@@ -23,15 +22,13 @@
                     <h1>Find Ideal Career Pathways for You</h1>
                 </div>
                 <h4> Explanation: </h4>
-                <p> Below is a list of elements.
-                    <br> 
-                    These elements are skills that are considered desirable to various roles related to the food
+                <p> The elements below are skills that are considered desirable to various roles related to the food
                     science industry.
                     <br>
                     By selecting the skills that you feel you are competent in, the website will show you
                     roles that you may be suited for.
                     <br>
-                    If you chose three themes, then we have shown below those that are related to your choice. If not, then all the
+                    If you chose three themes, then we have shown below elements that are related to your choice. If not, then all 
                     elements will be shown to you. <br> <br>
 
                     You can click as many elements as you wish. 
@@ -202,6 +199,7 @@
                     type="submit">
                     Submit Element Choices
                 </button>
+                <br>
                 <br>
             </fieldset>
         </form>

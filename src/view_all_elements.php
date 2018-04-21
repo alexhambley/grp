@@ -32,7 +32,7 @@
                                         echo "<div class=\"modal-header\">";
                                             echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                                             // This is the heading
-                                            echo "<h4 class=\"modal-title\">$elename</h4>";
+                                            echo "<h4 class=\"modal-title\" style=\"color: #1c2c67;\">$elename</h4>";
                                     echo "</div>";
                                     echo "<div class=\"modal-body\">";
                                         // This is the description

@@ -9,8 +9,12 @@
     $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
     $names = implode(",", array_filter($tempAlternativeNames));
 
-    if (empty($_POST['entry']) || empty($_POST['newEntry']) || empty($_POST['description']))
-        exit("Invalid parameters.");
+    if (empty($_POST['entry']) || empty($_POST['newEntry']) || empty($_POST['description'])) {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 
     $entry = trim($_POST['entry']);
     $newEntry = trim($_POST['newEntry']);
@@ -21,8 +25,12 @@
     // $themes = trim($_POST['themes']);
 
 
-	if ($entry == "" || $elements == "" || $newEntry == "" || $names == "" || $description == "" || $themes == "")
-	    exit("Invalid parameter.");
+	if ($entry == "" || $elements == "" || $newEntry == "" || $names == "" || $description == "" || $themes == "") {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 
 	include 'credentials.php';
 
@@ -50,6 +58,10 @@
 
 
 	echo "The selected role was updated.";
-	exit;
+	session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
 
 ?>

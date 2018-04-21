@@ -1,15 +1,23 @@
 <?php
     $elements = implode(",", array_filter($_POST['elements']));
     var_dump($elements);
-    if (empty($_POST['themeName']) || empty($_POST['explanation']) || empty($_POST['newName']))
-        exit("Invalid parameters.");
+    if (empty($_POST['themeName']) || empty($_POST['explanation']) || empty($_POST['newName'])) {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 
     $themeName = trim($_POST['themeName']);
     $explanation = trim($_POST['explanation']);
     $newName = trim($_POST['newName']);
 
-	if ($themeName == "" || $explanation == "" || $newName == "")
-	    exit("Invalid parameters.");
+	if ($themeName == "" || $explanation == "" || $newName == "") {
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 
 	include 'credentials.php';
 
@@ -29,13 +37,18 @@
 		$msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
 		$msg .= "Query: $query";
 		echo $msg;
-		exit;
-	}
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");	}
 
 	$db = null;
 
 
-	echo "The selected theme was updated.";
-	exit;
+	session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
 
 ?>

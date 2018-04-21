@@ -1,9 +1,10 @@
 <?php
+    session_start();
+
   include "header.php";
   include "navbar.php";
   include "db.php";
     include '_db-user-util.php';
-    session_start();
     $showQuestion = false;
     if (isset($_GET['username']) and isExistUser($_GET['username'])) {
         $showQuestion = true;
@@ -25,7 +26,7 @@
     <p> When you signed up we asked you three security questions. These will now be used to recover your account. <br>
     <?php if (!$showQuestion) { ?>
     <h3>Please enter your username:</h3>
-    <form method="GET" action="forgotten_password.php">
+    <form method="GET" action="forgotten_password.php" id="form-username">
       <div class="form-group" id="div-username">
           <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -36,7 +37,7 @@
         <input class="btn btn-default" type="submit" value="Forgotten Password">
     </form>
     <?php } else {?>
-    <form method="POST" action="_resetPassword.php">
+    <form method="POST" action="_resetPassword.php" id="form-other">
         <h3>Security Questions: </h3>
         <br>
         <div class="form-group" id="div-email">
@@ -51,8 +52,13 @@
         </div>
 
         <div class="form-group">
-          <label for "number"> Phone Number: </label>
+          <label for "phone"> Phone Number: </label>
           <input class="form-control" type="number" name="phone" placeholder="07770000000" required>
+        </div>
+
+        <div class="form-group">
+          <label for "password"> New Password: </label>
+          <input class="form-control" type="password" name="password" placeholder="New Password" required>
         </div>
 
 
@@ -60,4 +66,5 @@
     </form>
     <?php } ?>
 </body>
+<script type="text/javascript" src="js/validate.js"></script>
 </html>

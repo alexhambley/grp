@@ -1,8 +1,8 @@
 <?php
+    session_start(); 
     include "header.php";
     include "navbar.php";
     include "db.php";
-    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +18,9 @@
                 <h1> Find Ideal Career Pathways for You </h1>
             </div> 
             <h4> Explanation: </h4>
-                    <p>There are 8 themes and 48 elements. These elements are associated to one of more of these themes. <br>
+                    <p>There are 8 themes and 48 elements. These 48 elements are associated to one or more themes. <br>
                     Here, you can select up to 3 themes you feel are a personal strength <br>
-                    Alternatively click on ‘Enter Element Choices Only’ to focus on selecting specific elements instead </p>
+                    Alternatively, you can click on ‘Enter Element Choices Only’ to focus on selecting specific elements instead </p>
 
             <div class="row">
                 <div class="col-sm-8">
@@ -88,7 +88,9 @@
                     <br>
                     <button class="btn btn-default" type="submit" style="border-color: #192A6C">
                         Submit Theme Choices
-                    </button>
+                    </button> 
+                    <p>
+                    </p>
                     <button class="btn btn-default" type="submit" name=skip value="true" style="border-color: #192A6C">
                         Enter Element Choices Only
                     </button>

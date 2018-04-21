@@ -1,8 +1,14 @@
 <?php 
-    include "header.php";
-    include "navbar.php";
-    include "db.php";
     session_start();
+
+
+
+    include "header.php";
+    // include "navbar.php";
+    include "db.php";
+
+
+
     $selected = $_GET['selectedElement'];
     $_SESSION['selectedElement'] = $selected;
     $elementStr = implode(",", $selected);

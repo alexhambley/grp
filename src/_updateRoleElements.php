@@ -2,13 +2,14 @@
 
 
 	if (trim($_GET['roleId']) == "" || empty($_GET['roleId']) || trim($_GET['elementId']) == "" || empty($_GET['elementId'])) {
-	    exit("Invalid parameters.");
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");
 	}
 
 	$roleId = trim($_GET['roleId']);
 	$elementId = ",".trim($_GET['elementId']).",";
-
-
 
 	include 'credentials.php';
 
@@ -30,13 +31,19 @@
 		$msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
 		$msg .= "Query: $query";
 		echo $msg;
-		exit;
+		header( "refresh:3;url=index_admin.php" );
+		session_unset();
+		session_destroy();
+		exit("Invalid parameters. Redirecting in 3 seconds");	
 	}
 
 	$db = null;
 
 
-	echo "The selected elements were saved to this role.";
-	exit;
+	session_unset();
+	session_destroy();
+	header("Location: index_admin.php");
+	exit();
+	$conn->close();
 
 ?>

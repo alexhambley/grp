@@ -1,12 +1,13 @@
 <?php
-    include "header.php";
-    include "navbar.php";
-    include '_db-user-util.php';
     session_start();
     if (!$_SESSION['loggedin']) {
         header('Location: index.php');
         exit();
     }
+    include "header.php";
+    include "navbar.php";
+    include '_db-user-util.php';
+  
     $existName = false;
     $existEmail = false;
     $existPhone = false;
@@ -55,10 +56,23 @@
 
 <body class="bg-grey">
     <div class="container">
-        <div class="text-center">
-            <h1>Add New Admin</h1>
+        <div class="row">
+            <div class="col-sm-4">
+                <div style="padding-top: 30px;"> 
+                <button type="button" 
+                        class="btn btn-default"
+                        onclick="window.location.href='index_admin.php'">
+                        <span class="glyphicon glyphicon-arrow-left"> </span> 
+                        Back to Admin Page
+                </button>     
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <h1>Add New Admin</h1>
+                </div>
+            </div> 
         </div>
-
         <h4> Explanation: </h4>
         <p> You can add additional administrators to this site. <br>
             These admins are also able to make changes to the database.
