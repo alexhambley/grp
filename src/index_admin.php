@@ -3,7 +3,7 @@ include "header.php";
 include "navbar.php";
     session_start();
     if (!$_SESSION['loggedin']) {
-        header('Location: login.php');
+        header('Location: admin_login.php');
         exit();
     }
 ?>
@@ -28,6 +28,9 @@ include "navbar.php";
           <h2>Create a new account:</h2>
           <h4 style="color: black;"> This account will have admin privileges, and therefore will be able to update and remove elements from the database. </h4>
           <p><a href="signup.php" class="btn btn-default" style="border-color: #192A6C">Create Account</a></p>
+    </div>
+    <div class="text-center">
+      <p><a href="logout.php" class="btn btn-default" style="border-color: #192A6C">Log Out</a></p>
     </div>
   </div>
     <script src="js/index.js"> </script>
