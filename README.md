@@ -30,9 +30,6 @@
 
 https://www.dropbox.com/sh/62o9vtykx57vlge/AABwtHlL5VeTuGXVegT_d3iXa?dl=0
 
-### Gantt Chart
-
-https://app.teamweek.com/#pg/xHNPnwNcWA8nuJm5--z6gqOOQ6nH1IIo
 
 ## Features
 
@@ -122,13 +119,13 @@ If you are installing this software, please read the entire readme, and not just
 
 10) That's it! You should be all set up and able to log in to the admin portion of the site.
 
-## Using the Site
+## Using the Site (Desktop View)
 
-1) The index / landing page
+1) Home Page:
   * This page should look like below. This page gives an overview of all the roles, themes and elements that are present in the database.
   * This page is really useful if you already know what roles, themes or elements you want to see are.
   * To see the roles, themes or elements, just press the blue **Show / Hide** button.
-  * We can see that a search bar is circled. This lets you search for anything in the database. This includes alternative names for the roles.
+  * We can see that a search bar on the top right. This lets you search for anything in the database. This includes alternative names for the roles.
 
 ![index](readme-img/index.jpg)
 
@@ -140,7 +137,7 @@ If you are installing this software, please read the entire readme, and not just
 
 ![index3](readme-img/index-3.jpg)
 
-2) The 'Find a Career' page
+2) Finding a Career:
   * This page is intended for penultimate and final year students. We developed this page taking into account feedback from current students.
   * The idea is that you choose three themes that you feel that you are particularly proficient at.
 
@@ -159,14 +156,18 @@ If you are installing this software, please read the entire readme, and not just
 
 * You can see even more information by clicking the **See More** button.
 
-![student5](readme-img/student-5.jpg)
-
 * You're then given a detailed page - the key thing here is that themes and elements may be highlighted in green or red.
   * Green themes and elements are those that you have selected in the process of getting to this page.
   * Red themes and elements are those that you have not selected, and may wish to consider if you are interested in this career in the future.
-* It is also possible to download a form of this page in a PDF format.
 
-3) The admin pages
+![student5](readme-img/student-5.jpg)
+
+* Or you can view a poster by pressing **View Poster**
+
+![student6](readme-img/student-6.jpg)
+
+
+3) Admin Functionality:
   * These pages are intended for the admin of the site to easily be able to add, update or delete role, themes and elements.
 
 ![admin](readme-img/admin-login.jpg)
@@ -178,37 +179,77 @@ If you are installing this software, please read the entire readme, and not just
 * Below is what you will see if you were to add something to the database:
 
 ![admin3](readme-img/admin-add.jpg)
-![admin4](readme-img/admin-add2.jpg)
+![admin4](readme-img/admin-add-2.jpg)
+![admin5](readme-img/admin-add-3.jpg)
 
 * Below is what you will see if you were to update something in the database:
 
-![admin4](readme-img/admin-update.jpg)
-![admin4](readme-img/admin-update2.jpg)
+![admin6](readme-img/admin-update.jpg)
+![admin7](readme-img/admin-update-2.jpg)
+![admin7](readme-img/admin-update-3.jpg)
 
  * Below is what you will see if you were to delete something in the database.
   * Please note the danger of deleting something in the database. ⚠️
   * You **cannot** undo this action, and you will have to add the items back into the database manually, or by using the tools shown above.
 
-![admin5](readme-img/admin-delete.jpg)
+![admin8](readme-img/admin-remove.jpg)
 
 * You can also add new users to the database, also making them admins.
   * Please note that any user you add will also be able to add, update and remove elements, along with adding new admins. ⚠️
 
-![admin6](readme-img/admin-new-user.jpg)
+![admin9](readme-img/admin-new-user.jpg)
 
-* Forgotten Password
+* Forgotten Password Functionality:
   * It is also possible to recover your account in the case of a forgotten password.
   * Please keep in mind that anyone with direct access to the SQL database will be able to recover your account as well, therefore it is a good idea to secure this database. ⚠️
 
 ![admin7](readme-img/admin-fp-1.jpg)
 ![admin8](readme-img/admin-fp-2.jpg)
 
-4) Search Results
+4) Searching
   * Present on every page is the navbar and the search bar.
   * This search bar allows you to search for roles, themes and elements.
 
 ![search](readme-img/search.jpg)
 
-![search2](readme-img/search2.jpg)
+![search2](readme-img/search-2.jpg)
 
-Thanks for reading the readme file.
+
+## Using the Site (Mobile View)
+This toolkit was designed to be responsive, and so it is as equally usable on mobile as it is on a laptop.
+
+1) Home Page:
+
+- Just like on the desktop, this page gives an overview of the roles, themes and elements that are present in the database.
+
+![mobile](readme-img/m-h-1.jpg)
+
+- To see the roles, themes or elements, just press the blue **Show / Hide** button.
+
+![mobile](readme-img/m-h-2.jpg)
+
+
+2) Finding a Career:
+
+![mobile](readme-img/m-s-1.jpg)
+
+![mobile](readme-img/m-s-2.jpg)
+
+![mobile](readme-img/m-s-3.jpg)
+
+
+3) Admin Functionality:
+
+![mobile](readme-img/m-a-1.jpg)
+
+![mobile](readme-img/m-a-u.jpg)
+
+* Forgotten password functionality also still exists:
+
+![mobile](readme-img/m-p.jpg)
+
+4) Searching:
+
+* By pressing on the hamburger menu (top right of the screen), we can open up the navbar, revealing a search bar. This functions just as well as the search bar on the desktop version of the site.
+
+![mobile](readme-img/m-se.jpg)

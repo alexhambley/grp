@@ -25,7 +25,7 @@
     }
     .navbar-brand { 
         /* line-height: 80px; */
-        /* padding-top: 14pt; */
+        padding-top: 14pt;
         /* padding-bottom: 2pt; */
         padding-left: 20pt;
         color: #1c2c67;
@@ -83,6 +83,12 @@
     }
     .uon-image {
         display: none;
+    }
+    .navbar-brand { 
+        /* line-height: 80px; */
+        /* padding-top: 14pt; */
+        padding-bottom: 2pt;
+        padding-left: 20pt;
     }
 }
 
