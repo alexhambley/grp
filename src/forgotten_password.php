@@ -61,7 +61,7 @@
         </div>
 
 
-        <input class="btn btn-primary" type="submit" value="Submit!">
+        <input class="btn btn-primary" type="submit" value="Forgotten Password">
     </form>
     <?php } ?>
 </body>
