@@ -16,10 +16,22 @@
 <head>
     <Title> Find A Career </Title>
     <link rel="stylesheet" href="css/view_students.css" />
+    <script>
+        function validate() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+            if (checkedOne)
+                return true;
+            else {
+                alert("Select at least one checkbox.");
+                return false;
+            }
+        }
+    </script>
 </head>
 <body class="bg-grey">
     <div class="container">
-        <form action="view_roles.php">
+        <form action="view_roles.php" onsubmit="return validate()">
       
                 <div class="text-center">
                     <h1>Find Ideal Career Pathways for You</h1>
