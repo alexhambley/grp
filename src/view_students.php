@@ -9,11 +9,24 @@
 <head>
     <Title> Find A Career </Title>
     <link rel="stylesheet" href="css/view_students.css" />
+    <script>
+        function validateForm() {
+            var theme1 = document.forms["mainform"]["theme1"].value;
+            var theme2 = document.forms["mainform"]["theme2"].value;
+            var theme3 = document.forms["mainform"]["theme3"].value;
+            if (theme1 == theme2 || theme2 == theme3 || theme1 == theme3) {            
+                alert("Must select three different themes.")
+                return false;
+            }
+            else
+                return true;
+            }
+    </script>
 </head>
 
 <body class="bg-grey">
     <div class="container">
-        <form action="view_elements.php">
+        <form action="view_elements.php" name="mainform"  onsubmit="return validateForm()">
             <div class="text-center">
                 <h1> Find Ideal Career Pathways for You </h1>
             </div> 
