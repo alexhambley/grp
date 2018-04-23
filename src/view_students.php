@@ -91,10 +91,12 @@
                     </button> 
                     <p>
                     </p>
-                    <button class="btn btn-default" type="submit" name=skip value="true" style="border-color: #192A6C">
-                        Enter Element Choices Only
-                    </button>
                 </fieldset>
+            </form>
+            <form action="view_elements.php">
+                <button class="btn btn-default" type="submit" name=skip value="true" style="border-color: #192A6C">
+                    Enter Element Choices Only
+                </button>
             </form>
             
         </div>

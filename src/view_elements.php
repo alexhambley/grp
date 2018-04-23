@@ -1,8 +1,11 @@
 <?php
     session_start();
-    $_SESSION['theme1'] = $_GET['theme1'];
-    $_SESSION['theme2'] = $_GET['theme2'];
-    $_SESSION['theme3'] = $_GET['theme3'];
+    if (!empty($_GET['theme1']))
+    {
+        $_SESSION['theme1'] = $_GET['theme1'];
+        $_SESSION['theme2'] = $_GET['theme2'];
+        $_SESSION['theme3'] = $_GET['theme3'];
+    }
     include "header.php";
     include "navbar.php";
     include "db.php";
