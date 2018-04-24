@@ -59,6 +59,8 @@
         <div class="form-group">
           <label for "password"> New Password: </label>
           <input class="form-control" type="password" name="password" placeholder="New Password" required>
+          <small id="bdayhelp" class="form-text text-muted">Must be greater than 6 characters.</small>
+
         </div>
 
 

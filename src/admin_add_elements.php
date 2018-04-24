@@ -1,12 +1,14 @@
 <?php
-    session_start();
-    include "header.php";
-    include "navbar.php";
-    include "db.php";
+  session_start();
+  include "header.php";
+  include "navbar.php";
+  include "db.php";
 ?>
+
 <script>
   var altNameLimit = 5;
   var currNameNumber = 1;
+
   function myFunc(numOfNames) {
     if (altNameLimit == currNameNumber) {
       alert ("You can't add any more alternative names")
@@ -17,7 +19,7 @@
       currNameNumber++;
       return false;
     }
-}
+  }
 </script>
 
 <!DOCTYPE html>
@@ -25,56 +27,52 @@
 	<title> Add to Database </title>
   <link rel="stylesheet" href="css/view_students.css" />
 </head>
+
 <body class="bg-grey">
   <div class="container">
-
-  <div class="row">
-        <div class="col-sm-4">
-          <div style="padding-top: 30px;"> 
-            <button type="button" 
-                    class="btn btn-default"
-                    onclick="window.location.href='index_admin.php'">
-              <span class="glyphicon glyphicon-arrow-left"> </span> 
+    <div class="row">
+      <div class="col-sm-4">
+        <div style="padding-top: 30px;">
+          <button type="button"
+                  class="btn btn-default"
+                  onclick="window.location.href='index_admin.php'">
+            <span class="glyphicon glyphicon-arrow-left"> </span>
               Back to Admin Page
-            </button>     
-          </div>
-   
+          </button>
         </div>
-        <div class="col-sm-4">
-          <div class="text-center">
-            <h1> Add to Database </h1>
-          </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="text-center">
+          <h1> Add to Database </h1>
         </div>
-     </div>
+      </div>
+    </div>
     <div class="text-center">
-      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" 
-                class="btn btn-secondary" 
-                onclick="window.location.href='admin_add_roles.php'">
-                &nbsp&nbspRoles&nbsp
-        </button>
-        <button type="button" 
+      <div class="btn-group btn-group-lg" role="group">
+        <button type="button"
                 class="btn btn-secondary"
-                onclick="window.location.href='admin_add_themes.php'"> 
-                &nbspThemes&nbsp
+                onclick="window.location.href='admin_add_roles.php'">
+          &nbsp&nbspRoles&nbsp
         </button>
-        <button type="button" 
+        <button type="button"
+                class="btn btn-secondary"
+                onclick="window.location.href='admin_add_themes.php'">
+          &nbspThemes&nbsp
+        </button>
+        <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_add_elements.php'"
                 disabled>
-                Elements
+          Elements
         </button>
       </div>
     </div>
-
-  
 
     <form action="_insertElement.php" method="post">
       <div class="text-center">
         <h2> Add Elements </h2>
       </div>
       <p> Please use this form to insert new elements to the database. </p>
-
 
       <div class="form-group">
         <label for="elename"> New element name: </label>

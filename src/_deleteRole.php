@@ -1,44 +1,43 @@
 <?php
+  if (empty($_POST['entry'])) {
+  	header( "refresh:3;url=index_admin.php" );
+  	session_unset();
+  	session_destroy();
+  	exit("Invalid parameters. Redirecting in 3 seconds");
+	}
 
-    if (empty($_POST['entry'])) {
+  $name = trim($_POST['entry']);
+
+  if ($name == "") {
 		header( "refresh:3;url=index_admin.php" );
 		session_unset();
 		session_destroy();
 		exit("Invalid parameters. Redirecting in 3 seconds");
 	}
 
-    $name = trim($_POST['entry']);
-
-	if ($name == "") {
-		header( "refresh:3;url=index_admin.php" );
-		session_unset();
-		session_destroy();
-		exit("Invalid parameters. Redirecting in 3 seconds");
-	}
 	include 'credentials.php';
-
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
-  $db = new PDO($dsn,$db_username,$db_password);
+	$db = new PDO($dsn,$db_username,$db_password);
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	try {
 		$db->beginTransaction();
-        $query = str_replace("?", $name, "SELECT id FROM role WHERE entry = '?'");
+    $query = str_replace("?", $name, "SELECT id FROM role WHERE entry = '?'");
 		$stmt = $db->prepare($query);
 		$stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $id = $row['id'];
-        if ($id == "")
-        {
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $id = $row['id'];
+
+    if ($id == "") {
 			echo "Role: '$name' could not be found.";
 			header( "refresh:3;url=index_admin.php" );
 			session_unset();
 			session_destroy();
 			exit("Invalid parameters. Redirecting in 3 seconds");
-        }
+    }
 
-        $query = str_replace("?", $name, "DELETE FROM role WHERE entry='?'");
+    $query = str_replace("?", $name, "DELETE FROM role WHERE entry='?'");
 		$stmt = $db->prepare($query);
 		$stmt->execute();
 		$db->commit();
@@ -52,16 +51,11 @@
 		session_destroy();
 		exit("Invalid parameters. Redirecting in 3 seconds");
 	}
-
+  
 	$db = null;
-
-
-	// echo "The role '$name' has been deleted.";
 	session_unset();
 	session_destroy();
 	header("Location: index_admin.php");
 	exit();
 	$conn->close();
-	exit;
-
 ?>

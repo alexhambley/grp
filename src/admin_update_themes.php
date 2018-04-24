@@ -31,15 +31,15 @@
   <div class="container">
   <div class="row">
         <div class="col-sm-4">
-          <div style="padding-top: 30px;"> 
-            <button type="button" 
+          <div style="padding-top: 30px;">
+            <button type="button"
                     class="btn btn-default"
                     onclick="window.location.href='index_admin.php'">
-              <span class="glyphicon glyphicon-arrow-left"> </span> 
+              <span class="glyphicon glyphicon-arrow-left"> </span>
               Back to Admin Page
-            </button>     
+            </button>
           </div>
-   
+
         </div>
         <div class="col-sm-4">
           <div class="text-center">
@@ -50,18 +50,18 @@
      <div class="text-center">
 
       <div class="btn-group btn-group-lg" role="group">
-        <button type="button" 
-                class="btn btn-secondary" 
+        <button type="button"
+                class="btn btn-secondary"
                 onclick="window.location.href='admin_update_roles.php'">
                 &nbsp&nbspRoles&nbsp
         </button>
-        <button type="button" 
+        <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_update_themes.php'"
                 disabled>
                 &nbspThemes&nbsp
         </button>
-        <button type="button" 
+        <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_update_elements.php'">
                 Elements
@@ -94,8 +94,14 @@
 
       <div class="form-group">
         <label for="themename"> Updated theme name: </label>
-          <input type="text" class="form-control" name="newName" placeholder="New theme name">
+          <input type="text" class="form-control" name="newName" placeholder="New theme name" required>
       </div>
+
+      <div class="form-group">
+        <label for="themedesc"> New theme explanation: </label>
+        <textarea class="form-control" name="explanation" rows="1" required></textarea>
+      </div>
+
       <div class="form-group">
         <label for="themeelements"> Related Elements: </label>
         <br>
@@ -111,10 +117,7 @@
               echo "<br>";
           }
         ?>
-      </div>
-      <div class="form-group">
-        <label for="themedesc"> New theme explanation: </label>
-        <textarea class="form-control" name="explanation" rows="1"></textarea>
+        <small id="rehelp" class="form-text text-muted">Must select at least one</small>
       </div>
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Update the database">
     </form>

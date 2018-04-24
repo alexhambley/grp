@@ -19,19 +19,6 @@
     }
 }
 
-// function checkParams() {
-  // alert(document.querySelector('.roleelements').checked);
-
-//   var checkedValue = null; 
-//   var inputElements = document.getElementsByClassName('roleelements');
-//   for(var i=0; inputElements[i]; ++i){
-//         if(inputElements[i].checked) {
-//             checkedValue = inputElements[i].value;
-//             return true;
-//         }
-//   }
-  // return false;
-// }
 </script>
 
 <!DOCTYPE html>
@@ -43,15 +30,15 @@
   <div class="container">
   <div class="row">
         <div class="col-sm-4">
-          <div style="padding-top: 30px;"> 
-            <button type="button" 
+          <div style="padding-top: 30px;">
+            <button type="button"
                     class="btn btn-default"
                     onclick="window.location.href='index_admin.php'">
-              <span class="glyphicon glyphicon-arrow-left"> </span> 
+              <span class="glyphicon glyphicon-arrow-left"> </span>
               Back to Admin Page
-            </button>     
+            </button>
           </div>
-   
+
         </div>
         <div class="col-sm-4">
           <div class="text-center">
@@ -61,19 +48,19 @@
      </div>
 
     <div class="text-center">
-      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" 
-                class="btn btn-secondary" 
+      <div class="btn-group btn-group-lg" role="group">
+        <button type="button"
+                class="btn btn-secondary"
                 onclick="window.location.href='admin_add_roles.php'">
                 &nbsp&nbspRoles&nbsp
         </button>
-        <button type="button" 
+        <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_add_themes.php'"
-                disabled> 
+                disabled>
                 &nbspThemes&nbsp
         </button>
-        <button type="button" 
+        <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_add_elements.php'">
                 Elements
@@ -89,12 +76,12 @@
 
       <div class="form-group">
         <label for="themename"> New theme name: </label>
-        <input type="text" class="form-control" name="name" placeholder="New theme name">
+        <input type="text" class="form-control" name="name" placeholder="New theme name" required>
       </div>
 
       <div class="form-group">
         <label for="themedesc"> New theme explanation: </label>
-        <textarea class="form-control" name="explanation" rows="1"></textarea>
+        <textarea class="form-control" name="explanation" rows="1" required></textarea>
       </div>
 
       <div class="form-group">
@@ -105,15 +92,17 @@
           $stmt->execute();
           $stmt->bind_result($id, $elementname);
           while ($stmt->fetch()) {
-              $id = htmlentities($id);
-              $elementname = htmlentities($elementname);
-              echo "<input type=\"checkbox\" name=\"elements[]\" style=\"margin-right:10px\" value=\"$id\">";
-              echo $elementname;
-              echo "<br>";
+            $id = htmlentities($id);
+            $elementname = htmlentities($elementname);
+            echo "<input type=\"checkbox\" name=\"elements[]\" style=\"margin-right:10px\" value=\"$id\">";
+            echo $elementname;
+            echo "<br>";
           }
         ?>
+        <small id="rehelp" class="form-text text-muted">Must select at least one</small>
+
       </div>
-      <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Add to database">    
+      <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Add to database">
     </form>
 
   </div>
