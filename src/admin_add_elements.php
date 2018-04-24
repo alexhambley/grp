@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="text-center">
-      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+      <div class="btn-group btn-group-lg" role="group">
         <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_add_roles.php'">
@@ -73,7 +73,7 @@
         <h2> Add Elements </h2>
       </div>
       <p> Please use this form to insert new elements to the database. </p>
-      
+
       <div class="form-group">
         <label for="elename"> New element name: </label>
         <input type="text" class="form-control" name="name" placeholder="New element name" required>

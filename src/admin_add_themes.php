@@ -48,7 +48,7 @@
      </div>
 
     <div class="text-center">
-      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+      <div class="btn-group btn-group-lg" role="group">
         <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_add_roles.php'">
@@ -76,12 +76,12 @@
 
       <div class="form-group">
         <label for="themename"> New theme name: </label>
-        <input type="text" class="form-control" name="name" placeholder="New theme name">
+        <input type="text" class="form-control" name="name" placeholder="New theme name" required>
       </div>
 
       <div class="form-group">
         <label for="themedesc"> New theme explanation: </label>
-        <textarea class="form-control" name="explanation" rows="1"></textarea>
+        <textarea class="form-control" name="explanation" rows="1" required></textarea>
       </div>
 
       <div class="form-group">
@@ -99,6 +99,8 @@
             echo "<br>";
           }
         ?>
+        <small id="rehelp" class="form-text text-muted">Must select at least one</small>
+
       </div>
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Add to database">
     </form>

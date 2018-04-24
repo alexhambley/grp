@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     include "header.php";
     include "navbar.php";
     include "db.php";
@@ -8,6 +7,7 @@
 <script>
   var altNameLimit = 5;
   var currNameNumber = 1;
+
   function myFunc(numOfNames) {
     if (altNameLimit == currNameNumber) {
       alert ("You can't add any more alternative names")
@@ -31,15 +31,15 @@
   <div class="container">
   <div class="row">
         <div class="col-sm-4">
-          <div style="padding-top: 30px;"> 
-            <button type="button" 
+          <div style="padding-top: 30px;">
+            <button type="button"
                     class="btn btn-default"
                     onclick="window.location.href='index_admin.php'">
-              <span class="glyphicon glyphicon-arrow-left"> </span> 
+              <span class="glyphicon glyphicon-arrow-left"> </span>
               Back to Admin Page
-            </button>     
+            </button>
           </div>
-   
+
         </div>
         <div class="col-sm-4">
           <div class="text-center">
@@ -50,18 +50,18 @@
 
     <div class="text-center">
       <div class="btn-group btn-group-lg" role="group">
-              <button type="button" 
-                      class="btn btn-secondary" 
+              <button type="button"
+                      class="btn btn-secondary"
                       onclick="window.location.href='admin_update_roles.php'"
-                      disabled> 
+                      disabled>
                       &nbsp&nbspRoles&nbsp
               </button>
-              <button type="button" 
+              <button type="button"
                       class="btn btn-secondary"
                       onclick="window.location.href='admin_update_themes.php'">
                       &nbspThemes&nbsp
               </button>
-              <button type="button" 
+              <button type="button"
                       class="btn btn-secondary"
                       onclick="window.location.href='admin_update_elements.php'">
                       Elements
@@ -69,7 +69,7 @@
             </div>
             </div>
 
-    
+
 
     <!-- Update Role  -->
     <form action="_updateRole.php"  method="post">
@@ -96,18 +96,18 @@
       <br>
       <div class="form-group">
         <label for="themename"> Updated role name: </label>
-          <input type="text" class="form-control" name="newEntry" placeholder="New role entry name">
+          <input type="text" class="form-control" name="newEntry" placeholder="New role entry name" required>
       </div>
       <div class="form-group">
         <label for="roledesc"> Updated role description: </label>
-        <textarea class="form-control" name="description" rows="2"></textarea>
+        <textarea class="form-control" name="description" rows="2" required></textarea>
       </div>
       <div class="form-group">
         <label for="rolealt"> Alternative Names: </label>
         <div id="numOfNames">
           Name 1
           <br>
-          <input type="text" class="form-control" classname="altName[]">
+          <input type="text" class="form-control" classname="altName[]" required>
         </div>
         <br>
         <button type=button class="btn btn-default" onclick="return myFunc('numOfNames')"> Add another name </button>
@@ -128,6 +128,8 @@
               echo "<br>";
           }
         ?>
+        <small id="rehelp" class="form-text text-muted">Must select at least one</small>
+
       </div>
       <div class="form-group">
         <label for="rolethemes"> Related Themes: </label>
@@ -144,6 +146,8 @@
               echo "<br>";
           }
         ?>
+        <small id="rehelp" class="form-text text-muted">Must select at least one</small>
+
       </div>
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Update the database">
     </form>

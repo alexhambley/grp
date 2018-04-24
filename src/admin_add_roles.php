@@ -47,7 +47,7 @@
      </div>
 
     <div class="text-center">
-      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+      <div class="btn-group btn-group-lg" role="group">
         <button type="button"
                 class="btn btn-secondary"
                 onclick="window.location.href='admin_add_roles.php'"

@@ -2,8 +2,8 @@
   var_dump($_POST);
   $elements = implode(",", array_filter($_POST['elements']));
   $themes = implode(",", array_filter($_POST['themes']));
-  $tempAlternativeNames = array($_POST['altName1'], $_POST['altName2'], $_POST['altName3'], $_POST['altName4'], $_POST['altName5']);
-  $names = implode(",", array_filter($tempAlternativeNames));
+  $names = implode(",", array_filter($_POST['altName']));
+  // $names = implode(",", array_filter($tempAlternativeNames));
 
   if (empty($_POST['entry']) || empty($_POST['newEntry']) || empty($_POST['description'])) {
     header( "refresh:3;url=index_admin.php" );
