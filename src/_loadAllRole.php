@@ -1,9 +1,7 @@
 <?php
-
 	include 'credentials.php';
-
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
-    $db = new PDO($dsn,$db_username,$db_password);
+  $db = new PDO($dsn,$db_username,$db_password);
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -11,7 +9,6 @@
 		$db->beginTransaction();
 		$query = "SELECT * FROM role";
 		$stmt = $db->prepare($query);
-		
 		$stmt->execute();
 		$db->commit();
 	} catch (PDOException $e) {
@@ -21,12 +18,9 @@
 		echo $msg;
 		exit;
 	}
-
+	
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$db = NULL;
-
-
 	echo json_encode($result);
 	exit;
-
 ?>

@@ -7,7 +7,7 @@
 
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
-        $password = md5($_POST['password']);
+        $password = hash("sha256", $_POST['password']);
         if (!authenticate($username, $password)) {
             $invalid = true;
         }
