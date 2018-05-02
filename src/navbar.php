@@ -44,7 +44,7 @@
     background-color: #4f81bd;
 }
 
-@media (min-width: 450px) and (max-width: 1080px) {
+@media (min-width: 450px) and (max-width: 1154px) {
     .navbar-header {
         float: none;
     }
