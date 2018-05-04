@@ -1,3 +1,14 @@
+
+<script>
+function printFunc() {
+    window.print();
+}
+printFunc();
+
+
+</script>
+
+
 <?php
     session_start();
 

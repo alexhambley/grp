@@ -110,7 +110,7 @@
                     }
                     echo "</div>";
                     echo "<div class=\"modal-footer\">";
-                    echo "<button type=\"button\" class=\"btn btn-default\" onclick='gotoRole($tempID)'> See More </button>";
+                    echo "<button type=\"button\" class=\"btn btn-default\" onclick='gotoRole($tempID)'> Print Personalised Poster </button>";
                     echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" onclick=\"window.open('img/posters/$tempID-poster.pdf')\"> View Poster </button>";
                     echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\"> Close </button>";
                     echo "</div>";
