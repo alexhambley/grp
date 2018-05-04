@@ -1,11 +1,9 @@
-
 <script>
-function printFunc() {
-    window.print();
-}
-printFunc();
+    function printFunc() {
+        window.print();
+    }
 
-
+    printFunc();
 </script>
 
 
@@ -207,17 +205,10 @@ printFunc();
             }
             
         </style>
-        
-        
-    
     </head>
         
     <body>
-        
         <div class="mainlayer">
-            
-            
-            
             <h1><?php echo $mainTitle; ?></h1>
             <p><?php echo $mainDescr; ?></p>
             <?php
@@ -225,9 +216,6 @@ printFunc();
                     echo "<p align='right'><em>*NPD = New Product Development</em></p>";
                 }
             ?>
-            
-            
-            
             
             <h2>Key Features</h2>
             <div class="boxLightBlue">
@@ -242,14 +230,8 @@ printFunc();
                 
                 </div>
                 
-                
-                
-                
                 <h3><?php echo $subTitle; ?></h3>
                 <div><?php echo $subText; ?></div>
-                
-                
-                
                 
                 <h3>Desirable Themes for this Role</h3>
                 <p style="color:green">Green: Themes you have selected your competence</p>

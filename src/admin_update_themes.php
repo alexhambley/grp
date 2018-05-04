@@ -18,7 +18,20 @@
       currNameNumber++;
       return false;
     }
-}
+  }
+
+  function validate() {
+    var checkElements = document.querySelectorAll('input[name="elements[]"]');
+    var checkedOneElements = Array.prototype.slice.call(checkElements).some(x => x.checked);
+
+    if (checkedOneElements) {
+      return true;
+    }
+    else {
+      alert("Select at least one checkbox.");
+      return false;
+    }
+  } 
 </script>
 
 <!DOCTYPE html>
@@ -68,7 +81,7 @@
         </button>
       </div>
     </div>
-    <form action="_updateTheme.php" method="post">
+    <form action="_updateTheme.php" onsubmit="return validate()" method="post">
       <div class="text-center">
         <h2> Update Themes </h2>
       </div>

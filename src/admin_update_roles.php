@@ -18,7 +18,22 @@
       currNameNumber++;
       return false;
     }
-}
+  }
+
+  function validate() {
+      var checkElements = document.querySelectorAll('input[name="elements[]"]');
+      var checkThemes = document.querySelectorAll('input[name="themes[]"]');
+      var checkedOneElements = Array.prototype.slice.call(checkElements).some(x => x.checked);
+      var checkedOneThemes = Array.prototype.slice.call(checkThemes).some(y => y.checked);
+
+      if (checkedOneElements && checkedOneThemes) {
+        return true;
+      }
+      else {
+        alert("Select at least one checkbox.");
+        return false;
+      }
+  } 
 </script>
 
 <!DOCTYPE html>
@@ -72,7 +87,7 @@
 
 
     <!-- Update Role  -->
-    <form action="_updateRole.php"  method="post">
+    <form action="_updateRole.php" onsubmit="return validate()" method="post">
       <div class="text-center">
         <h2> Update Role </h2>
       </div>
@@ -107,7 +122,7 @@
         <div id="numOfNames">
           Name 1
           <br>
-          <input type="text" class="form-control" classname="altName[]" required>
+          <input type="text" class="form-control" name="altName[]" required>
         </div>
         <br>
         <button type=button class="btn btn-default" onclick="return myFunc('numOfNames')"> Add another name </button>

@@ -79,8 +79,7 @@
           <?php
             $stmt = $conn->prepare("SELECT id, elementname FROM element ORDER BY id ASC");
             $stmt->execute();
-            $stmt->bind_result($id, $elementname)
-            ;
+            $stmt->bind_result($id, $elementname);
             while ($stmt->fetch()) {
                 $id = htmlentities($id);
                 $elementname = htmlentities($elementname);
@@ -95,8 +94,8 @@
           <input type="text" class="form-control" name="newName" placeholder="New element name" required>
       </div>
       <div class="form-group">
-        <label for="themedesc"> Updated element explanation: </label>
-        <textarea class="form-control" name="description" rows="1" required></textarea>
+        <label for="themedesc"> Updated element description: </label>
+        <textarea class="form-control" name="description" rows="2" required></textarea>
       </div>
       <input type="submit" class="btn btn-success" style="background-color: #2a8c3e" value="Update the database">
   </form>
