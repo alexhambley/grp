@@ -6,6 +6,10 @@
         $_SESSION['theme2'] = $_GET['theme2'];
         $_SESSION['theme3'] = $_GET['theme3'];
     }
+    else if (isset($_SESSION['theme1']))
+    {
+        session_destroy();
+    }
     include "header.php";
     include "navbar.php";
     include "db.php";

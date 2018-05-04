@@ -1,3 +1,4 @@
+
 <script>
     function printFunc() {
         window.print();
@@ -246,28 +247,38 @@
                                 if ($item["theme_id"] == $themeId) {
                                     $themeName = $item["themename"];
                                     $themeText = $item["explanation"];
-
-                                    if ($_SESSION['theme1'] != $themeId &&
-                                        $_SESSION['theme2'] != $themeId &&
-                                        $_SESSION['theme3'] != $themeId) {
-                                        echo "
-                                        <tr>
-                                            <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
-                                            <td width='33%' class='tableCellDarkBlue' style='color:red'>$themeName</td>
-                                            <td width='60%' class='tableCellLightBlue'>$themeText</td>
-                                        </tr>
-                                        ";
+                                    if (isset($_SESSION['theme1'])) {
+                                    
+                                        if ($_SESSION['theme1'] != $themeId &&
+                                            $_SESSION['theme2'] != $themeId &&
+                                            $_SESSION['theme3'] != $themeId) {
+                                            echo "
+                                            <tr>
+                                                <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                                <td width='33%' class='tableCellDarkBlue' style='color:red'>$themeName</td>
+                                                <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                            </tr>
+                                            ";
+                                        }
+                                        else {
+                                            echo "
+                                            <tr>
+                                                <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                                <td width='33%' class='tableCellDarkBlue' style='color:green'>$themeName</td>
+                                                <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                            </tr>
+                                            ";
+                                        }
                                     }
                                     else {
-                                        echo "
-                                        <tr>
-                                            <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
-                                            <td width='33%' class='tableCellDarkBlue' style='color:green'>$themeName</td>
-                                            <td width='60%' class='tableCellLightBlue'>$themeText</td>
-                                        </tr>
-                                        ";
+                                         echo "
+                                            <tr>
+                                                <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                                <td width='33%' class='tableCellDarkBlue' style='color:black'>$themeName</td>
+                                                <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                            </tr>
+                                            ";
                                     }
-                                    
                                 }
                             }
                         }
