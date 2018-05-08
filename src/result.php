@@ -53,14 +53,14 @@
 
 <!DOCTYPE html>
 <head>
-    <title>Related Roles</title>
+    <title>Roles that relate to your criteria</title>
     <link rel="stylesheet" href="css/view_students.css" />
 </head>
 
 <body class="bg-grey">
     <div class="container">
         <div class="text-center">
-            <h1> Related Roles </h1>
+            <h1> Roles that relate to your criteria </h1>
         </div>
         <?php
             if (count($roles) == 0) {

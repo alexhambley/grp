@@ -314,11 +314,12 @@
             
             <div class="boxDarkBlue">
                 <h3>Competencies for Food Graduate Careers<img src="img/wheel.png?id=<?php echo time(); ?>" width="153" height="150" style="float: right; margin: 10px 0px 10px 20px;" /></h3>
-                <p>Find out about more technical graduate roles in the food industry and what may be best suited to you in developing your career on  XXXX</p>
                 
+                <p>This material has been developed with full food and drink industry involvement to support new graduates, employers and degree educators.</p>                
                 <p>
                     <img src="img/uon-logo.png" width="140" height="52" style="float: left; margin: 10px 20px 10px 0px;" />
-                    This material has been developed with full food industry involvement to support new graduates, employers and degree educators.
+                    We have worked with the IFST on sharing this information, please see the webpage:
+                    https://www.ifst.org/knowledge-centre-other-knowledge/competencies-food-graduate-careers
                 </p>
 
                 <p>For more information please contact <a href="mailto:emma.weston@nottingham.ac.uk">emma.weston@nottingham.ac.uk</a></p>

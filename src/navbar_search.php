@@ -19,7 +19,8 @@
             ?>
         </div>
         <h4> Explanation: </h4>
-        <p> Please click on the result for more information about the role, theme or element. </p>
+        <p> These are the items that contain the term <?php echo "\"$selection\"";?>, please click on them to find out more </p>
+
         <?php
         // Get any roles that they may have searched for.
         $stmt = $conn->prepare("SELECT role.id, role.entry, role.description, role.names, role.elements, role.themes
