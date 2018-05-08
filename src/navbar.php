@@ -212,11 +212,11 @@
                         <span class="caret"> </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="https://www.nottingham.ac.uk/biosciences/subject-areas/Food/" style="color: #1a296b; font-weight: bold; background-color: white;">
+                        <li><a href="https://www.nottingham.ac.uk/biosciences/subject-areas/Food/" target="_blank" style="color: #1a296b; font-weight: bold; background-color: white;">
                             UoN Food Science Courses
                         </a></li>
-                        <li><a href="https://www.ifst.org/knowledge-centre-other-knowledge/competencies-food-graduate-careers" style="color: #1a296b; font-weight: bold; background-color: white;">
-                            IFST
+                        <li><a href="https://www.ifst.org/knowledge-centre-other-knowledge/competencies-food-graduate-careers" target="_blank" style="color: #1a296b; font-weight: bold; background-color: white;">
+                            IFST Link to the Competencies
                         </a></li>
                     </ul>
                 </li>

@@ -16,7 +16,12 @@
         <div id="text" style="color: white">
             <h1>Welcome to the Competencies for Food Graduate Careers Toolkit</h1>
             
-            <button class="btn btn-default" style="color: #192A6C; background-color: #ffffff; border-color: #ffffff" data-toggle="collapse" data-target="#exp">Show / Hide Explaination </button>
+            <button class="btn btn-default" 
+                    style="color: #192A6C; background-color: #ffffff; border-color: #ffffff" 
+                    data-toggle="collapse" 
+                    data-target="#exp">
+                    Show / Hide Explanation 
+            </button>
             <br>
             <br>
             <div id="exp" class="collapse">
@@ -40,7 +45,7 @@
     </section>
     <div class="row">
         <div class="col-sm-8" style="padding-left: 45px;">
-            <h4 style="color: #1c2c67;"> Explaination: </h4>
+            <h4 style="color: #1c2c67;"> Explanation: </h4>
             <p> Select roles, themes or elements to see a list of all roles, themes or elements. <br> 
             You can then choose to see more information for an individual option by selecting 'See More'. <br>
             For more details on how the Competencies for Food Graduate Careers was developed, you can view the 

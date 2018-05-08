@@ -73,7 +73,7 @@
         <h2> Update Elements </h2>
       </div>
       <p> Please use this form to update the elements within the database. </p>
-      <label for="roleentry"> Plesse select an element to update: </label>
+      <label for="roleentry"> Please select an element to update: </label>
       <div class="select">
         <select name="elementname" class="custom-select">
           <?php

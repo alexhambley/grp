@@ -87,8 +87,7 @@
       </div>
 
       <p> Please use this form to update the themes within the database. </p>
-      <div class="form-group">
-        <label for="roleentry"> Plesse select a theme to update: </label>
+        <label for="roleentry"> Please select a theme to update: </label>
         <div class="select">
           <select name="themeName" onchange="themeNameSelectionChanged()" class="custom-select">
             <?php
@@ -103,8 +102,7 @@
             ?>
           </select>
         </div>
-      </div>
-
+        <br>
       <div class="form-group">
         <label for="themename"> Updated theme name: </label>
           <input type="text" class="form-control" name="newName" placeholder="New theme name" required>

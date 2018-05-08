@@ -84,15 +84,13 @@
             </div>
             </div>
 
-
-
     <!-- Update Role  -->
     <form action="_updateRole.php" onsubmit="return validate()" method="post">
       <div class="text-center">
         <h2> Update Role </h2>
       </div>
       <p> Please use this form to update the roles within the database. </p>
-      <label for="roleentry"> Plesse select a role to update: </label>
+      <label for="roleentry"> Please select a role to update: </label>
 
       <div class="select">
         <select name="entry" class="custom-select">
