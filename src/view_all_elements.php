@@ -6,10 +6,10 @@
                     <!-- <th scope="col">
                         #
                     </th> -->
-                    <th scope="col">
+                    <th scope="col" style="text-align: center">
                         Element Name
                     </th>
-                    <th scope="col">
+                    <th scope="col" style="text-align: center">
                         See More
                     </th>
                 </tr>
