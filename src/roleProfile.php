@@ -1,15 +1,8 @@
-
-<script>
-    function printFunc() {
-        window.print();
-    }
-
-    printFunc();
-</script>
-
-
-<?php
+<?php    
     session_start();
+
+    include "header.php";
+    include "navbar.php";
 
     if (trim($_GET['id']) == "" || empty($_GET['id'])) {
         exit("No parameters.");
@@ -158,7 +151,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>CFGC Role Profile</title>
+        <title>Profile</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -167,7 +160,6 @@
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
         <link rel="stylesheet" type="text/css" href="css/shared.css">
-        
         
         <style type="text/css">
             h1 { line-height: 35px; color: cornflowerblue; font-weight: 400; text-transform: uppercase; }
@@ -204,14 +196,42 @@
                 height:45px; font-size:15px; font-weight: bold; border-radius:0px; padding-left:15px; padding-right:15px; line-height: 40px; -webkit-appearance:none;  -moz-appearance:none;  -ms-appearance:none; appearance:none; margin: 5px; width:200px; border-radius: 5px; box-shadow: 0px 1px 2px #666;
                 color: #fff; background-color: grey; border: none; text-transform: uppercase;
             }
+
+            @media print {
+                #hideButton {
+                    display: none;
+                }
+            }
+
+            .btn-default, .btn-default:active, .btn-default:visited {
+                background-color: #6c96e6 !important;
+                border-color:#4164a8;
+                color: #fff;
+            }
+            .btn-default:hover {
+                background-color: #fff !important;
+                border-color:#6c96e6;
+                color: #4164a8;
+            }
             
         </style>
     </head>
         
     <body>
-        <div class="mainlayer">
-            <h1><?php echo $mainTitle; ?></h1>
+        <div class="mainlayer" style="padding-top: 30px;">
+            <h1 style="text-align: center;"> <?php echo $mainTitle; ?></h1>
             <p><?php echo $mainDescr; ?></p>
+            
+            <div style="text-align: center;">
+                <button type="button" 
+                        class="btn btn-default" 
+                        id="hideButton" 
+                        onClick="window.print();"> 
+                    Print Poster 
+                </button>
+            </div>
+            <br>
+
             <?php
                 if (substr($mainTitle, 0, 3) == "NPD") {
                     echo "<p align='right'><em>*NPD = New Product Development</em></p>";
@@ -308,9 +328,6 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
             
             <div class="boxDarkBlue">
                 <h3>Competencies for Food Graduate Careers<img src="img/wheel.png?id=<?php echo time(); ?>" width="153" height="150" style="float: right; margin: 10px 0px 10px 20px;" /></h3>
