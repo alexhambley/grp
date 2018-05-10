@@ -18,7 +18,20 @@
       currNameNumber++;
       return false;
     }
-}
+  }
+
+  function validate() {
+    var checkElements = document.querySelectorAll('input[name="elements[]"]');
+    var checkedOneElements = Array.prototype.slice.call(checkElements).some(x => x.checked);
+
+    if (checkedOneElements) {
+      return true;
+    }
+    else {
+      alert("Select at least one checkbox.");
+      return false;
+    }
+  } 
 </script>
 
 <!DOCTYPE html>
@@ -68,14 +81,13 @@
         </button>
       </div>
     </div>
-    <form action="_updateTheme.php" method="post">
+    <form action="_updateTheme.php" onsubmit="return validate()" method="post">
       <div class="text-center">
         <h2> Update Themes </h2>
       </div>
 
       <p> Please use this form to update the themes within the database. </p>
-      <div class="form-group">
-        <label for="roleentry"> Plesse select a theme to update: </label>
+        <label for="roleentry"> Please select a theme to update: </label>
         <div class="select">
           <select name="themeName" onchange="themeNameSelectionChanged()" class="custom-select">
             <?php
@@ -90,8 +102,7 @@
             ?>
           </select>
         </div>
-      </div>
-
+        <br>
       <div class="form-group">
         <label for="themename"> Updated theme name: </label>
           <input type="text" class="form-control" name="newName" placeholder="New theme name" required>

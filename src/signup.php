@@ -1,13 +1,15 @@
 <?php
     session_start();
+
+    include "header.php";
+    include '_db-user-util.php';
+
+
     if (!$_SESSION['loggedin']) {
-        header('Location: index.php');
+        header('Location: admin_login.php');
         exit();
     }
-    include "header.php";
-    include "navbar.php";
-    include '_db-user-util.php';
-  
+
     $existName = false;
     $existEmail = false;
     $existPhone = false;
@@ -45,6 +47,8 @@
             exit();
         }
     }
+    include "navbar.php";
+
 ?>
 <!DOCTYPE html>
 <html>

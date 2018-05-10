@@ -1,13 +1,15 @@
 <table class="table table-striped">
             <thead>
                 <tr>
+                    <!-- 
                     <th scope="col">
                         #
-                    </th>
-                    <th scope="col">
+                    </th> 
+                    -->
+                    <th scope="col" style="text-align: center">
                         Theme Name
                     </th>
-                    <th scope="col">
+                    <th scope="col" style="text-align: center">
                         See More
                     </th>
                 </tr>
@@ -22,7 +24,7 @@
                     $name = htmlentities($name);
                     $exp = htmlentities($exp);
                     echo "<tr>";
-                        echo "<th scope=\"row\"> $id </th>";
+                        // echo "<th scope=\"row\"> $id </th>";
                         echo "<td> $name </td>";
                         echo "<td>";
                             echo "<button type=\"button\" class=\"btn btn-default\" style=\"border-color:#192A6C;\" data-toggle=\"modal\" data-target=\"#theme_mod$id\">See More</button>";

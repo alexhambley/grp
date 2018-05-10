@@ -49,7 +49,7 @@ INSERT INTO `element` (`id`, `elementname`, `description`) VALUES
 (8, 'Critical Thinking', 'Objectively analysing the facts and situations of an issue to form an evaluated judgement.'),
 (9, 'Cultural Sensitivity', 'Appreciation of different cultures and practices that impact on ways of working and customer needs such as religious and dietary requirements.'),
 (10, 'Decision Making', 'Making a considered response to an issue.  Taking direct action or escalating as appropriate to gain traction on the matter.'),
-(11, 'Digital Capabilities', 'The ability to work effectively and communicate using all available technology for maximum impact.'),
+(11, 'Digital Capability', 'The ability to work effectively and communicate using all available technology for maximum impact.'),
 (12, 'Emotional Intelligence', 'Understanding yourself, others and the situation then adapting how you work for best results.'),
 (13, 'English Proficiency', 'Possessing the required level of English understanding to give effective communication of all types.'),
 (14, 'Entrepreneurship', 'To see an opportunity and exploit it for beneficial effect.'),

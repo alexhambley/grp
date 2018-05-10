@@ -26,13 +26,13 @@
 
 <body class="bg-grey">
     <div class="container">
-        <form action="view_elements.php" name="mainform"  onsubmit="return validateForm()">
+        <form action="view_elements.php" method="POST" name="mainform"  onsubmit="return validateForm()">
             <div class="text-center">
                 <h1> Find Ideal Career Pathways for You </h1>
             </div> 
             <h4> Explanation: </h4>
                     <p>There are 8 themes and 48 elements. These 48 elements are associated to one or more themes. <br>
-                    Here, you can select up to 3 themes you feel are a personal strength <br>
+                    Here, you can select 3 themes you feel are a personal strength <br>
                     Alternatively, you can click on ‘Enter Element Choices Only’ to focus on selecting specific elements instead </p>
 
             <div class="row">
@@ -106,7 +106,7 @@
                     </p>
                 </fieldset>
             </form>
-            <form action="view_elements.php">
+            <form action="view_elements.php" method="post">
                 <button class="btn btn-default" type="submit" name=skip value="true" style="border-color: #192A6C">
                     Enter Element Choices Only
                 </button>

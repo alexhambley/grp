@@ -44,7 +44,7 @@
     background-color: #4f81bd;
 }
 
-@media (min-width: 450px) and (max-width: 1080px) {
+@media (min-width: 450px) and (max-width: 1154px) {
     .navbar-header {
         float: none;
     }
@@ -213,9 +213,20 @@
             <ul class="nav navbar-nav"> 
                 <li> <a href="index.php" style="color: #1a296b; font-weight: bold"> View All </a></li>
                 <li> <a href="view_students.php" style="color: #1a296b; font-weight: bold"> Find a Career </a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #1a296b; font-weight: bold"> More
+                        <span class="caret"> </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://www.nottingham.ac.uk/biosciences/subject-areas/Food/" target="_blank" style="color: #1a296b; font-weight: bold; background-color: white;">
+                            UoN Food Science Courses
+                        </a></li>
+                        <li><a href="https://www.ifst.org/knowledge-centre-other-knowledge/competencies-food-graduate-careers" target="_blank" style="color: #1a296b; font-weight: bold; background-color: white;">
+                            IFST Link to the Competencies
+                        </a></li>
+                    </ul>
+                </li>
                 <li> <a href="admin_login.php"  style="color: #1a296b; font-weight: bold"> Admin </a></li>
-           
-        
                 <li>
                     <form id="searchform" class="navbar-form navbar-left form-inline my-2 my-lg-0" method="get" action="navbar_search.php">
                         <div class="input-group">

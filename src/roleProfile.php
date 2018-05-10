@@ -1,5 +1,9 @@
-<?php
+<?php    
     session_start();
+
+    include "header.php";
+    include "navbar.php";
+
     if (trim($_GET['id']) == "" || empty($_GET['id'])) {
         exit("No parameters.");
     }
@@ -96,13 +100,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>CFGC Role Profile</title>
+        <title>Profile</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/shared.css">
+        
         <style type="text/css">
             h1 { line-height: 35px; color: cornflowerblue; font-weight: 400; text-transform: uppercase; }
             h2 { background-color: cornflowerblue; color: white; text-transform:uppercase; text-align: center; padding: 10px; margin: 0px;}
@@ -139,19 +144,47 @@
                 color: #fff; background-color: grey; border: none; text-transform: uppercase;
             }
 
+            @media print {
+                #hideButton {
+                    display: none;
+                }
+            }
+
+            .btn-default, .btn-default:active, .btn-default:visited {
+                background-color: #6c96e6 !important;
+                border-color:#4164a8;
+                color: #fff;
+            }
+            .btn-default:hover {
+                background-color: #fff !important;
+                border-color:#6c96e6;
+                color: #4164a8;
+            }
+            
         </style>
     </head>
 
     <body>
-
-        <div class="mainlayer">
-            <h1><?php echo $mainTitle; ?></h1>
+        <div class="mainlayer" style="padding-top: 30px;">
+            <h1 style="text-align: center;"> <?php echo $mainTitle; ?></h1>
             <p><?php echo $mainDescr; ?></p>
+            
+            <div style="text-align: center;">
+                <button type="button" 
+                        class="btn btn-default" 
+                        id="hideButton" 
+                        onClick="window.print();"> 
+                    Print Poster 
+                </button>
+            </div>
+            <br>
+
             <?php
                 if (substr($mainTitle, 0, 3) == "NPD") {
                     echo "<p align='right'><em>*NPD = New Product Development</em></p>";
                 }
             ?>
+            
             <h2>Key Features</h2>
             <div class="boxLightBlue">
                 <h3>Typical Role Names</h3>
@@ -164,9 +197,10 @@
                     </table>
 
                 </div>
+                
                 <h3><?php echo $subTitle; ?></h3>
                 <div><?php echo $subText; ?></div>
-
+                
                 <h3>Desirable Themes for this Role</h3>
                 <p style="color:green">Green: Themes you have selected your competence</p>
                 <p style="color:red">Red: Themes you may wish to develop further</p>
@@ -180,28 +214,38 @@
                                 if ($item["theme_id"] == $themeId) {
                                     $themeName = $item["themename"];
                                     $themeText = $item["explanation"];
-
-                                    if ($_SESSION['theme1'] != $themeId &&
-                                        $_SESSION['theme2'] != $themeId &&
-                                        $_SESSION['theme3'] != $themeId) {
-                                        echo "
-                                        <tr>
-                                            <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
-                                            <td width='33%' class='tableCellDarkBlue' style='color:red'>$themeName</td>
-                                            <td width='60%' class='tableCellLightBlue'>$themeText</td>
-                                        </tr>
-                                        ";
+                                    if (isset($_SESSION['theme1'])) {
+                                    
+                                        if ($_SESSION['theme1'] != $themeId &&
+                                            $_SESSION['theme2'] != $themeId &&
+                                            $_SESSION['theme3'] != $themeId) {
+                                            echo "
+                                            <tr>
+                                                <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                                <td width='33%' class='tableCellDarkBlue' style='color:red'>$themeName</td>
+                                                <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                            </tr>
+                                            ";
+                                        }
+                                        else {
+                                            echo "
+                                            <tr>
+                                                <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                                <td width='33%' class='tableCellDarkBlue' style='color:green'>$themeName</td>
+                                                <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                            </tr>
+                                            ";
+                                        }
                                     }
                                     else {
-                                        echo "
-                                        <tr>
-                                            <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
-                                            <td width='33%' class='tableCellDarkBlue' style='color:green'>$themeName</td>
-                                            <td width='60%' class='tableCellLightBlue'>$themeText</td>
-                                        </tr>
-                                        ";
+                                         echo "
+                                            <tr>
+                                                <td width='7%' class='tableCellLightBlue'><b>$themeId</b></td>
+                                                <td width='33%' class='tableCellDarkBlue' style='color:black'>$themeName</td>
+                                                <td width='60%' class='tableCellLightBlue'>$themeText</td>
+                                            </tr>
+                                            ";
                                     }
-
                                 }
                             }
                         }
@@ -227,13 +271,15 @@
                     </div>
                 </div>
             </div>
+            
             <div class="boxDarkBlue">
                 <h3>Competencies for Food Graduate Careers<img src="img/wheel.png?id=<?php echo time(); ?>" width="153" height="150" style="float: right; margin: 10px 0px 10px 20px;" /></h3>
-                <p>Find out about more technical graduate roles in the food industry and what may be best suited to you in developing your career on  XXXX</p>
-
+                
+                <p>This material has been developed with full food and drink industry involvement to support new graduates, employers and degree educators.</p>                
                 <p>
                     <img src="img/uon-logo.png" width="140" height="52" style="float: left; margin: 10px 20px 10px 0px;" />
-                    This material has been developed with full food industry involvement to support new graduates, employers and degree educators.
+                    We have worked with the IFST on sharing this information, please see the webpage:
+                    https://www.ifst.org/knowledge-centre-other-knowledge/competencies-food-graduate-careers
                 </p>
 
                 <p>For more information please contact <a href="mailto:emma.weston@nottingham.ac.uk">emma.weston@nottingham.ac.uk</a></p>

@@ -18,7 +18,22 @@
       currNameNumber++;
       return false;
     }
-}
+  }
+
+  function validate() {
+      var checkElements = document.querySelectorAll('input[name="elements[]"]');
+      var checkThemes = document.querySelectorAll('input[name="themes[]"]');
+      var checkedOneElements = Array.prototype.slice.call(checkElements).some(x => x.checked);
+      var checkedOneThemes = Array.prototype.slice.call(checkThemes).some(y => y.checked);
+
+      if (checkedOneElements && checkedOneThemes) {
+        return true;
+      }
+      else {
+        alert("Select at least one checkbox.");
+        return false;
+      }
+  }    
 </script>
 
 <!DOCTYPE html>
@@ -67,7 +82,7 @@
       </div>
     </div>
 
-    <form name="rolesForm" action="_insertRole.php" method="post">
+    <form name="rolesForm" onsubmit="return validate()" action="_insertRole.php" method="post">
       <div class="text-center">
         <h2> Add Roles </h2>
       </div>
