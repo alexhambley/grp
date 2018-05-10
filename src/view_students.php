@@ -26,7 +26,7 @@
 
 <body class="bg-grey">
     <div class="container">
-        <form action="view_elements.php" name="mainform"  onsubmit="return validateForm()">
+        <form action="view_elements.php" method="POST" name="mainform"  onsubmit="return validateForm()">
             <div class="text-center">
                 <h1> Find Ideal Career Pathways for You </h1>
             </div> 
