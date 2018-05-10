@@ -1,14 +1,18 @@
 <?php
     session_start();
-    if (!empty($_GET['theme1']))
+    if (!empty($_POST['theme1']))
     {
-        $_SESSION['theme1'] = $_GET['theme1'];
-        $_SESSION['theme2'] = $_GET['theme2'];
-        $_SESSION['theme3'] = $_GET['theme3'];
+        $_SESSION['theme1'] = $_POST['theme1'];
+        $_SESSION['theme2'] = $_POST['theme2'];
+        $_SESSION['theme3'] = $_POST['theme3'];
     }
     else if (isset($_SESSION['theme1']))
     {
         session_destroy();
+    }
+    else if (!isset($_POST['skip']))
+    {
+        header('Location: view_students.php');
     }
     include "header.php";
     include "navbar.php";
@@ -55,9 +59,9 @@
 
 
                 <?php
-                    if (empty($_GET['skip']))
+                    if (empty($_POST['skip']))
                     {
-                        $themeid = trim($_GET['theme1']);
+                        $themeid = trim($_POST['theme1']);
                         if ($themeid != "D0") {
                             $stmt = $conn->prepare("SELECT themename
                                                     FROM theme
@@ -102,7 +106,7 @@
                           echo "<label> Theme 1 does not have any related elements </label>";
                           echo "<br>";
                         }
-                        $themeid = trim($_GET['theme2']);
+                        $themeid = trim($_POST['theme2']);
                         if ($themeid != "D0") {
                             $stmt = $conn->prepare("SELECT themename
                                                     FROM theme
@@ -148,7 +152,7 @@
                           echo "<label> Theme 2 does not have any related elements </label>";
                           echo "<br>";
                         }
-                        $themeid = trim($_GET['theme3']);
+                        $themeid = trim($_POST['theme3']);
                         if ($themeid != "D0") {
                             $stmt = $conn->prepare("SELECT themename
                                                     FROM theme
