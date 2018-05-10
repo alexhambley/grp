@@ -10,7 +10,7 @@
     {
         session_destroy();
     }
-    else
+    else if (!isset($_POST['skip']))
     {
         header('Location: view_students.php');
     }
