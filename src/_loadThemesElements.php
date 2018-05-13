@@ -1,7 +1,7 @@
 <?php
 	include 'credentials.php';
 	$dsn = 'mysql:dbname='.$db_database.';host='.$db_host;
-  $db = new PDO($dsn,$db_username,$db_password);
+  	$db = new PDO($dsn,$db_username,$db_password);
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -15,6 +15,7 @@
 		$db = NULL;
 		$msg = "<h3>Error: Can't read database</h3><p>Error Info: ".$e->getMessage()."</p>";
 		$msg .= "<p>Query: $query</p>";
+		header("Location: _error.php");
 		echo $msg;
 		exit;
 	}
