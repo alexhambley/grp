@@ -1,6 +1,6 @@
 <?php
   if (empty($_POST['themeName'])) {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
 		session_unset();
 		session_destroy();
     exit("Invalid parameters.");
@@ -9,7 +9,7 @@
   $name = trim($_POST['themeName']);;
 
   if ($name == "") {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
 		session_unset();
 		session_destroy();
     exit("Invalid parameters.");
@@ -31,7 +31,7 @@
 
     if ($id == "") {
       echo "Theme: '$name' could not be found.";
-      header( "refresh:3;url=index_admin.php" );
+      header("Location: _error.php");
   		session_unset();
   		session_destroy();
       exit();
@@ -78,7 +78,7 @@
     $msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
     $msg .= "Query: $query";
     echo $msg;
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
 		session_unset();
 		session_destroy();
     exit();
