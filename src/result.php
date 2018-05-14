@@ -125,9 +125,27 @@
             }
         ?>
         <br>
-        <button class="btn btn-primary" type="submit" onclick="window.history.back()">
-             Choose Again
-        </button>
+          <form method="post" action="view_elements.php">
+            <?php
+                if ($_GET['tid'] == ",,")
+                {
+                    echo "<button class=\"btn btn-primary\" type=\"submit\" name=\"skip\" value=\"true\">";
+                    echo "    Choose Again";
+                    echo "</button>";
+                }
+                else
+                {
+                    $tmpArr = explode(",", $themeIdStr);
+                    echo "<input type=\"hidden\" name=\"theme1\" value=\"$tmpArr[0]\"/>";
+                    echo "<input type=\"hidden\" name=\"theme2\" value=\"$tmpArr[1]\"/>";
+                    echo "<input type=\"hidden\" name=\"theme3\" value=\"$tmpArr[2]\"/>";
+                    echo "<button class=\"btn btn-primary\" type=\"submit\">";
+                    echo "    Choose Again";
+                    echo "</button>";
+                    
+                }
+            ?>
+        </form>
         <br>
         <br>
         

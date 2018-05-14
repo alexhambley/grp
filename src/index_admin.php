@@ -1,11 +1,12 @@
 <?php
   session_start();
   include "header.php";
+  if (!$_SESSION['loggedin']) {
+      header('Location: admin_login.php');
+      exit();
+  }
   include "navbar.php";
-      if (!$_SESSION['loggedin']) {
-          header('Location: admin_login.php');
-          exit();
-      }
+
 ?>
 
 <!DOCTYPE html>

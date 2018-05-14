@@ -1,19 +1,19 @@
 <?php
   if (empty($_POST['name']) || empty($_POST['explanation'])) {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
 		session_unset();
 		session_destroy();
-		exit("Invalid parameters. Redirecting in 3 seconds");
+		exit("Invalid parameters.");
   }
 
   $name = trim($_POST['name']);
   $explanation = trim($_POST['explanation']);
 
 	if ($name == "" || $explanation == "") {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
 		session_unset();
 		session_destroy();
-		exit("Invalid parameters. Redirecting in 3 seconds");
+		exit("Invalid parameters.");
   }
 
 	include 'credentials.php';
@@ -52,7 +52,7 @@
 		$msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
 		$msg .= "Query: $query";
 		echo $msg;
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
     session_unset();
     session_destroy();
 		exit;

@@ -15,20 +15,20 @@
   $themes = implode(",", array_filter($tempArr));
 
   if (empty($names) || empty($elements) || empty($_POST['entry']) || empty($_POST['description'])) {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
     session_unset();
     session_destroy();
-    exit("Invalid parameters. Redirecting in 3 seconds");
+    exit("Invalid parameters.");
   }
 
   $entry = trim($_POST['entry']);
   $description = trim($_POST['description']);
 
   if ($elements == "" || $entry == "" || $names == "" || $description == "" || $themes == "") {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
     session_unset();
     session_destroy();
-    exit("Invalid parameters. Redirecting in 3 seconds");
+    exit("Invalid parameters.");
   }
 
   include 'credentials.php';
@@ -45,9 +45,10 @@
     $db->commit();
   } catch (PDOException $e) {
     $db = null;
-    $msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
-    $msg .= "Query: $query";
-    echo $msg;
+    // $msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
+    // $msg .= "Query: $query";
+    header("Location: _error.php");
+    // echo $msg;
     exit;
   }
   

@@ -6,10 +6,10 @@
   // $names = implode(",", array_filter($tempAlternativeNames));
 
   if (empty($_POST['entry']) || empty($_POST['newEntry']) || empty($_POST['description'])) {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
     session_unset();
     session_destroy();
-    exit("Invalid parameters. Redirecting in 3 seconds");
+    exit("Invalid parameters.");
   }
 
   $entry = trim($_POST['entry']);
@@ -17,10 +17,10 @@
   $description = trim($_POST['description']);
 
   if ($entry == "" || $elements == "" || $newEntry == "" || $names == "" || $description == "" || $themes == "") {
-    header( "refresh:3;url=index_admin.php" );
+		header("Location: _error.php");
     session_unset();
     session_destroy();
-    exit("Invalid parameters. Redirecting in 3 seconds");
+    exit("Invalid parameters.");
   }
 
   include 'credentials.php';
@@ -40,6 +40,7 @@
     $msg = "Error: Can't update database\n\nError Info: ".$e->getMessage()."\n\n";
     $msg .= "Query: $query";
     echo $msg;
+    header("Location: _error.php");
     exit;
   }
 
